@@ -1,1 +1,5 @@
-^(.(?!.*\.tex$|.*\.cls$))
+*
+
+!.gitignore
+!*.tex
+!*.cls
