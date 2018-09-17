@@ -3,16 +3,16 @@
 %% de realizaci�on de tesis de la Universidad Sim'on Bol'ivar.
 %%
 %% Este Trabajo (Work) representa un Trabajo Derivado (Derived Work) de
-%% del Trabajo (WorK) `book.cls' protegido bajo las condiciones de la 
+%% del Trabajo (WorK) `book.cls' protegido bajo las condiciones de la
 %% la Licencia P'ublica del Poyecto LaTeX (LaTeX Project Public License)
-%% descrito m'as abajo. A su vez, este Trabajo Derivado (Derived Work) puede 
-%% ser modificado y/o distribu'ido bajo las mismas condiciones de la licencia 
+%% descrito m'as abajo. A su vez, este Trabajo Derivado (Derived Work) puede
+%% ser modificado y/o distribu'ido bajo las mismas condiciones de la licencia
 %% LPPL.
-%% 
+%%
 %% Autores Actuales (Current Maintainer)
 %% Andr'es M. Sajo C. -- talassio at gmail.com
 %% Carlos Contreras C -- carloscontreras at gmail.com
-%% 
+%%
 %% Todas las l'ineas modificadas/agregadas contienen los caracteres `%---' al
 %% final de la l'inea para resaltar cada Modificaci�n (Modification)
 %% Copyright 2011 2012, 2013, 2014, 2015 CONTRERAS C., SAJO A.
@@ -26,16 +26,16 @@
 %% The original source files were:\RequirePackage{tikz}\RequirePackage{tikz}
 %%
 %% classes.dtx  (with options: `book')
-%% 
+%%
 %% This is a generated file.
-%% 
+%%
 %% Copyright 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009
 %% The LaTeX3 Project and any individual authors listed elsewhere
 %% in this file.
-%% 
+%%
 %% This file was generated from file(s) of the LaTeX base system.
 %% --------------------------------------------------------------
-%% 
+%%
 %% It may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3c
 %% of this license or (at your option) any later version.
@@ -43,17 +43,17 @@
 %%    http://www.latex-project.org/lppl.txt
 %% and version 1.3c or later is part of all distributions of LaTeX
 %% version 2005/12/01 or later.
-%% 
+%%
 %% This file has the LPPL maintenance status "maintained".
-%% 
+%%
 %% This file may only be distributed together with a copy of the LaTeX
 %% base system. You may however distribute the LaTeX base system without
 %% such generated files.
-%% 
+%%
 %% The list of all files belonging to the LaTeX base distribution is
 %% given in the file `manifest.txt'. See also `legal.txt' for additional
 %% information.
-%% 
+%%
 %% The list of derived (unpacked) files belonging to the distribution
 %% and covered by LPPL is defined by the unpacking scripts (with
 %% extension .ins) which are part of the distribution.
@@ -307,8 +307,9 @@
                \null%---
                \thispagestyle{empty}%---
                \begin{tabular}{c}%---
-                    \begin{sideways} \normalsize \parbox{5cm}{\centering USB \\ \MakeTextUppercase{\@carrera}} \end{sideways} \\ 
-                    \begin{sideways} \normalsize \parbox{12cm}{\centering \MakeTextUppercase{\@titulo}} \end{sideways} \\ 
+                    \begin{sideways} \normalsize \parbox{4cm}{\centering USB \\ \MakeTextUppercase{\@carrera}} \end{sideways} \\
+                    [0.1cm]%---
+                    \begin{sideways} \normalsize \parbox{12cm}{\centering \MakeTextUppercase{\@titulo}} \end{sideways} \\
                     [0.1cm]%---
                     \begin{sideways} \normalsize \parbox{5cm}{\centering \MakeTextUppercase{\@autori} \\ \@agno} \end{sideways} \\
                     [0.1cm]%---
@@ -339,19 +340,19 @@
                     \vskip 3.0cm%---
                     {\bfseries \MakeTextUppercase \@trabajo} \\%---
                     {Presentado ante la ilustre Universidad Sim\'on Bol\'ivar \\%---
-                    como requisito requisito parcial para optar al t\'itulo de \\%---
+                    como requisito parcial para optar al t\'itulo de \\%---
                     \@grado}%---
                     \vfill%---
                     {\bfseries Sartenejas, \@fecha}%%---
                \end{center}%--
-               % p\'agina de acta de evaluaci\'on (veredicto) 4/4
-               \newpage%---
-               \null%--
-               \thispagestyle{empty}%---
-               \vspace*{\fill}%---
-               {\centering \Huge P\'agina reservada para el acta de evaluaci\'on}
-               \vspace{\fill}%---
-            \end{titlepage}%---
+          \end{titlepage}%---
+          % p\'agina de acta de evaluaci\'on (veredicto) 4/4
+          \newpage%---
+          \setcounter{page}{2}%---
+          \null%--
+          \vspace*{\fill}%---
+          {\centering \Huge P\'agina reservada para el acta de evaluaci\'on}
+          \vspace{\fill}%---
      \else % POSTGRADO
           % caratula del libro (portada de tapa dura) 1/4
           \begin{titlepage}%--
@@ -540,11 +541,11 @@
   \pagestyle{fancy}%%---
   \if@twoside%---
     \fancyhead[]{}%---
-    \fancyhead[RO,LE]{\thepage}%--- 
-    \fancyfoot{}%---
+    \fancyhead[]{}%---
+    \fancyfoot[C]{\thepage}%---
   \else%---
     \fancyhead[]{}%---
-    \fancyhead[]{}%%--- 
+    \fancyhead[]{}%%---
     \fancyfoot[C]{\thepage}%---
   \fi}%---
 \newcommand\mainmatter{%
@@ -1076,53 +1077,53 @@
 %% La leyenda de las tablas debe estar centrado (pregrado) o alineada a la izquierda (postgrado)
 \if@pregrado
   \captionsetup[table]{justification=centering,singlelinecheck=false}%---
-\else 
+\else
   \captionsetup[table]{justification=raggedright,singlelinecheck=false}%---
 \fi
 
 \newenvironment{resumen}%%---
-{%---
-  \setcounter{page}{4}
-  \if@pregrado%--
-    \chapter*{\resumenname}%---
-    \vskip 1cm%---
-    \begin{singlespace}%---
-  \else%--
-    \if@openright%---
-      \cleardoublepage%---
-    \else%---
-      \clearpage%---
-    \fi%---
-    \null%---
-    \addcontentsline{toc}{chapter}{\MakeTextUppercase{\resumenname}}%--- incluir resumen a la tabla de contenido
-    \begin{center}%---
-      \vskip -1.5cm \logousb \vskip 0.1cm%---
-      {\large {UNIVERSIDAD SIM\'ON BOL\'IVAR}\par%---
-      DECANATO DE ESTUDIOS DE POSTGRADO\par%---
-      COORDINACI\'ON DE \MakeTextUppercase{\@coord} \par%---
-      \MakeTextUppercase{\@programa} \par }%---
-      \vskip 0.8cm%---
-      {\large \textbf{ \MakeTextUppercase{\@titulo}} \par}%---
-      \vskip 0.5cm%---
-    \end{center}%---
-    \begin{flushleft}%---
-      { \normalsize \leftskip 9cm%---
-      \par \hspace{-1cm} Por: \@autor%---
-      \par \hspace{-1cm} Carn\'{e}: \@usbid %---
-      \par \hspace{-1cm} Tutor: \@tutor%---
-      \ifcotutor%---
-        \par \hspace{-1cm} Cotutor: \@cotutor%---
-    \fi%---
-    \par \hspace{-1cm} \@fecha%---
-    \vskip 0.8cm }%---
-    \end{flushleft}%---
-    \begin{center}%---
-      {\large \textbf{RESUMEN}}%---
-    \end{center}%---
-    \begin{singlespace}%%---
-  \fi
-}%%---
-{\end{singlespace}}%---
+     {%---
+     \if@pregrado%--
+          \chapter*{\resumenname}%---
+          \vskip 1cm%---
+          \begin{singlespace}%---
+     %%%%%%%%%%%%%%%%%% FALTA HACER RESUMEN PARA PREGRADO
+     \else%--
+     \if@openright%---
+          \cleardoublepage%---
+     \else%---
+          \clearpage%---
+     \fi%---
+     \null%---
+          \addcontentsline{toc}{chapter}{\MakeTextUppercase{\resumenname}}%--- incluir resumen a la tabla de contenido
+          \begin{center}%---
+               \vskip -1.5cm \logousb \vskip 0.1cm%---
+               {\large {UNIVERSIDAD SIM\'ON BOL\'IVAR}\par%---
+               DECANATO DE ESTUDIOS DE POSTGRADO\par%---
+               COORDINACI\'ON DE \MakeTextUppercase{\@coord} \par%---
+               \MakeTextUppercase{\@programa} \par }%---
+               \vskip 0.8cm%---
+               {\large \textbf{ \MakeTextUppercase{\@titulo}} \par}%---
+               \vskip 0.5cm%---
+          \end{center}%---
+          \begin{flushleft}%---
+               { \normalsize \leftskip 9cm%---
+               \par \hspace{-1cm} Por: \@autor%---
+               \par \hspace{-1cm} Carn\'{e}: \@usbid %---
+               \par \hspace{-1cm} Tutor: \@tutor%---
+               \ifcotutor%---
+                    \par \hspace{-1cm} Cotutor: \@cotutor%---
+               \fi%---
+               \par \hspace{-1cm} \@fecha%---
+               \vskip 0.8cm }%---
+          \end{flushleft}%---
+          \begin{center}%---
+               {\large \textbf{RESUMEN}}%---
+          \end{center}%---
+          \begin{singlespace}%%---
+     \fi
+     }%%---
+     {\end{singlespace}}%---
 
 \definecolor{c231f20}{RGB}{35,31,32}
 \newcommand{\logousb}[1][0.0333]{%

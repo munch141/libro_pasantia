@@ -1,0 +1,26 @@
+\chapter{Marco Teórico}
+En el presente capítulo se definen las bases teóricas sobre las cuáles se apoya el proyecto.
+
+\section{Bases Teóricas}
+
+\subsection{CMS}
+Un CMS, por sus siglas en inglés \textit{Content Management System} (Sistema de Gestión de Contenidos), es una aplicación de software que provee algún nivel de automatización a las tareas de manejo de contenido. Un CMS permite a los usuarios crear nuevo contenido, editar contenido existente, y hacer el contenido accesible al público \cite{cmsbarker}.
+
+Desde el punto de vista de un editor un CMS consta, básicamente, de 2 partes: una interfaz para la edición de contenido (referido como el \textit{back-end}, esto es, la capa de acceso a los datos de la aplicación) y una interfaz para mostrar el contenido publicado (referido como el \textit{front-end}, es decir, la capa de presentación de la aplicación).
+
+El uso de un CMS facilita las tareas de mantenimiento y de generación de contenido, especialmente para usuarios que no tienen preparación técnica especial. Los usuarios de la aplicación eFuel serán, en su mayoría, personal sin conocimientos especializados en el área de computación, esta es una de las razones por las cuales resulta conveniente desarrollar el sistema sobre un CMS.
+
+Además, el CMS sobre el cual se desarrolló la aplicación posee funcionalidades ya implementadas que son necesarias para el sistema: la autenticación de usuarios, permisología, interfaces para realizar operaciones sobre la base de datos, entre otras. La plataforma también cuenta con una variedad de librerías y de módulos que facilitan el desarrollo del sistema. También cabe destacar que la empresa tiene varios años de experiencia desarrollando aplicaciones web con un CMS lo cual facilitó el desarrollo del sistema.
+
+\subsection{Modelo Cliente-Servidor}
+Arquitectura de redes de computadoras que divide el trabajo entre 2 entidades: un cliente y un servidor. El cliente le envía una solicitud al servidor y espera una respuesta. Por otra parte, el servidor recibe la solicitud, lleva a cabo el trabajo requerido y devuelve una respuesta al cliente (Tanenbaum y Wetherall, 2012). El servidor mantiene una relación de uno-a-muchos con los clientes. Es importante destacar que los términos “cliente” y “servidor” pueden referirse tanto a máquinas como a programas o procesos. Esta arquitectura es ampliamente utilizada en aplicaciones web.
+
+\subsection{MVC}
+MVC, siglas para Modelo-Vista-Controlador, es un modelo de diseño de aplicaciones compuesto por 3 partes: el Modelo (datos), la Vista (presentación de los datos e interfaz con el usuario) y el Controlador (proceso que maneja la entrada de los usuarios y el acceso a los datos) (Krasner y Pope, 1988). Al separar la aplicación en estos 3 componentes se reduce la complejidad del diseño arquitectónico y se incrementa la reusabilidad, flexibilidad y mantenimiento del código. Adicionalmente, se pueden realizar cambios sobre un componente sin afectar a los demás, lo cual permite que cada componente tenga ciclos de desarrollo independientes.
+
+Actualmente, este patrón es ampliamente utilizado en el desarrollo de aplicaciones web ya que resulta muy natural acoplarlo con el modelo cliente-servidor que utiliza la web. El sistema eFuel fue desarrollado sobre una plataforma de desarrollo web que implementa el patrón MVC y, en consecuencia, el código tiene la estructura descrita por este patrón.
+
+\subsection{API}
+Un API, siglas en inglés para \textit{Application Programming Interface}, es un conjunto de comandos, funciones, protocolos y objetos que pueden ser usados por un programador para desarrollar software o interactuar con un sistema externo.
+
+Desde el punto de vista del usuario
