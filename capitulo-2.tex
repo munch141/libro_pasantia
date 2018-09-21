@@ -1,5 +1,5 @@
 \chapter{Marco Teórico}
-En el presente capítulo se definen las bases teóricas sobre las cuáles se apoya el proyecto.
+En el presente capítulo se definen las bases teóricas sobre las cuáles se apoya el proyecto. Definiremos el tipo de sistema sobre el cual se desarrolló la aplicación, los patrones de diseño usados para la construcción de la aplicación y algunos conceptos útiles para entender algunos componentes del sistema desarrollado.
 
 \section{Bases Teóricas}
 
@@ -8,35 +8,39 @@ Un CMS, por sus siglas en inglés \textit{Content Management System} (Sistema de
 
 Desde el punto de vista de un editor un CMS consta, básicamente, de 2 partes: una interfaz para la edición de contenido (referido como el \textit{back-end}, esto es, la capa de acceso a los datos de la aplicación) y una interfaz para mostrar el contenido publicado (referido como el \textit{front-end}, es decir, la capa de presentación de la aplicación).
 
-El uso de un CMS facilita las tareas de mantenimiento y de generación de contenido, especialmente para usuarios que no tienen preparación técnica especial. Los usuarios de la aplicación eFuel serán, en su mayoría, personal sin conocimientos especializados en el área de computación, esta es una de las razones por las cuales resulta conveniente desarrollar el sistema sobre un CMS.
+El uso de un CMS facilita las tareas de mantenimiento y de generación de contenido, especialmente para usuarios que no tienen preparación técnica especial. Los usuarios de la aplicación eFuel serán, en su mayoría, personal sin conocimientos especializados en el área de computación, ésta es una de las razones por las cuales resulta conveniente desarrollar el sistema sobre un CMS.
 
 Además, el CMS sobre el cual se desarrolló la aplicación posee funcionalidades ya implementadas que son necesarias para el sistema: la autenticación de usuarios, permisología, interfaces para realizar operaciones sobre la base de datos, entre otras. La plataforma también cuenta con una variedad de librerías y de módulos que facilitan el desarrollo del sistema. También cabe destacar que la empresa tiene varios años de experiencia desarrollando aplicaciones web con un CMS lo cual facilitó el desarrollo del sistema.
-
-\subsection{Modelo Cliente-Servidor}
-Arquitectura de redes de computadoras que divide el trabajo entre 2 entidades: un cliente y un servidor. El cliente le envía una solicitud al servidor y espera una respuesta. Por otra parte, el servidor recibe la solicitud, lleva a cabo el trabajo requerido y devuelve una respuesta al cliente. \cite{redesTanenbaum} El servidor mantiene una relación de uno-a-muchos con los clientes. Es importante destacar que los términos “cliente” y “servidor” pueden referirse tanto a máquinas como a programas o procesos. Esta arquitectura es ampliamente utilizada en aplicaciones web.
-
-\subsection{MVC}
-MVC, siglas para Modelo-Vista-Controlador, es un modelo de diseño de aplicaciones compuesto por 3 partes: el Modelo (datos), la Vista (presentación de los datos e interfaz con el usuario) y el Controlador (proceso que maneja la entrada de los usuarios y el acceso a los datos). \cite{mvcKrasner} Al separar la aplicación en estos 3 componentes se reduce la complejidad del diseño arquitectónico y se incrementa la reusabilidad, flexibilidad y mantenimiento del código. Adicionalmente, se pueden realizar cambios sobre un componente sin afectar a los demás, lo cual permite que cada componente tenga ciclos de desarrollo independientes.
-
-Actualmente, este patrón es ampliamente utilizado en el desarrollo de aplicaciones web ya que resulta muy natural acoplarlo con el modelo cliente-servidor que utiliza la web. El sistema eFuel fue desarrollado sobre una plataforma de desarrollo web que implementa el patrón MVC y, en consecuencia, el código tiene la estructura descrita por este patrón.
 
 \subsection{API}
 Un API, siglas en inglés para \textit{Application Programming Interface}, es un conjunto de comandos, funciones, protocolos y objetos que exponen los datos de una aplicación de software, es decir, establecen las reglas y los mecanismos a través de los cuales se puede tener acceso a ellos. \cite{apiChristensson}
 
-Normalmente, aplicaciones externas disponen del API de una aplicación para obtener datos de esta última y usarlos para proveer algún servicio a sus usuarios.
+Normalmente, aplicaciones externas disponen del API de una aplicación para obtener datos de esta última y usarlos para proveer algún servicio a sus usuarios. Para el proyecto presente se desarrolló un API para acceder a algunos de los datos de la misma.
 
 \subsection{Servicio Web}
 Un servicio web es un sistema de software diseñado para soportar interacción máquina-máquina a través de una red, proveen una vía estándar para la interoperabilidad entre distintas aplicaciones de software ejecutadas en distintas plataformas y ambientes. \cite{webServiceW3C} Típicamente, los sistemas externos tienen acceso al servicio web a través de un API.
 
 El proyecto presente incluye el desarrollo de un módulo de servicios web para el acceso a algunos datos de la aplicación, por ejemplo, datos para generar tablas informativas.
 
-\subsection{REST}
+\subsection{Arquitectura}
+A continuación se describen los modelos de arquitectura (física y de software) en los cuales se bassa el funcionamiento y el desarrollo de la aplicación.
+
+\subsubsection{Modelo Cliente-Servidor}
+Arquitectura de redes de computadoras que divide el trabajo entre 2 entidades: un cliente y un servidor. El cliente le envía una solicitud al servidor y espera una respuesta. Por otra parte, el servidor recibe la solicitud, lleva a cabo el trabajo requerido y devuelve una respuesta al cliente. \cite{redesTanenbaum} El servidor mantiene una relación de uno-a-muchos con los clientes. Es importante destacar que los términos “cliente” y “servidor” pueden referirse tanto a máquinas como a programas o procesos.
+
+Esta arquitectura es ampliamente utilizada en aplicaciones web y el proyecto presente, siendo una aplicación web, usa este patrón, por lo que es importante tenerlo en mente para entender (y desarrollar) algunas de las funcionalidades de la aplicación.
+
+\subsubsection{MVC}
+MVC, siglas para Modelo-Vista-Controlador, es un modelo de diseño de aplicaciones compuesto por 3 partes: el Modelo (datos), la Vista (presentación de los datos e interfaz con el usuario) y el Controlador (proceso que maneja la entrada de los usuarios y el acceso a los datos). \cite{mvcKrasner} Al separar la aplicación en estos 3 componentes se reduce la complejidad del diseño arquitectónico y se incrementa la reusabilidad, flexibilidad y mantenimiento del código. Adicionalmente, se pueden realizar cambios sobre un componente sin afectar a los demás, lo cual permite que cada componente tenga ciclos de desarrollo independientes.
+
+Actualmente, este patrón es ampliamente utilizado en el desarrollo de aplicaciones web ya que resulta muy natural acoplarlo con el modelo cliente-servidor que utiliza la web. El sistema eFuel fue desarrollado sobre una plataforma de desarrollo web que implementa el patrón MVC y, en consecuencia, el código tiene la estructura descrita por este patrón.
+
+\subsubsection{REST}
 Transferencia de Estado Representacional o REST, por sus siglas en inglés, es un estilo de arquitectura para sistemas de hipermedia distribuidos (como la \textit{World Wide Web} o red informática mundial) que define una serie de restricciones que, cuando se aplican en conjunto, enfatizan la escalabilidad de interacciones entre componentes, la generalidad de las interfaces y el despliegue independiente de componentes. \cite{restFielding}
 
 Las restricciones definidas para los sistemas REST son las siguientes:
 
 \begin{enumerate}
-    \item \textbf{Separación Cliente-Servidor} el cliente y el servidor actúan independientemente, la interacción entre ellos ocurre solo a través de solicitudes, realizadas por el cliente, y respuestas, enviadas por el servidor como una reacción a una solicitud. El servidor solo envía información cuando ésta es solicitada por algún cliente.
     \item \textbf{Separación Cliente-Servidor} el cliente y el servidor actúan independientemente, la interacción entre ellos ocurre solo a través de solicitudes, realizadas por el cliente, y respuestas, enviadas por el servidor como una reacción a una solicitud. El servidor solo envía información cuando ésta es solicitada por algún cliente.
     \item \textbf{Sin estado (\emph{stateless} en inglés)} el servidor no guarda información de ningún usuario que use los servicios del sistema. Cada solicitud individual contiene toda la información necesaria para ser ejecutada y enviar una respuesta, independientemente de todas las demás solicitudes que sean atendidas.
     \item \textbf{Permite el uso de memoria caché} la respuesta debe estar explícita o implícitamente etiquetada como \textit{cacheable} (se puede guardar en alguna memoria caché) o \textit{non-cacheable} (no se puede guardar en ninguna memoria caché). La ventaja del uso de memoria caché es que se pueden eliminar parcial o completamente algunas interacciones mejorando así el rendimiento del sistema.

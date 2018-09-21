@@ -1,8 +1,7 @@
 \chapter{Marco Tecnológico}
-En este capítulo se definen las tecnologías y herramientas utilizadas para el desarrollo del sistema.
+En este capítulo se definen las tecnologías y herramientas utilizadas para el desarrollo del sistema. Entre estas se incluyen los \textit{frameworks} utilizados para el desarrollo (ASP.NET, ASP.NET MVC, ASP.NET Web API y Umbraco), los lenguajes utilizados (C\# para el \textit{backend}, y HTML, CSS y JavaScript para el \textit{frontend}, como es común en el desarrollo web), la herramienta de control deversiones (Git) y el entorno de desarrollo (Visual Studio).
 
-
-\section{Entorno de trabajo}
+\section{Frameworks}
 \subsection{ASP.NET}
 ASP.NET es un modelo de desarrollo Web unificado que incluye los servicios necesarios para construir aplicaciones Web empresariales con un mínimo de codificación. ASP.NET es parte de .NET Framework y al codificar las aplicaciones en ASP.NET se tiene acceso a las clases de .NET Framework. \cite{asp.netMicrosoft}
 
@@ -17,19 +16,36 @@ ASP.NET Web API es un marco de trabajo que facilita la construcción de servicio
 \emph{Poner donde se usa}
 
 \subsection{Umbraco}
-No consigo una fuente en donde esté la definición de Umbraco explicicitamente.
+Umbraco es un Sistema de Gestión de Contenido gratuito y de código abierto construido sobre ASP.NET...
 
 \section{Lenguajes}
 \subsection{C\#}
-C\# es un lenguaje con seguridad de tipos y orientado a objetos que permite a desarrolladores construir una variedad de aplicaciones robustas y seguras que corren sobre .NET Framework. \cite{}
+C\# es un lenguaje con seguridad de tipos y orientado a objetos que permite a desarrolladores construir una variedad de aplicaciones robustas y seguras que corren sobre .NET Framework. \cite{cSharpMicrosoft}
 
-Este es el lenguaje que se usa para el código de la aplicación.
+Este es el lenguaje que se usa para el código del \textit{back-end} de la aplicación.
 
 \subsection{HTML}
-Definición de HTML.
+HTML (siglas en inglés para Lenguaje de Marcado de HiperTexto), es el lenguaje de marcado central de la \textit{World Wide Web} (red informática mundial). Originalmente, HTML fue diseñado principalmente para describir semánticamente documentos científicos. Sin embargo, la generalidad de su diseño ha permitido que sea adaptado, en los años siguientes, para describir otros tipos de documentos y hasta aplicaciones. \cite{htmlW3C}
+
+Es el lenguaje que se usa para definir la estructura y el contenido de una página web, en el caso de este proyecto se usa para describir las \textit{vistas} del sistema.
 
 \subsection{CSS}
-Definición de CSS.
+Hojas de Estilo en Cascada, o CSS por sus siglas en inglés (\textit{Cascading Style Sheets}), es un lenguaje de hojas de estilo que permite a los autores y usuarios adjuntar estilos (\textit{e.g.} fuentes y espaciados) a documentos estructurados (\textit{e.g.} documentos de HTML). Al separar el estilo de presentación del contenido de los documentos, se simplifica la autoría y el mantenimiento de los sitios. \cite{cssW3C}
 
 \subsection{JavaScript}
-Definición de JavaScript.
+JavaScript es un lenguaje de \textit{scripting} o programación que permite la creación de contenido dinámico, control de multimedia, animación de imágenes \cite{jsMozilla}, entre otras cosas.
+
+HTML, CSS y JavaScript son los lenguajes utilizados para desarrollar \textit{front-end} de la aplicación.
+
+
+\section{Control de versiones}
+\subsection{Git}
+Git es un sistema de gestión de versiones rápido, escalable y distribuido con un rico conjunto de comandos que proveen operaciones de alto nivel y acceso completo a internos. \cite{gitGit} Fue desarrollado por Linus Torvald en el año 2005 para facilitar el trabajo de varios desarrolladores sobre un mismo proyecto. Permite llevar el seguimiento de los cambios a un grupo de archivos y sincronizar varios repositorios en máquinas distintas.
+
+Este es el sistema de gestión de versiones usado en la empresa en la que se desarrolló el proyecto.
+
+\section{Entorno de trabajo}
+\subsection{Visual Studio}
+Visual Studio es un ambiente de desarrollo integrado que permite editar, depurar, compilar y publicar código. \cite{visualStudioMicrosoft} Este ambiente de desarrollo incluye una gran cantidad de funcionalidades para facilitar el desarrollo de software: depuración del código paso a paso y con información detallada de las variable y otras entidades del programa, instrucciones de compilación complejas para la aplicación, descarga y actualización paquetes y librerías, integración con Git, \textit{IntelliSense} de Microsoft para la completación de partes de código usando el contexto de la aplicación (clases y sus relaciones y métodos), entre otras.
+
+Este entornpo de trabajo está muy bien integrado con los \textit{frameworks} utilizados para el proyecto (ASP.NET y sus extensiones/derivados), por lo que su uso resultó ventajoso y natural para el desarrollo del proyecto.
