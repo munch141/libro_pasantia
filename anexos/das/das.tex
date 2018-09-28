@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{ragged2e}
+\usepackage{vrsion}
+
+\makeatletter
+\title{Documento de Arquitectura del Software} \let\Title\@title
+\date{Septiembre 2018} \let\Date\@date
+\author{Ricardo Münch} \let\Author\@author
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Versión: 1.0 \\ \Date}
+\lhead{eFuel \\ DAS \\ Identificador del documento}
+
+\lfoot{Confidencial}
+\cfoot{iKels Consulting \\ \Date}
+\rfoot{Pag. \thepage}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\begin{document}
+    \begin{titlepage}
+    \huge{\Title}
+    \begin{flushright}
+        \Large{eFuel \\ Versión: 1.0}
+    \end{flushright}
+    \end{titlepage}
+
+    \newpage
+    \tableofcontents
+
+    \newpage
+    First document. This is a simple example, with no extra parameters or packages included.
+\end{document}
+

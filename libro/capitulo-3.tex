@@ -8,15 +8,17 @@ ASP.NET es un modelo de desarrollo Web unificado que incluye los servicios neces
 \subsection{ASP.NET MVC}
 ASP.NET MVC es un marco de trabajo (o \textit{framework} en inglés) para construir aplicaciones web escalables, basadas en estándares y usando patrones de diseño bien establecidos (el patrón MVC) y el poder de ASP.NET y .NET Framework. \cite{asp.netMVCMicrosoft}
 
-\emph{Poner donde se usa}
+Se utilizó este marco de trabajo para el desarrollo del módulo \textbf{EF\_Core} (ver sección \emph{sección de arquitectura}) del proyecto, allí están implementados los controladores (ver sección \ref{mvc}) de la aplicación web.
 
 \subsection{ASP.NET Web Api}
 ASP.NET Web API es un marco de trabajo que facilita la construcción de servicios HTTP que llegan a una amplia gama de clientes, incluyendo navegadores y dispositivos móbiles. ASP.NET Web API es una plataforma ideal para construir aplicaciones RESTful en .NET Framework. \cite{asp.netWebAPIMicrosoft}
 
-\emph{Poner donde se usa}
+Este marco de trabajo se utilizó para el desarrollo del módulo \textbf{EF\_API} (ver sección \emph{sección de arquitectura}) del proyecto, allí están implementados los servicios del API para acceder a información del sistema (ver sección \ref{webService}) de la aplicación web.
 
 \subsection{Umbraco}
-Umbraco es un Sistema de Gestión de Contenido gratuito y de código abierto construido sobre ASP.NET. Cuenta con una variedad de facilidades tanto como para el desarrollador como para el cliente,
+Umbraco es un Sistema de Gestión de Contenido gratuito y de código abierto construido sobre ASP.NET, fue desarrollado en Dinamarca y su primera versión fue lanzada en el año 2005. Umbraco cuenta con funcionalidades que son necesarias para el sistema: la autenticación de usuarios, permisología, interfaces para realizar operaciones sobre la base de datos, entre otras. La plataforma también cuenta con un repositorio de paquetes y extensiones que proveen otras funcionalidades útiles para la aplicación web y provee una variedad de librerías y de módulos que facilitan el desarrollo del sistema.
+
+Cabe destacar que la empresa tiene varios años de experiencia desarrollando aplicaciones web con Umbraco y varios de sus empleados tienen certificaciones y un nivel alto de conocimiento de la plataforma lo cual facilitó el desarrollo del sistema. La aplicación web eFuel fue desarrollada con Umbraco v7.10.
 
 \section{Lenguajes}
 A continuación se definen brevemente los lenguajes de programación utilizados para el desarrollo del proyecto divididos en \textit{front-end} y \textit{back-end}.
@@ -31,7 +33,7 @@ Es el lenguaje que se usa para definir la estructura y el contenido de una pági
 Hojas de Estilo en Cascada, o CSS por sus siglas en inglés (\textit{Cascading Style Sheets}), es un lenguaje de hojas de estilo que permite a los autores y usuarios adjuntar estilos (\textit{e.g.} fuentes y espaciados) a documentos estructurados (\textit{e.g.} documentos de HTML). Al separar el estilo de presentación del contenido de los documentos, se simplifica la autoría y el mantenimiento de los sitios. \cite{cssW3C}
 
 \subsubsection{JavaScript}
-JavaScript es un lenguaje de \textit{scripting} o programación que permite la creación de contenido dinámico, control de multimedia, animación de imágenes \cite{jsMozilla}, entre otras cosas.
+JavaScript es un lenguaje de \textit{scripting} o programación que permite la creación de contenido dinámico, control de multimedia, animación de imágenes \cite{jsMozilla}. \emph{mencionar las llamadas al servidor para traer datos con el API}
 
 \subsection{\emph{Back-end}}
 \subsubsection{C\#}
@@ -50,4 +52,8 @@ Visual Studio es un ambiente de desarrollo integrado que permite editar, depurar
 Este entorno de trabajo está muy bien integrado con los \textit{frameworks} utilizados para el proyecto (ASP.NET y sus extensiones/derivados), por lo que su uso resultó ventajoso y natural para el desarrollo del proyecto.
 
 \subsection{Trello}
+Trello es una herramienta de colaboración que organiza las tareas de un proyecto en tablas. Trello informa en qué se está trabajando, quién está trabajando en qué, y el estado de una tarea en el proceso de desarrollo.
 
+Cada tabla tiene varias listas y cada lista contiene tarjetas. Una tabla corresponde a un proyecto, una lista corresponde al estado de una tarea y una tarjeta a una tarea, por ejemplo, en una tabla suele haber 3 listas: \emph{Por hacer}, \emph{Haciendo} y \emph{Lista}. Las tarjetas contienen una descripción de la tarea, la o las personas asignadas y puede tener una fecha límite de entrega. A medida que se va completando trabajo se van moviendo las tarjetas de una lista a otra.
+
+Resultó una herramienta útil para llevar el control de las tareas realizadas y por realizar. Se usó esta herramienta como apoyo para el uso de Scrum (ver capítulo \ref{marcoMetodologico}).

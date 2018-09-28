@@ -10,14 +10,12 @@ Desde el punto de vista de un editor un CMS consta, básicamente, de 2 partes: u
 
 El uso de un CMS facilita las tareas de mantenimiento y de generación de contenido, especialmente para usuarios que no tienen preparación técnica especial. Los usuarios de la aplicación eFuel serán, en su mayoría, personal sin conocimientos especializados en el área de computación, ésta es una de las razones por las cuales resulta conveniente desarrollar el sistema sobre un CMS.
 
-Además, el CMS sobre el cual se desarrolló la aplicación posee funcionalidades ya implementadas que son necesarias para el sistema: la autenticación de usuarios, permisología, interfaces para realizar operaciones sobre la base de datos, entre otras. La plataforma también cuenta con una variedad de librerías y de módulos que facilitan el desarrollo del sistema. También cabe destacar que la empresa tiene varios años de experiencia desarrollando aplicaciones web con un CMS lo cual facilitó el desarrollo del sistema.
-
 \subsection{API}
 Un API, siglas en inglés para \textit{Application Programming Interface}, es un conjunto de comandos, funciones, protocolos y objetos que exponen los datos de una aplicación de software, es decir, establecen las reglas y los mecanismos a través de los cuales se puede tener acceso a ellos. \cite{apiChristensson}
 
 Normalmente, aplicaciones externas disponen del API de una aplicación para obtener datos de esta última y usarlos para proveer algún servicio a sus usuarios. Para el proyecto presente se desarrolló un API para acceder a algunos de los datos de la misma.
 
-\subsection{Servicio Web}
+\subsection{Servicio Web} \label{webService}
 Un servicio web es un sistema de software diseñado para soportar interacción máquina-máquina a través de una red, proveen una vía estándar para la interoperabilidad entre distintas aplicaciones de software ejecutadas en distintas plataformas y ambientes. \cite{webServiceW3C} Típicamente, los sistemas externos tienen acceso al servicio web a través de un API.
 
 El proyecto presente incluye el desarrollo de un módulo de servicios web para el acceso a algunos datos de la aplicación, por ejemplo, datos para generar tablas informativas.
@@ -30,7 +28,7 @@ Arquitectura de redes de computadoras que divide el trabajo entre 2 entidades: u
 
 Esta arquitectura es ampliamente utilizada en aplicaciones web y el proyecto presente, siendo una aplicación web, usa este patrón, por lo que es importante tenerlo en mente para entender (y desarrollar) algunas de las funcionalidades de la aplicación.
 
-\subsubsection{MVC}
+\subsubsection{MVC} \label{mvc}
 MVC, siglas para Modelo-Vista-Controlador, es un modelo de diseño de aplicaciones compuesto por 3 partes: el Modelo (datos), la Vista (presentación de los datos e interfaz con el usuario) y el Controlador (proceso que maneja la entrada de los usuarios y el acceso a los datos). \cite{mvcKrasner} Al separar la aplicación en estos 3 componentes se reduce la complejidad del diseño arquitectónico y se incrementa la reusabilidad, flexibilidad y mantenimiento del código. Adicionalmente, se pueden realizar cambios sobre un componente sin afectar a los demás, lo cual permite que cada componente tenga ciclos de desarrollo independientes.
 
 Actualmente, este patrón es ampliamente utilizado en el desarrollo de aplicaciones web ya que resulta muy natural acoplarlo con el modelo cliente-servidor que utiliza la web. El sistema eFuel fue desarrollado sobre una plataforma de desarrollo web que implementa el patrón MVC y, en consecuencia, el código tiene la estructura descrita por este patrón.

@@ -1,0 +1,14 @@
+PWD c:/_data/libro_pasantia/anexos/das
+INPUT C:/Users/Ricardo/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt
+INPUT c:/_data/libro_pasantia/anexos/das/das.tex
+OUTPUT das.log
+INPUT C:/Users/Ricardo/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/article.cls
+INPUT C:/Users/Ricardo/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/article.cls
+INPUT C:/Users/Ricardo/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/size10.clo
+INPUT C:/Users/Ricardo/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/size10.clo
+INPUT C:/Users/Ricardo/AppData/Local/Programs/MiKTeX 2.9/tex/latex/fancyhdr/fancyhdr.sty
+INPUT C:/Users/Ricardo/AppData/Local/Programs/MiKTeX 2.9/tex/latex/fancyhdr/fancyhdr.sty
+INPUT C:/Users/Ricardo/AppData/Local/Programs/MiKTeX 2.9/tex/latex/ms/ragged2e.sty
+INPUT C:/Users/Ricardo/AppData/Local/Programs/MiKTeX 2.9/tex/latex/ms/ragged2e.sty
+INPUT C:/Users/Ricardo/AppData/Local/Programs/MiKTeX 2.9/tex/latex/ms/everysel.sty
+INPUT C:/Users/Ricardo/AppData/Local/Programs/MiKTeX 2.9/tex/latex/ms/everysel.sty

@@ -329,15 +329,15 @@
                     {\bfseries COORDINACI\'ON DE \MakeTextUppercase{\@coord}} \par%--
                     \vskip 4cm%--
                     {\textbf{\MakeTextUppercase{\@titulo}} \par}%%--
-                    \vskip 2.5cm%--
+                    \vskip 2.0cm%--
                     {\large Por: \par%--
                     \vskip 0.2cm%--
                     \@autor}%--
                     \vskip 2.0cm%---
                     {Realizado con la asesor\'ia de:\\%---
-                    \vskip 0.3cm%---
+                    \vskip 0.2cm%---
                     \@tutor \par \ifcotutor \@cotutor \par \fi}%---
-                    \vskip 3.0cm%---
+                    \vskip 2.0cm%---
                     {\bfseries \MakeTextUppercase \@trabajo} \\%---
                     {Presentado ante la ilustre Universidad Sim\'on Bol\'ivar \\%---
                     como requisito parcial para optar al t\'itulo de \\%---
