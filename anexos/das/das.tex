@@ -2,7 +2,8 @@
 
 \usepackage{fancyhdr}
 \usepackage{ragged2e}
-\usepackage{vrsion}
+\usepackage[table]{xcolor}
+\usepackage{indentfirst}
 
 \makeatletter
 \title{Documento de Arquitectura del Software} \let\Title\@title
@@ -21,6 +22,7 @@
 
 \renewcommand{\headrulewidth}{1pt}
 \renewcommand{\footrulewidth}{1pt}
+\renewcommand{\contentsname}{Índice}
 
 \begin{document}
     \begin{titlepage}
@@ -34,6 +36,114 @@
     \tableofcontents
 
     \newpage
-    First document. This is a simple example, with no extra parameters or packages included.
+    \begin{center}
+        \begin{tabular}{ |c|c|c|c| } 
+            \hline
+            \rowcolor{lightgray}
+            Fecha & Versión & Descripción & Autores \\
+            \hline 
+            29/09/2018 & 1.0 & Documento de Arquitectura & Ricardo Münch \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    \newpage
+    \section{Introducción}
+    El objetivo principal de la arquitectura del software es aportar conceptos y un lenguaje común que ayuden a describir el software y permita la comunicación entre el cliente y los diseñadores.
+    
+    \subsection{Propósito}
+    Este documento busca hacer una abstracción de lo que será el sistema a través de algunas vistas de la arquitectura del mismo. Se pretende definir algunos elementos estructurales que describen el sistema \emph{eFuel}.
+    
+    \subsection{Alcance}
+    A continuación presentamos una abstracción de la estructura que debe tener el sistema. El documento contempla la vista lógica, la vista de datos y las características no funcionales que debe tener el sistema.
+        
+    \subsection{Referencias}
+    No hace referencia a ningún otro documento.
+    
+    \subsection{Vista Global}
+    Este documento comprende 6 secciones en las cuales se elaboran los distintos aspectos de la arquitectura de \emph{eFuel}, tanto a nivel de software como de hardware. En la sección \ref{reprArq} se introduce la representación arquitectónica del sistema. Luego, en la sección \ref{metasArq}, se enumeran los objetivos y restricciones que suscriben la arquitectura presentada. Seguidamente, se describen las distintas vistas que conforman la arquitectura de la sección \ref{vistaCasosDeUso} a la \ref{vistaDatos}, teniendo en la sección \ref{vistaCasosDeUso} la Vista de Casos de Uso. Finalmente, la sección \ref{tamDesemp}.
+
+
+    \section{Representación Arquitectónica} \label{reprArq}
+    La representación arquitectónica de \emph{eFuel} está basada en el modelo de 4+1 vistas de Philippe Kruchten. En el transcurso del documento se tratarán más a fondo los detalles de cada una.
+
+    \section{Metas y Restricciones Arquitectónicas} \label{metasArq}
+
+    
+    \section{Vista de Casos de Uso} \label{vistaCasosDeUso}
+    En esta vista se describirá el sistema desde el punto de vista de los casos de uso.
+    \subsection{Resumen de Casos de Uso}
+    \begin{center}
+        \begin{tabular}{ |c|c|c| } 
+            \hline
+            \rowcolor{lightgray}
+            ID Caso de Uso & Caso de Uso & Actor \\
+            \hline
+            CU- & Gestionar clientes & Staff \\
+            CU- & Agregar cliente & Staff \\
+            CU- & Consultar lista de clientes & Staff, Customer \\
+            CU- & Consultar detalles de cliente & Staff, Customer \\
+            CU- & Editar cliente & Staff \\
+            CU- & Eliminar de cliente/s & Staff \\
+            CU- & Importar lista de clientes & Staff, Customer \\
+            CU- & Exportar lista de clientes & Staff, Customer \\
+
+            CU- & Gestionar transportes & Staff \\
+            CU- & Agregar transporte & Staff \\
+            CU- & Consultar lista de transportes & Staff, Customer \\
+            CU- & Consultar detalles de transporte & Staff, Customer \\
+            CU- & Editar transporte & Staff \\
+            CU- & Eliminar de transporte/s & Staff \\
+            CU- & Importar lista de transportes & Staff, Customer \\
+            CU- & Exportar lista de transportes & Staff, Customer \\
+
+            CU- & Gestionar zonas & Staff \\
+            CU- & Agregar zona & Staff \\
+            CU- & Consultar lista de zonas & Staff, Customer \\
+            CU- & Consultar detalles de zona & Staff, Customer \\
+            CU- & Editar zona & Staff \\
+            CU- & Eliminar de zona/s & Staff \\
+            CU- & Importar lista de zonas & Staff, Customer \\
+            CU- & Exportar lista de zonas & Staff, Customer \\
+
+            CU- & Gestionar turnos & Staff \\
+            CU- & Agregar turno & Staff \\
+            CU- & Consultar lista de turnos & Staff \\
+            CU- & Consultar detalles de turno & Staff \\
+            CU- & Editar turnos & Staff \\
+            CU- & Eliminar de turno/s & Staff \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    \subsection{Diagrama de Casos de Uso}
+    \subsection{Especificaciones de Casos de Uso}
+
+    \section{Vista Lógica} \label{vistaLogica}
+    \subsection{Vista General}
+    \subsubsection{Diagrama Conceptual (Modelo de Dominio)}
+    \subsubsection{Diagrama de Clases}
+
+    \section{Vista de Implantación} \label{vistaImplantacion}
+    \subsection{Configuración Estándar}
+    \subsection{Diagrama de Despliegue}
+
+
+    \section{Vista de Implementación} \label{vistaImplementacion}
+    \subsection{Vista General}
+    \subsection{Diagrama de Componentes}
+
+
+    \section{Vista de Datos} \label{vistaDatos}
+    \subsection{Diagrama de Entidad Relación (ER)}
+    \subsection{Diccionario de Datos}
+
+
+    \section{Tamaño y Desempeño} \label{tamDesemp}
+
+    \section{Calidad}
+    \subsection{Mantenibilidad}
+    \subsection{Flexibilidad}
+    \subsection{Seguridad}
 \end{document}
 
