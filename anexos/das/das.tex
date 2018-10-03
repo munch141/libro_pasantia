@@ -4,6 +4,11 @@
 \usepackage{ragged2e}
 \usepackage[table]{xcolor}
 \usepackage{indentfirst}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{float}
+
+\graphicspath{ {./imgs/} }
 
 \makeatletter
 \title{Documento de Arquitectura del Software} \let\Title\@title
@@ -25,6 +30,7 @@
 \renewcommand{\contentsname}{Índice}
 
 \begin{document}
+
     \begin{titlepage}
     \huge{\Title}
     \begin{flushright}
@@ -71,52 +77,96 @@
 
     
     \section{Vista de Casos de Uso} \label{vistaCasosDeUso}
-    En esta vista se describirá el sistema desde el punto de vista de los casos de uso.
+    En esta vista se describirá el sistema desde el punto de vista de los casos de uso. El sistema tiene 2 actores:
+
+    \begin{itemize}
+        \item \emph{Customer}: distribuidor de combustible, puede tener una o varias estaciones de servicio a su cargo. Son los usuarios más frecuentes del sistema.
+        \item \emph{Staff}: administrador del sistema. Tienen acceso al \emph{beack end} de Umbraco y pueden gestionar todas las entidades del sistema.
+    \end{itemize}
+
     \subsection{Resumen de Casos de Uso}
+    \newcounter{magicrownumbers}
+    \newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
     \begin{center}
-        \begin{tabular}{ |c|c|c| } 
+        \begin{longtable}{ |c|c|c| }
             \hline
+            
             \rowcolor{lightgray}
             ID Caso de Uso & Caso de Uso & Actor \\
+            \endhead
+            
             \hline
-            CU- & Gestionar clientes & Staff \\
-            CU- & Agregar cliente & Staff \\
-            CU- & Consultar lista de clientes & Staff, Customer \\
-            CU- & Consultar detalles de cliente & Staff, Customer \\
-            CU- & Editar cliente & Staff \\
-            CU- & Eliminar de cliente/s & Staff \\
-            CU- & Importar lista de clientes & Staff, Customer \\
-            CU- & Exportar lista de clientes & Staff, Customer \\
+            \endfoot
 
-            CU- & Gestionar transportes & Staff \\
-            CU- & Agregar transporte & Staff \\
-            CU- & Consultar lista de transportes & Staff, Customer \\
-            CU- & Consultar detalles de transporte & Staff, Customer \\
-            CU- & Editar transporte & Staff \\
-            CU- & Eliminar de transporte/s & Staff \\
-            CU- & Importar lista de transportes & Staff, Customer \\
-            CU- & Exportar lista de transportes & Staff, Customer \\
-
-            CU- & Gestionar zonas & Staff \\
-            CU- & Agregar zona & Staff \\
-            CU- & Consultar lista de zonas & Staff, Customer \\
-            CU- & Consultar detalles de zona & Staff, Customer \\
-            CU- & Editar zona & Staff \\
-            CU- & Eliminar de zona/s & Staff \\
-            CU- & Importar lista de zonas & Staff, Customer \\
-            CU- & Exportar lista de zonas & Staff, Customer \\
-
-            CU- & Gestionar turnos & Staff \\
-            CU- & Agregar turno & Staff \\
-            CU- & Consultar lista de turnos & Staff \\
-            CU- & Consultar detalles de turno & Staff \\
-            CU- & Editar turnos & Staff \\
-            CU- & Eliminar de turno/s & Staff \\
             \hline
-        \end{tabular}
+            CU-\rownumber & Gestionar cliente & Staff \\
+            CU-\rownumber & Crear cliente & Staff \\
+            CU-\rownumber & Consultar cliente & Staff, Customer \\
+            CU-\rownumber & Editar cliente & Staff \\
+            CU-\rownumber & Eliminar de cliente/s & Staff \\
+            CU-\rownumber & Consultar lista de clientes & Staff, Customer \\
+            CU-\rownumber & Importar lista de clientes & Staff \\
+            CU-\rownumber & Exportar lista de clientes & Staff, Customer \\
+
+            CU-\rownumber & Gestionar transporte & Staff \\
+            CU-\rownumber & Crear transporte & Staff \\
+            CU-\rownumber & Consultar transporte & Staff, Customer \\
+            CU-\rownumber & Editar transporte & Staff \\
+            CU-\rownumber & Eliminar de transporte/s & Staff \\
+            CU-\rownumber & Consultar lista de transportes & Staff, Customer \\
+            CU-\rownumber & Importar lista de transportes & Staff \\
+            CU-\rownumber & Exportar lista de transportes & Staff, Customer \\
+
+            CU-\rownumber & Gestionar zona & Staff \\
+            CU-\rownumber & Crear zona & Staff \\
+            CU-\rownumber & Consultar zona & Staff, Customer \\
+            CU-\rownumber & Editar zona & Staff \\
+            CU-\rownumber & Eliminar de zona/s & Staff \\
+            CU-\rownumber & Consultar lista de zonas & Staff, Customer \\
+            CU-\rownumber & Importar lista de zonas & Staff \\
+            CU-\rownumber & Exportar lista de zonas & Staff, Customer \\
+
+            CU-\rownumber & Gestionar turno & Staff \\
+            CU-\rownumber & Crear turno & Staff \\
+            CU-\rownumber & Consultar turno & Staff \\
+            CU-\rownumber & Editar turno & Staff \\
+            CU-\rownumber & Eliminar de turno/s & Staff \\
+            CU-\rownumber & Consultar lista de turnos & Staff \\
+
+            CU-\rownumber & Gestionar factura & Staff \\
+            CU-\rownumber & Crear factura & Staff \\
+            CU-\rownumber & Consultar factura & Staff, Customer \\
+            CU-\rownumber & Editar factura & Staff \\
+            CU-\rownumber & Eliminar de factura/s & Staff \\
+            CU-\rownumber & Consultar lista de facturas & Staff, Customer \\
+
+            CU-\rownumber & Gestionar cobro & Staff \\
+            CU-\rownumber & Crear cobro & Staff \\
+            CU-\rownumber & Consultar cobro & Staff \\
+            CU-\rownumber & Editar cobro & Staff \\
+            CU-\rownumber & Eliminar de cobro/s & Staff \\
+            CU-\rownumber & Consultar lista de cobros & Staff \\
+        \end{longtable}
     \end{center}
 
     \subsection{Diagrama de Casos de Uso}
+    Se separaron los casos de uso en varios diagramas para facilitar la lectura.
+    
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{cu1.jpeg}
+        \centering
+    \end{figure}
+
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{cu2.jpeg}
+        \centering
+    \end{figure}
+
+    % \begin{figure}[H]
+    %     \includegraphics[width=\textwidth]{cu3.jpeg}
+    %     \centering
+    % \end{figure}
+
     \subsection{Especificaciones de Casos de Uso}
 
     \section{Vista Lógica} \label{vistaLogica}
