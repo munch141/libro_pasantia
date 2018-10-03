@@ -2,4 +2,4 @@
 
 !.gitignore
 !*.tex
-!*.jpeg
+!imgs/*.jpeg
