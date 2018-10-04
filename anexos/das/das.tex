@@ -7,6 +7,7 @@
 \usepackage{longtable}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage[letterpaper, total={7in, 9in}]{geometry}
 
 \graphicspath{ {./imgs/} }
 
@@ -80,8 +81,9 @@
     En esta vista se describirá el sistema desde el punto de vista de los casos de uso. El sistema tiene 2 actores:
 
     \begin{itemize}
-        \item \emph{Customer}: distribuidor de combustible, puede tener una o varias estaciones de servicio a su cargo. Son los usuarios más frecuentes del sistema.
-        \item \emph{Staff}: administrador del sistema. Tienen acceso al \emph{beack end} de Umbraco y pueden gestionar todas las entidades del sistema.
+        \item \emph{Customer}: representa a una o varias estaciones de servicio. Solo tienen acceso a la información referente a las estaciones de servicio asignadas por el administrador del sistema. Son los usuarios más frecuentes.
+        \item \emph{Staff}: representa a un distribuidor de combustible. Tiene acceso a la información de todas las estaciones de servicio del sistema.
+        \item \emph{Admin}: administrador del sistema. Tienen acceso al \emph{back end} de Umbraco y pueden gestionar todas las entidades del sistema, incluyendo a los usuarios.
     \end{itemize}
 
     \subsection{Resumen de Casos de Uso}
@@ -99,53 +101,42 @@
             \endfoot
 
             \hline
-            CU-\rownumber & Gestionar cliente & Staff \\
-            CU-\rownumber & Crear cliente & Staff \\
-            CU-\rownumber & Consultar cliente & Staff, Customer \\
-            CU-\rownumber & Editar cliente & Staff \\
-            CU-\rownumber & Eliminar cliente/s & Staff \\
-            CU-\rownumber & Consultar lista de clientes & Staff, Customer \\
-            CU-\rownumber & Importar lista de clientes & Staff \\
-            CU-\rownumber & Exportar lista de clientes & Staff, Customer \\
+            CU-\rownumber & Gestionar cliente & Admin \\
+            CU-\rownumber & Crear cliente & Admin \\
+            CU-\rownumber & Consultar cliente & Admin, Staff, Customer \\
+            CU-\rownumber & Editar cliente & Admin, Staff \\
+            CU-\rownumber & Eliminar cliente/s & Admin \\
+            CU-\rownumber & Consultar lista de clientes & Admin, Staff, Customer \\
+            CU-\rownumber & Consultar información de clientes & Admin, Staff, Customer \\
+            CU-\rownumber & Importar lista de clientes & Admin, Staff \\
+            CU-\rownumber & Exportar lista de clientes & Admin, Staff, Customer \\
 
-            CU-\rownumber & Gestionar transporte & Staff \\
-            CU-\rownumber & Crear transporte & Staff \\
-            CU-\rownumber & Consultar transporte & Staff, Customer \\
-            CU-\rownumber & Editar transporte & Staff \\
-            CU-\rownumber & Eliminar transporte/s & Staff \\
-            CU-\rownumber & Consultar lista de transportes & Staff, Customer \\
-            CU-\rownumber & Importar lista de transportes & Staff \\
-            CU-\rownumber & Exportar lista de transportes & Staff, Customer \\
+            CU-\rownumber & Gestionar transporte & Admin \\
+            CU-\rownumber & Crear transporte & Admin \\
+            CU-\rownumber & Consultar transporte & Admin, Staff, Customer \\
+            CU-\rownumber & Editar transporte & Admin, Staff \\
+            CU-\rownumber & Eliminar transporte/s & Admin \\
+            CU-\rownumber & Consultar lista de transportes & Admin, Staff, Customer \\
+            CU-\rownumber & Consultar información de transportes & Admin, Staff, Customer \\
+            CU-\rownumber & Importar lista de transportes & Admin, Staff \\
+            CU-\rownumber & Exportar lista de transportes & Admin, Staff, Customer \\
 
-            CU-\rownumber & Gestionar zona & Staff \\
-            CU-\rownumber & Crear zona & Staff \\
-            CU-\rownumber & Consultar zona & Staff, Customer \\
-            CU-\rownumber & Editar zona & Staff \\
-            CU-\rownumber & Eliminar zona/s & Staff \\
-            CU-\rownumber & Consultar lista de zonas & Staff, Customer \\
-            CU-\rownumber & Importar lista de zonas & Staff \\
-            CU-\rownumber & Exportar lista de zonas & Staff, Customer \\
+            CU-\rownumber & Gestionar zona & Admin \\
+            CU-\rownumber & Crear zona & Admin \\
+            CU-\rownumber & Consultar zona & Admin, Staff, Customer \\
+            CU-\rownumber & Editar zona & Admin, Staff \\
+            CU-\rownumber & Eliminar zona/s & Admin \\
+            CU-\rownumber & Consultar lista de zonas & Admin, Staff, Customer \\
+            CU-\rownumber & Consultar información de zonas & Admin, Staff, Customer \\
+            CU-\rownumber & Importar lista de zonas & Admin, Staff \\
+            CU-\rownumber & Exportar lista de zonas & Admin, Staff, Customer \\
 
-            CU-\rownumber & Gestionar turno & Staff \\
-            CU-\rownumber & Crear turno & Staff \\
-            CU-\rownumber & Consultar turno & Staff \\
-            CU-\rownumber & Editar turno & Staff \\
-            CU-\rownumber & Eliminar turno/s & Staff \\
-            CU-\rownumber & Consultar lista de turnos & Staff \\
-
-            CU-\rownumber & Gestionar factura & Staff \\
-            CU-\rownumber & Crear factura & Staff \\
-            CU-\rownumber & Consultar factura & Staff, Customer \\
-            CU-\rownumber & Editar factura & Staff \\
-            CU-\rownumber & Eliminar factura/s & Staff \\
-            CU-\rownumber & Consultar lista de facturas & Staff, Customer \\
-
-            CU-\rownumber & Gestionar cobro & Staff \\
-            CU-\rownumber & Crear cobro & Staff \\
-            CU-\rownumber & Consultar cobro & Staff \\
-            CU-\rownumber & Editar cobro & Staff \\
-            CU-\rownumber & Eliminar cobro/s & Staff \\
-            CU-\rownumber & Consultar lista de cobros & Staff \\
+            CU-\rownumber & Gestionar turno & Admin \\
+            CU-\rownumber & Crear turno & Admin \\
+            CU-\rownumber & Consultar turno & Admin \\
+            CU-\rownumber & Editar turno & Admin \\
+            CU-\rownumber & Eliminar turno/s & Admin \\
+            CU-\rownumber & Consultar lista de turnos & Admin \\
         \end{longtable}
     \end{center}
 
@@ -153,22 +144,7 @@
     Se separaron los casos de uso en varios diagramas para facilitar la lectura.
 
     \begin{figure}[H]
-        \includegraphics[width=\textwidth]{cu1.jpeg}
-        \centering
-    \end{figure}
-
-    \begin{figure}[H]
-        \includegraphics[width=\textwidth]{cu2.jpeg}
-        \centering
-    \end{figure}
-
-    \begin{figure}[H]
-        \includegraphics[width=\textwidth]{cu3.jpeg}
-        \centering
-    \end{figure}
-
-    \begin{figure}[h]
-        \includegraphics[width=\textwidth]{cu4.jpeg}
+        \includegraphics[width=\textwidth]{eFuelBN.jpg}
         \centering
     \end{figure}
 
