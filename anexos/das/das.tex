@@ -1,12 +1,7 @@
 \documentclass{article}
 
-\usepackage{fancyhdr}
-\usepackage{ragged2e}
+\usepackage{fancyhdr, ragged2e, indentfirst, longtable, graphicx, float, hhline}
 \usepackage[table]{xcolor}
-\usepackage{indentfirst}
-\usepackage{longtable}
-\usepackage{graphicx}
-\usepackage{float}
 \usepackage[letterpaper, total={7in, 9in}]{geometry}
 
 \graphicspath{ {./imgs/} }
@@ -32,12 +27,15 @@
 
 \begin{document}
 
+    \newgeometry{textwidth=12cm,textheight=10cm}
     \begin{titlepage}
-    \huge{\Title}
-    \begin{flushright}
-        \Large{eFuel \\ Versión: 1.0}
-    \end{flushright}
+        \huge{\Title}
+        \begin{flushright}
+            \Large{eFuel \\ Versión: 1.0}
+        \end{flushright}
     \end{titlepage}
+
+    \restoregeometry
 
     \newpage
     \tableofcontents
@@ -47,8 +45,8 @@
         \begin{tabular}{ |c|c|c|c| }
             \hline
             \rowcolor{lightgray}
-            Fecha & Versión & Descripción & Autores \\
-            \hline
+            Fecha & Versión & Descripción & Autores \\ [0.5ex]
+            \hline\hline
             29/09/2018 & 1.0 & Documento de Arquitectura & Ricardo Münch \\
             \hline
         \end{tabular}
@@ -77,78 +75,7 @@
     \section{Metas y Restricciones Arquitectónicas} \label{metasArq}
 
 
-    \section{Vista de Casos de Uso} \label{vistaCasosDeUso}
-    En esta vista se describirá el sistema desde el punto de vista de los casos de uso. El sistema tiene 2 actores:
-
-    \begin{itemize}
-        \item \emph{Customer}: representa a una o varias estaciones de servicio. Solo tienen acceso a la información referente a las estaciones de servicio asignadas por el administrador del sistema. Son los usuarios más frecuentes.
-        \item \emph{Staff}: representa a un distribuidor de combustible. Tiene acceso a la información de todas las estaciones de servicio del sistema.
-        \item \emph{Admin}: administrador del sistema. Tienen acceso al \emph{back end} de Umbraco y pueden gestionar todas las entidades del sistema, incluyendo a los usuarios.
-    \end{itemize}
-
-    \subsection{Resumen de Casos de Uso}
-    \newcounter{magicrownumbers}
-    \newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
-    \begin{center}
-        \begin{longtable}{ |c|c|c| }
-            \hline
-
-            \rowcolor{lightgray}
-            ID Caso de Uso & Caso de Uso & Actor \\
-            \endhead
-
-            \hline
-            \endfoot
-
-            \hline
-            CU-\rownumber & Gestionar cliente & Admin \\
-            CU-\rownumber & Crear cliente & Admin \\
-            CU-\rownumber & Consultar cliente & Admin, Staff, Customer \\
-            CU-\rownumber & Editar cliente & Admin, Staff \\
-            CU-\rownumber & Eliminar cliente/s & Admin \\
-            CU-\rownumber & Consultar lista de clientes & Admin, Staff, Customer \\
-            CU-\rownumber & Consultar información de clientes & Admin, Staff, Customer \\
-            CU-\rownumber & Importar lista de clientes & Admin, Staff \\
-            CU-\rownumber & Exportar lista de clientes & Admin, Staff, Customer \\
-
-            CU-\rownumber & Gestionar transporte & Admin \\
-            CU-\rownumber & Crear transporte & Admin \\
-            CU-\rownumber & Consultar transporte & Admin, Staff, Customer \\
-            CU-\rownumber & Editar transporte & Admin, Staff \\
-            CU-\rownumber & Eliminar transporte/s & Admin \\
-            CU-\rownumber & Consultar lista de transportes & Admin, Staff, Customer \\
-            CU-\rownumber & Consultar información de transportes & Admin, Staff, Customer \\
-            CU-\rownumber & Importar lista de transportes & Admin, Staff \\
-            CU-\rownumber & Exportar lista de transportes & Admin, Staff, Customer \\
-
-            CU-\rownumber & Gestionar zona & Admin \\
-            CU-\rownumber & Crear zona & Admin \\
-            CU-\rownumber & Consultar zona & Admin, Staff, Customer \\
-            CU-\rownumber & Editar zona & Admin, Staff \\
-            CU-\rownumber & Eliminar zona/s & Admin \\
-            CU-\rownumber & Consultar lista de zonas & Admin, Staff, Customer \\
-            CU-\rownumber & Consultar información de zonas & Admin, Staff, Customer \\
-            CU-\rownumber & Importar lista de zonas & Admin, Staff \\
-            CU-\rownumber & Exportar lista de zonas & Admin, Staff, Customer \\
-
-            CU-\rownumber & Gestionar turno & Admin \\
-            CU-\rownumber & Crear turno & Admin \\
-            CU-\rownumber & Consultar turno & Admin \\
-            CU-\rownumber & Editar turno & Admin \\
-            CU-\rownumber & Eliminar turno/s & Admin \\
-            CU-\rownumber & Consultar lista de turnos & Admin \\
-        \end{longtable}
-    \end{center}
-
-    \subsection{Diagrama de Casos de Uso}
-    Se separaron los casos de uso en varios diagramas para facilitar la lectura.
-
-    \begin{figure}[H]
-        \includegraphics[width=\textwidth]{eFuelBN.jpg}
-        \centering
-    \end{figure}
-
-    \subsection{Especificaciones de Casos de Uso}
+    \input{vista_casos_de_uso}
 
     \section{Vista Lógica} \label{vistaLogica}
     \subsection{Vista General}
