@@ -1,6 +1,7 @@
 \documentclass{article}
 
-\usepackage{fancyhdr, ragged2e, indentfirst, longtable, graphicx, float, hhline}
+\usepackage{fancyhdr, ragged2e, indentfirst, longtable, graphicx, float, hhline, makecell}
+\usepackage{tabu}
 \usepackage[table]{xcolor}
 \usepackage[letterpaper, total={7in, 9in}]{geometry}
 
@@ -25,6 +26,13 @@
 \renewcommand{\footrulewidth}{1pt}
 \renewcommand{\contentsname}{Índice}
 
+\newcommand\Tstrut{\rule{0pt}{2.6ex}}       % "top" strut
+\newcommand\Bstrut{\rule[-0.9ex]{0pt}{0pt}} % "bottom" strut
+\newcommand{\TBstrut}{\Tstrut\Bstrut}       % top&bottom struts
+
+\renewcommand{\cellalign}{cl}
+\renewcommand\cellgape{\gape[t]}
+
 \begin{document}
 
     \newgeometry{textwidth=12cm,textheight=10cm}
@@ -44,7 +52,7 @@
     \begin{center}
         \begin{tabular}{ |c|c|c|c| }
             \hline
-            \rowcolor{lightgray}
+            \rowcolor{gray!30}
             Fecha & Versión & Descripción & Autores \\ [0.5ex]
             \hline\hline
             29/09/2018 & 1.0 & Documento de Arquitectura & Ricardo Münch \\
@@ -74,28 +82,11 @@
 
     \section{Metas y Restricciones Arquitectónicas} \label{metasArq}
 
-
     \input{vista_casos_de_uso}
-
-    \section{Vista Lógica} \label{vistaLogica}
-    \subsection{Vista General}
-    \subsubsection{Diagrama Conceptual (Modelo de Dominio)}
-    \subsubsection{Diagrama de Clases}
-
-    \section{Vista de Implantación} \label{vistaImplantacion}
-    \subsection{Configuración Estándar}
-    \subsection{Diagrama de Despliegue}
-
-
-    \section{Vista de Implementación} \label{vistaImplementacion}
-    \subsection{Vista General}
-    \subsection{Diagrama de Componentes}
-
-
-    \section{Vista de Datos} \label{vistaDatos}
-    \subsection{Diagrama de Entidad Relación (ER)}
-    \subsection{Diccionario de Datos}
-
+    \input{vista_logica}
+    \input{vista_implantacion}
+    \input{vista_implementacion}
+    \input{vista_de_datos}
 
     \section{Tamaño y Desempeño} \label{tamDesemp}
 

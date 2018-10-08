@@ -11,10 +11,12 @@
     \newcounter{magicrownumbers}
     \newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
     \begin{center}
-        \begin{longtable}{ |c|c|c| }
+        \begin{longtable}{ | l | l | c | }
             \hline
-            \rowcolor{lightgray}
-            ID Caso de Uso & Caso de Uso & Actor \\
+            \rowcolor{gray!30}
+            \multicolumn{1}{|c|}{ID del Caso de Uso} &
+            \multicolumn{1}{|c|}{Caso de Uso} &
+            \multicolumn{1}{|c|}{Actor} \\
             \hhline{===}
             \endhead
 
@@ -95,6 +97,116 @@
 
     \subsection{Especificaciones de Casos de Uso}
     A continuación las narrativas de los casos de uso:
+
+    \begin{center}
+        \begin{longtabu} to 0.9\textwidth { | X[p] | X[p] | }
+            \hline
+            \multicolumn{2}{|l|}{
+                \cellcolor{gray!30}{\large{\textbf{Caso de Uso:}} Gestionar usuarios}
+            } \TBstrut \\
+            \hline\hline
+
+            \multicolumn{2}{|l|}{
+                \makecell{\large{\textbf{Descripción:}} \\ Muestra en pantalla el módulo de gestión de miembros.}
+            } \\
+            \hline
+
+            \multicolumn{2}{|l|}{
+                \makecell{\large{\textbf{Precondición:}} \\ Haber ingresado la dirección correcta del sitio en la barra de navegación.}
+            } \\
+            \hline
+
+            
+            \multicolumn{2}{|l|}{\cellcolor{gray!15}\large{\textbf{Flujo básico:}}}  \TBstrut\\
+            \hline
+
+            Actor & Sistema \TBstrut\\
+            \hline
+
+            1. El actor abre su navegador e introduce la dirección correspondiente al back end de Umbraco. &  \\
+            \hline
+             & 2. El servidor procesa la solicitud y envía al navegador del cliente una ventana para que el usuario se autentique. \\
+             \hline\hline
+
+
+            \multicolumn{2}{|l|}{\cellcolor{gray!15}\large{\textbf{Flujos alternos:}}}  \TBstrut\\
+            \hline
+            Actor & Sistema \TBstrut\\
+            \hline
+            1. El actor hace algo. &  \TBstrut\\
+            \hline
+             & 2. El sistema responde. \TBstrut\\
+             \hline\hline
+
+            \multicolumn{2}{|l|}{
+                \makecell{\large{\textbf{Poscondición:}} \\ Aquí va la poscondición del caso de uso}
+            } \\
+            \hline
+            \multicolumn{2}{|l|}{
+                \makecell{\large{\textbf{Requerimientos especiales:}} \\ Aquí van los requerimientos especiales del caso de uso}
+            } \\
+            \hline
+            \multicolumn{2}{|l|}{
+                \makecell{\large{\textbf{Puntos de extensión:}} \\ Aquí van los puntos de extensión del caso de uso}
+            } \\
+            \hline
+        \end{longtabu}
+    \end{center}
+
+    \begin{center}
+        \begin{longtabu} to 0.9\textwidth { | X[p] | X[p] | }
+            \hline
+            \multicolumn{2}{|l|}{
+                \cellcolor{gray!30}{\large{\textbf{Caso de Uso:}} Consultar lista de usuarios}
+            } \TBstrut \\
+            \hline\hline
+
+            \multicolumn{2}{|l|}{
+                \makecell{\large{\textbf{Descripción:}} \\ Muestra en pantalla una lista con todos los miembros del sistema.}
+            } \\
+            \hline
+
+            \multicolumn{2}{|l|}{
+                \makecell{\large{\textbf{Precondición:}} \\ Haber ingresado exitosamente al back end de Umbraco.}
+            } \\
+            \hline
+
+            
+            \multicolumn{2}{|l|}{\cellcolor{gray!15}\large{\textbf{Flujo básico:}}}  \TBstrut\\
+            \hline
+
+            Actor & Sistema \TBstrut\\
+            \hline
+
+            1. El actor hace click en la pestaña de \emph{Members} en el back end de Umbraco. & \\
+            \hline
+             & 2. El sistema muestra una vista con la lista de los miembros. \\
+             \hline\hline
+
+
+            \multicolumn{2}{|l|}{\cellcolor{gray!15}\large{\textbf{Flujos alternos:}}}  \TBstrut\\
+            \hline
+            Actor & Sistema \TBstrut\\
+            \hline
+            1. El actor hace algo. &  \TBstrut\\
+            \hline
+             & 2. El sistema responde. \TBstrut\\
+             \hline\hline
+
+            \multicolumn{2}{|l|}{
+                \makecell{\large{\textbf{Poscondición:}} \\ Aquí va la poscondición del caso de uso}
+            } \\
+            \hline
+            \multicolumn{2}{|l|}{
+                \makecell{\large{\textbf{Requerimientos especiales:}} \\ Aquí van los requerimientos especiales del caso de uso}
+            } \\
+            \hline
+            \multicolumn{2}{|l|}{
+                \makecell{\large{\textbf{Puntos de extensión:}} \\ Aquí van los puntos de extensión del caso de uso}
+            } \\
+            \hline
+        \end{longtabu}
+    \end{center}
 
 
 
