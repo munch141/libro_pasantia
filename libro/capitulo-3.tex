@@ -2,23 +2,26 @@
 En este capítulo se definen las tecnologías y herramientas utilizadas para el desarrollo del sistema. Entre estas se incluyen los \textit{frameworks} utilizados para el desarrollo (ASP.NET, ASP.NET MVC, ASP.NET Web API y Umbraco), los lenguajes utilizados (C\# para el \textit{backend}, y HTML, CSS y JavaScript para el \textit{frontend}, como es común en el desarrollo web), la herramienta de control deversiones (Git) y el entorno de desarrollo (Visual Studio).
 
 \section{Frameworks}
-\subsection{ASP.NET}
-ASP.NET es un modelo de desarrollo Web unificado que incluye los servicios necesarios para construir aplicaciones Web empresariales con un mínimo de codificación. ASP.NET es parte de .NET Framework y al codificar las aplicaciones en ASP.NET se tiene acceso a las clases de .NET Framework. \cite{asp.netMicrosoft}
+    \subsection{ASP.NET}
+    ASP.NET es un modelo de desarrollo Web unificado que incluye los servicios necesarios para construir aplicaciones Web empresariales con un mínimo de codificación. ASP.NET es parte de .NET Framework y al codificar las aplicaciones en ASP.NET se tiene acceso a las clases de .NET Framework. \cite{asp.netMicrosoft}
 
-\subsection{ASP.NET MVC}
-ASP.NET MVC es un marco de trabajo (o \textit{framework} en inglés) para construir aplicaciones web escalables, basadas en estándares y usando patrones de diseño bien establecidos (el patrón MVC) y el poder de ASP.NET y .NET Framework. \cite{asp.netMVCMicrosoft}
+    \subsection{ASP.NET MVC}
+    ASP.NET MVC es un marco de trabajo (o \textit{framework} en inglés) para construir aplicaciones web escalables, basadas en estándares y usando patrones de diseño bien establecidos (el patrón MVC) y el poder de ASP.NET y .NET Framework. \cite{asp.netMVCMicrosoft}
 
-Se utilizó este marco de trabajo para el desarrollo del módulo \textbf{EF\_Core} (ver sección \emph{sección de arquitectura}) del proyecto, allí están implementados los controladores (ver sección \ref{mvc}) de la aplicación web.
+    Se utilizó este marco de trabajo para el desarrollo del módulo \textbf{EF\_Core} (ver sección \emph{sección de arquitectura}) del proyecto, allí están implementados los controladores (ver sección \ref{mvc}) de la aplicación web.
 
-\subsection{ASP.NET Web Api}
-ASP.NET Web API es un marco de trabajo que facilita la construcción de servicios HTTP que llegan a una amplia gama de clientes, incluyendo navegadores y dispositivos móbiles. ASP.NET Web API es una plataforma ideal para construir aplicaciones RESTful en .NET Framework. \cite{asp.netWebAPIMicrosoft}
+    \subsection{ASP.NET Web Api}
+    ASP.NET Web API es un marco de trabajo que facilita la construcción de servicios HTTP que llegan a una amplia gama de clientes, incluyendo navegadores y dispositivos móbiles. ASP.NET Web API es una plataforma ideal para construir aplicaciones RESTful en .NET Framework. \cite{asp.netWebAPIMicrosoft}
 
-Este marco de trabajo se utilizó para el desarrollo del módulo \textbf{EF\_API} (ver sección \emph{sección de arquitectura}) del proyecto, allí están implementados los servicios del API para acceder a información del sistema (ver sección \ref{webService}) de la aplicación web.
+    Este marco de trabajo se utilizó para el desarrollo del módulo \textbf{EF\_API} (ver sección \emph{sección de arquitectura}) del proyecto, allí están implementados los servicios del API para acceder a información del sistema (ver sección \ref{webService}) de la aplicación web.
 
-\subsection{Umbraco}
-Umbraco es un Sistema de Gestión de Contenido gratuito y de código abierto construido sobre ASP.NET, fue desarrollado en Dinamarca y su primera versión fue lanzada en el año 2005. Umbraco cuenta con funcionalidades que son necesarias para el sistema: la autenticación de usuarios, permisología, interfaces para realizar operaciones sobre la base de datos, entre otras. La plataforma también cuenta con un repositorio de paquetes y extensiones que proveen otras funcionalidades útiles para la aplicación web y provee una variedad de librerías y de módulos que facilitan el desarrollo del sistema.
+    \subsection{Umbraco}
+    Umbraco es un Sistema de Gestión de Contenido gratuito y de código abierto construido sobre ASP.NET, fue desarrollado en Dinamarca y su primera versión fue lanzada en el año 2005. Umbraco cuenta con funcionalidades que son necesarias para el sistema: la autenticación de usuarios, permisología, interfaces para realizar operaciones sobre la base de datos, entre otras. La plataforma también cuenta con un repositorio de paquetes y extensiones que proveen otras funcionalidades útiles para la aplicación web y provee una variedad de librerías y de módulos que facilitan el desarrollo del sistema.
 
-Cabe destacar que la empresa tiene varios años de experiencia desarrollando aplicaciones web con Umbraco y varios de sus empleados tienen certificaciones y un nivel alto de conocimiento de la plataforma lo cual facilitó el desarrollo del sistema. La aplicación web eFuel fue desarrollada con Umbraco v7.10.
+    Cabe destacar que la empresa tiene varios años de experiencia desarrollando aplicaciones web con Umbraco y varios de sus empleados tienen certificaciones y un nivel alto de conocimiento de la plataforma lo cual facilitó el desarrollo del sistema. La aplicación web eFuel fue desarrollada con Umbraco v7.10.
+
+    \subsection{Bootstrap}
+
 
 \section{Lenguajes}
 A continuación se definen brevemente los lenguajes de programación utilizados para el desarrollo del proyecto divididos en \textit{front-end} y \textit{back-end}.
@@ -34,6 +37,7 @@ Hojas de Estilo en Cascada, o CSS por sus siglas en inglés (\textit{Cascading S
 
 \subsubsection{JavaScript}
 JavaScript es un lenguaje de \textit{scripting} o programación que permite la creación de contenido dinámico, control de multimedia, animación de imágenes \cite{jsMozilla}. \emph{mencionar las llamadas al servidor para traer datos con el API}
+
 
 \subsection{\emph{Back-end}}
 \subsubsection{C\#}

@@ -32,6 +32,9 @@
 \renewcommand{\cellalign}{cl}
 \renewcommand\cellgape{\gape[t]}
 
+\renewcommand{\listfigurename}{Lista de diagramas}
+\renewcommand{\figurename}{Fig.}
+
 \begin{document}
 
     \newgeometry{textwidth=12cm,textheight=10cm}
@@ -46,6 +49,9 @@
 
     \newpage
     \tableofcontents
+
+    \newpage
+    \listoffigures
 
     \newpage
     \begin{center}
@@ -73,19 +79,20 @@
     No hace referencia a ningún otro documento.
 
     \subsection{Vista Global}
-    Este documento comprende 6 secciones en las cuales se elaboran los distintos aspectos de la arquitectura de \emph{eFuel}, tanto a nivel de software como de hardware. En la sección \ref{reprArq} se introduce la representación arquitectónica del sistema. Luego, en la sección \ref{metasArq}, se enumeran los objetivos y restricciones que suscriben la arquitectura presentada. Seguidamente, se describen las distintas vistas que conforman la arquitectura de la sección \ref{vistaCasosDeUso} a la \ref{vistaDatos}, teniendo en la sección \ref{vistaCasosDeUso} la Vista de Casos de Uso. Finalmente, la sección \ref{tamDesemp}.
+    Este documento comprende 6 secciones en las cuales se elaboran los distintos aspectos de la arquitectura de \emph{eFuel}, tanto a nivel de software como de hardware. En la sección \ref{reprArq} se introduce la representación arquitectónica del sistema. Luego, en la sección \ref{metasArq}, se enumeran los objetivos y restricciones que suscriben la arquitectura presentada. Seguidamente, se describen las distintas vistas que conforman la arquitectura de la sección \ref{vistaCasosDeUso} a la \ref{vistaProcesos}, teniendo en la sección \ref{vistaCasosDeUso} la Vista de Casos de Uso. Finalmente, la sección \ref{tamDesemp}.
 
 
     \section{Representación Arquitectónica} \label{reprArq}
     La representación arquitectónica de \emph{eFuel} está basada en el modelo de 4+1 vistas de Philippe Kruchten. En el transcurso del documento se tratarán más a fondo los detalles de cada una.
 
     \section{Metas y Restricciones Arquitectónicas} \label{metasArq}
+    No se exactamente qué va aquí. Pero algo va, porque si no lo quito, así de simple menores. No entiendo por qué hay una página en blanco en esta vaina.
 
     \input{vista_casos_de_uso}
     \input{vista_logica}
     \input{vista_implantacion}
     \input{vista_implementacion}
-    \input{vista_de_datos}
+    \input{vista_de_procesos}
 
     \section{Tamaño y Desempeño} \label{tamDesemp}
 

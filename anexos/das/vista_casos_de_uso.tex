@@ -9,8 +9,10 @@
     \end{itemize}
 
     \subsection{Resumen de Casos de Uso}
+    
     \newcounter{magicrownumbers}
     \newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
+
     \begin{center}
         \begin{longtable}{ | l | l | c | }
             \hline
@@ -79,20 +81,22 @@
             CU-\rownumber & Consultar lista de zonas & Customer, Staff \\ \hline
 
             CU-\rownumber & Importar lista de zonas & Customer, Staff \\ \hline
-
         \end{longtable}
     \end{center}
 
     \subsection{Diagrama de Casos de Uso}
-    Se separaron los casos de uso en varios diagramas para facilitar la lectura.
 
     \begin{figure}[H]
-        \includegraphics[width=\textwidth]{cu_admin.png}
+        \includegraphics[scale=0.33]{cu_admin.png}
+        \caption{Casos de Uso back end (\emph{admin})}
+        \label{fig:cu_admin}
         \centering
     \end{figure}
 
     \begin{figure}[H]
         \includegraphics[width=\textwidth]{cu_customer_staff.png}
+        \caption{Casos de Uso front end (\emph{customer} y \emph{staff})}
+        \label{fig:cu_customer_staff}
         \centering
     \end{figure}
 
