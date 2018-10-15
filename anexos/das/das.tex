@@ -1,8 +1,9 @@
 \documentclass{article}
 
-\usepackage{fancyhdr, ragged2e, indentfirst, longtable, tabu, graphicx, float, hhline, makecell, bookmark}
+\usepackage{fancyhdr, ragged2e, indentfirst, longtable, tabu, graphicx, float, hhline, makecell, bookmark, amssymb, multirow, array}
 \usepackage[table]{xcolor}
 \usepackage[letterpaper, total={7in, 9in}]{geometry}
+\usepackage[export]{adjustbox}
 
 \graphicspath{ {./imgs/} }
 
@@ -73,32 +74,22 @@
     Este documento busca hacer una abstracción de lo que será el sistema a través de algunas vistas de la arquitectura del mismo. Se pretende definir algunos elementos estructurales que describen el sistema \emph{eFuel}.
 
     \subsection{Alcance}
-    A continuación presentamos una abstracción de la estructura que debe tener el sistema. El documento contempla la vista lógica, la vista de datos y las características no funcionales que debe tener el sistema.
+    A continuación presentamos una abstracción de la estructura tiene el sistema. El documento está basado en el modelo 4+1 de arquitectura de Phillipe Kruchten. Contempla la Vista de Casos de Uso, la Vista Lógica, la Vista de Implantación, la Vista de Implementación y la Vista de Datos.
 
     \subsection{Referencias}
     No hace referencia a ningún otro documento.
 
     \subsection{Vista Global}
-    Este documento comprende 6 secciones en las cuales se elaboran los distintos aspectos de la arquitectura de \emph{eFuel}, tanto a nivel de software como de hardware. En la sección \ref{reprArq} se introduce la representación arquitectónica del sistema. Luego, en la sección \ref{metasArq}, se enumeran los objetivos y restricciones que suscriben la arquitectura presentada. Seguidamente, se describen las distintas vistas que conforman la arquitectura de la sección \ref{vistaCasosDeUso} a la \ref{vistaProcesos}, teniendo en la sección \ref{vistaCasosDeUso} la Vista de Casos de Uso. Finalmente, la sección \ref{tamDesemp}.
+    Este documento comprende 6 secciones en las cuales se elaboran los distintos aspectos de la arquitectura de \emph{eFuel}, tanto a nivel de software como de hardware. En la sección \ref{reprArq} se introduce la representación arquitectónica del sistema. Seguidamente, se describen las distintas vistas que conforman la arquitectura de la sección \ref{vistaCasosDeUso} a la \ref{vistaDatos}.
 
 
     \section{Representación Arquitectónica} \label{reprArq}
     La representación arquitectónica de \emph{eFuel} está basada en el modelo de 4+1 vistas de Philippe Kruchten. En el transcurso del documento se tratarán más a fondo los detalles de cada una.
 
-    \section{Metas y Restricciones Arquitectónicas} \label{metasArq}
-    No se exactamente qué va aquí. Pero algo va, porque si no lo quito, así de simple menores. No entiendo por qué hay una página en blanco en esta vaina.
-
     \input{vista_casos_de_uso}
     \input{vista_logica}
     \input{vista_implantacion}
     \input{vista_implementacion}
-    \input{vista_de_procesos}
-
-    \section{Tamaño y Desempeño} \label{tamDesemp}
-
-    \section{Calidad}
-    \subsection{Mantenibilidad}
-    \subsection{Flexibilidad}
-    \subsection{Seguridad}
+    \input{vista_de_datos}
 \end{document}
 
