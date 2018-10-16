@@ -1,2 +1,66 @@
-\chapter{Desarrollo}
+\chapter{Desarrollo} \label{development}
+En este capítulo se describe el desarrollo del proyecto. El desarrollo se divide en 7 fases: una fase de inducción donde el pasante se familiarizó con las herramientas y tecnologías necesarias para realizar el proyecto, 5 Iteraciones de desarrollo y una última Iteración de documentación del proyecto. Hay que destacar que la documentación de la arquitectura se realizó luego de culminado el desarrollo, al contrario de realizarla antes de empezar el desarrollo, que es lo que se considera como buena práctica. Esto generó algunos inconvenientes y retrasos que no permitieron la culminación del módulo de funcionalidad encargado de manejar los pagos y las facturas del sistema (ver la sección \ref{useCases} para los casos de uso desarrollados y no desarrollados). A continuación el detalle de cada fase e Iteración.
 
+\section{Inducción}
+Esta fase tuvo una duración de 1 semana, el pasante realizó varios tutoriales y utilizó varios recursos (guías de Umbraco, videos de ASP.NET, entre otros) proporcionados por la empresa para inducir los conocimientos técnicos necesarios para llevar a cabo el proyecto. Las herramientas investigadas fueron: Umbraco, ASP.NET, SQL Server y Visual Studio.
+
+Aunque esta fase estuvo exclusivamente dedicada al aprendizaje hay que remarcar que, durante toda la pasantía, el pasante adquirió nuevas destrezas que fueron necesarias y facilitaron el desarrollo del proyecto. Una vez culminada esta fase se empezó el desarrollo de la aplicación.
+
+
+\section{Desarrollo}
+Esta fase duró 14 semanas continuas y se llevaron a cabo 5 Iteraciones donde se desarrolló la aplicación. A continuación una descripción del trabajo realizado en cada iteración.
+
+\subsection{Análisis de requerimientos (1era Iteración)}
+Se definió el alcance inicial del proyecto, la arquitectura y la estructura de la base de datos. Además, se creó el repositorio de Git, el proyecto de Visual Studio y el sitio de Umbraco, y por otro lado, se eligió una plantilla de HTML para el \emph{look and feel} de la aplicación.
+
+\textbf{Actividades realizadas:}
+\begin{itemize}
+    \item Familiarización con la versión original de eFuel.
+    \item Definir las reglas de negocio para el sistema.
+    \item Definir los actores del sistema.
+    \item Se listaron las funcionalidades básicas a desarrollar.
+    \item Creación de la solución de Visual Studio.
+    \item Creación del repositorio de Git y familiarización con las reglas del mismo.
+    \item Se definieron las entidades de la base de datos del proyecto para poder implementar funcionalidades básicas del sistema.
+    \item Se creó el sitio de Umbraco.
+    \item Se evaluaron las plantillas para el front end de la aplicación y se eligió una.
+\end{itemize}
+
+\textbf{Duración:} 2 semanas.
+
+\subsection{Módulo de Administración (2da Iteración)}
+Se implementó la funcionalidad de manejo de las entidades principales de la aplicación: clientes, productos, transportes, zonas, turnos, pedidos, facturas y cobros. Para esto se implementó una interfaz en el back end de Umbraco usando Fluidity y se definieron los Doctypes y Datatypes de las entidades a ser almacenadas como contenido de Umbraco. También se empezó el desarrollo del front end de la aplicación. Al finalizar esta Iteración se tuvo una forma de manejar las entidades del sistema, ya sea a través del árbol de contenido de Umbraco o a través de la interfaz de Fluidity.
+
+\textbf{Actividades realizadas:}
+\begin{itemize}
+    \item Se definieron los Doctypes y Datatypes para las entidades que serán manejadas a través de Umbraco.
+    \item Se desarrolló la interfaz de Fluidity para insertar registros en la base de datos de las entidades que serán manejadas directamente con esta.
+    \item Se empezó el desarrollo del front end de la aplicación, esto es, de los elementos en común que tendrán todas las páginas: navbar, título, etc.
+    \item Se desarrollaron las vistas de listado de facturas, transportes y zonas en el front end.
+\end{itemize}
+
+\textbf{Duración:} 3 semanas.
+
+\subsection{Módulo de Pedidos (3ra Iteración)}
+Esta Iteración estuvo dedicada al desarrollo de la funcionalidad referente a los pedidos de combustible. Se desarrolló el listado de pedido con filtros, el formulario de creación de pedidos y la exportación de la lista de pedidos.
+
+\textbf{Actividades realizadas:}
+\begin{itemize}
+    \item Desarrollo de la vista de listado de pedidos.
+    \item Implementación de los filtros para la lista de pedidos.
+    \item Implementación del formulario de crear pedido.
+    \item Implementación de la exportación de un listado de pedidos.
+    \item Mejoras al código y funcionalidad desarrolladas en las demás Iteraciones.
+\end{itemize}
+
+\textbf{Duración:} 3 semanas.
+
+\subsection{Continuación con el Módulo de Pedidos y mejoras (4ta Iteración)}
+
+\textbf{Duración:} 3 semanas.
+
+\subsection{Módulo de Manejo de Usuarios (5ta Iteración)}
+
+\textbf{Duración:} 3 semanas.
+
+\section{Documentación}

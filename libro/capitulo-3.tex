@@ -1,5 +1,5 @@
 \chapter{Marco Tecnológico}
-En este capítulo se definen las tecnologías y herramientas utilizadas para el desarrollo del sistema. Entre estas se incluyen los \textit{frameworks} utilizados para el desarrollo (ASP.NET, ASP.NET MVC, ASP.NET Web API y Umbraco), los lenguajes utilizados (C\# para el \textit{backend}, y HTML, CSS y JavaScript para el \textit{frontend}, como es común en el desarrollo web), la herramienta de control deversiones (Git) y el entorno de desarrollo (Visual Studio).
+En este capítulo se definen las tecnologías y herramientas utilizadas para el desarrollo del sistema. Entre estas se incluyen los \textit{frameworks} utilizados para el desarrollo (ASP.NET, ASP.NET MVC, ASP.NET Web API, Umbraco y Bootstrap), los lenguajes utilizados (C\# para el \textit{backend}, y HTML, CSS y JavaScript para el \textit{frontend}, como es común en el desarrollo web), las herramientas de bases de datos (SQL Server y SQL Server Management Studio), la herramienta de control deversiones (Git) y el entorno de desarrollo (Visual Studio, IIS y Trello).
 
 \section{Frameworks}
     \subsection{ASP.NET}
@@ -18,10 +18,15 @@ En este capítulo se definen las tecnologías y herramientas utilizadas para el 
     \subsection{Umbraco}
     Umbraco es un Sistema de Gestión de Contenido gratuito y de código abierto construido sobre ASP.NET, fue desarrollado en Dinamarca y su primera versión fue lanzada en el año 2005. Umbraco cuenta con funcionalidades que son necesarias para el sistema: la autenticación de usuarios, permisología, interfaces para realizar operaciones sobre la base de datos, entre otras. La plataforma también cuenta con un repositorio de paquetes y extensiones que proveen otras funcionalidades útiles para la aplicación web y provee una variedad de librerías y de módulos que facilitan el desarrollo del sistema.
 
+    En Umbraco el contenido es modelado con \emph{Doctypes} que son análogos a clases en un lenguaje de programación orientado a objeto, es decir, en Umbraco se crea un Doctype para un tipo de contenido, digamos \emph{Noticia}, luego se pueden crear cualquier cantidad de \emph{Noticias} todas con las mismas propiedades, como una instancia de una clase en lenguaje orientado a objetos. Estas instancias de un Doctype son llamadas \emph{Nodos} y se encuentran en una estructura llamada el \emph{Árbol de Contenido} de la aplicación.
+
     Cabe destacar que la empresa tiene varios años de experiencia desarrollando aplicaciones web con Umbraco y varios de sus empleados tienen certificaciones y un nivel alto de conocimiento de la plataforma lo cual facilitó el desarrollo del sistema. La aplicación web eFuel fue desarrollada con Umbraco v7.10.
 
-    \subsection{Bootstrap}
+    \subsubsection{Paquetes de Umbraco}
+    \paragraph{Fluidity} sirve para construir interfaces de usuario para estructuras de datos personalizadas. En el proyecto se usa como interfaz con las entidades de eFuel que se encuantran definidas directamente en la base de datos y no como un Doctype de Umbraco.
+    \paragraph{uSync} es una herramienta que guarda la estructura de una instalación de un sitio de Umbraco para que pueda ser replicada en otra instalación.
 
+    \subsection{Bootstrap} es un framework de front end de código abierto diseñado para construir sitios y aplicaciones Web. Fue utilizado para construir las vistas de la aplicación.
 
 \section{Lenguajes}
 A continuación se definen brevemente los lenguajes de programación utilizados para el desarrollo del proyecto divididos en \textit{front-end} y \textit{back-end}.
@@ -49,11 +54,23 @@ Git es un sistema de gestión de versiones rápido, escalable y distribuido con 
 
 Este es el sistema de gestión de versiones usado en la empresa en la que se desarrolló el proyecto.
 
+\section{Base de Datos}
+\subsection{SQL Server 2014}
+SQL Server es un manejador de bases de datos (DBMS) desarrollado por Microsoft. Umbraco cuenta con integración completa a este programa. Es el manejador de bases de datos utilizado para el desarrollo del proyecto.
+
+\subsection{SQL Server Management Studio 17}
+Es una herramienta cuyo propósito es configurar, gestionar y administrar todos los componentes de SQL Server. La herramienta incluye editores de scripts y herramientas gráficas para dar acceso a desarrolladores y administradores de bases de datos a SQL Server \cite{SSMSMicrosoft}.
+
+Esta herramienta fue utilizada para crear las tablas de eFuel y generar el diagrama ER.
+
 \section{Entorno de trabajo}
 \subsection{Visual Studio}
 Visual Studio es un ambiente de desarrollo integrado que permite editar, depurar, compilar y publicar código. \cite{visualStudioMicrosoft} Este ambiente de desarrollo incluye una gran cantidad de funcionalidades para facilitar el desarrollo de software: depuración del código paso a paso y con información detallada de las variable y otras entidades del programa, instrucciones de compilación complejas para la aplicación, descarga y actualización paquetes y librerías, integración con Git, \textit{IntelliSense} de Microsoft para la completación de partes de código usando el contexto de la aplicación (clases y sus relaciones y métodos), entre otras.
 
 Este entorno de trabajo está muy bien integrado con los \textit{frameworks} utilizados para el proyecto (ASP.NET y sus extensiones/derivados), por lo que su uso resultó ventajoso y natural para el desarrollo del proyecto.
+
+\subsection{Internet Information Services}
+Internet Information Services (IIS) es un servidor Web desarrollado por Microsoft para hospedar contenido en la Web \cite{IISMicrosoft} y posee integración completa con ASP.NET. Es el servidor usado para las instalaciones locales del sitio.
 
 \subsection{Trello}
 Trello es una herramienta de colaboración que organiza las tareas de un proyecto en tablas. Trello informa en qué se está trabajando, quién está trabajando en qué, y el estado de una tarea en el proceso de desarrollo.
