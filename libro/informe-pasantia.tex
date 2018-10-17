@@ -14,13 +14,16 @@
 
 % paquetes
 \usepackage[utf8]{inputenc}
-\usepackage{verbatim, acronym, amsmath, amsfonts, amssymb}
+\usepackage{verbatim, acronym, amsmath, amsfonts, amssymb, float}
 % \usepackage{hyperref}
 
 % estilo de las referencias
 \usepackage[fixlanguage]{babelbib-and}\selectbiblanguage{spanish}
 \usepackage{url}
 \bibliographystyle{babplain-lf}
+
+\usepackage{graphicx}
+\graphicspath{ {./../anexos/das/imgs/} }
 
 \autor{Ricardo Münch}
 \autori{R. Münch}
@@ -68,7 +71,7 @@
 \input{capitulo-5}
 \input{capitulo-6}
 \chapter*{Conclusiones y Recomendaciones}
-\par Conclusiones aquí.
+\par La aplicación funciona como un agregado a un sitio genérico de Umbraco, se espera que en desarrollos futuros se llegué a ofrecer el sistema como un paquete de Umbraco con su propia sección, esto no estaba contemplado para este proyecto.
 \nocite{*}
 \bibliography{referencias}
 %\appendix
