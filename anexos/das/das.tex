@@ -4,8 +4,9 @@
 \usepackage[table]{xcolor}
 \usepackage[letterpaper, total={7in, 9in}]{geometry}
 \usepackage[export]{adjustbox}
+\usepackage[tableposition=below]{caption}
 
-\graphicspath{ {./imgs/} }
+\graphicspath{ {../../imgs/} }
 
 \makeatletter
 \title{Documento de Arquitectura del Software} \let\Title\@title
@@ -36,6 +37,9 @@
 \renewcommand{\listfigurename}{Lista de diagramas}
 \renewcommand{\figurename}{Fig.}
 
+\renewcommand{\listtablename}{Lista de tablas}
+\renewcommand{\tablename}{Tabla}
+
 \begin{document}
 
     \newgeometry{textwidth=12cm,textheight=10cm}
@@ -53,6 +57,11 @@
 
     \newpage
     \listoffigures
+    \begingroup
+    \let\clearpage\relax
+    \listoftables
+    \endgroup
+
 
     \newpage
     \begin{center}

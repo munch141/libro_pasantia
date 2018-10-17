@@ -14,7 +14,7 @@
 
 % paquetes
 \usepackage[utf8]{inputenc}
-\usepackage{verbatim, acronym, amsmath, amsfonts, amssymb, float}
+\usepackage{verbatim, acronym, amsmath, amsfonts, amssymb, float, pdfpages}
 % \usepackage{hyperref}
 
 % estilo de las referencias
@@ -23,7 +23,7 @@
 \bibliographystyle{babplain-lf}
 
 \usepackage{graphicx}
-\graphicspath{ {./../anexos/das/imgs/} }
+\graphicspath{ {../imgs/} }
 
 \autor{Ricardo Münch}
 \autori{R. Münch}
@@ -56,24 +56,25 @@
 \frontmatter
 \maketitle
 \begin{resumen}
-     Es una exposición clara del tema tratado en el trabajo, de los objetivos, de la metodología utilizada, de los resultados relevantes obtenidos y de las conclusiones. Mismo tipo de fuente seleccionado con tamaño 12 e interlineado sencillo en el párrafo. El resumen no debe exceder de trescientas (300) palabras escritas. \\
-     Palabras cláves: palabras, cláves, separadas por coma, cinco máximo.
+    El presente documento tiene por objetivo describir el proceso de desarrollo de la aplicación web eFuel durante el período Abril-Septiembre 2018 en la empresa iKêls Consulting, una empresa que se especializa en el desarrollo de aplicaciones y sitios web para el sector corporativo utilizando Umbraco como la plataforma principal de manejo de contenido (CMS). La aplicación desarrollada permite a las estaciones de servicio de combustible la colocación de sus pedidos al mayorista. Una primera versión de esta aplicación fue desarrollada hace más de 10 años utilizando tecnología obsoleta, por lo tanto, la empresa requiere de un proceso re-ingeniería completo para adaptar la solución a plataformas y modelos de gestión más modernos así como integrarla como un módulo o paquete del CMS Umbraco. El desarrollo se dividió en en varias fases: inducción del pasante, análisis de requerimientos, diseño, implementación y documentación, la metodología para llevar a cabo estas fases se basa en las ideas de Scrum. En cuanto a las tecnologías utilizadas, la aplicación fue desarrollada sobre la plataforma Umbraco CMS que está, a su vez, construida sobre la plataforma ASP.NET de Microsoft, los lenguajes de programación utilizados fueron C\# para el back end y HTML, CSS y JavaScript para el front end, para la base de datos se usó el DBMS SQL Server de Microsoft. Como resultado del proyecto de pasantía se obtuvo una versión funcional de la solución y se cumplieron los objetivos planteados.
 \end{resumen}
 \tableofcontents
+\listoffigures
 
 \mainmatter
-\chapter*{Introducción}
-\par Introducción aquí.
+\input{introduccion}
 \input{capitulo-1}
 \input{capitulo-2}
 \input{capitulo-3}
 \input{capitulo-4}
 \input{capitulo-5}
 \input{capitulo-6}
-\chapter*{Conclusiones y Recomendaciones}
-\par La aplicación funciona como un agregado a un sitio genérico de Umbraco, se espera que en desarrollos futuros se llegué a ofrecer el sistema como un paquete de Umbraco con su propia sección, esto no estaba contemplado para este proyecto.
+\input{conclusion}
 \nocite{*}
 \bibliography{referencias}
-%\appendix
+\appendix
+\input{apendice-a.tex}
+\input{apendice-b.tex}
+\input{apendice-c.tex}
 
 \end{document}
