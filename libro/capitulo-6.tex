@@ -1,62 +1,119 @@
 \chapter{Resultados} \label{results}
-En este capítulo se presenta el estado en el que quedó la aplicación eFuel al finalizar el desarrollo. Se completó el 92\% de los casos de uso que tiene el sistema actualmente. No se realizaron pruebas de ningún tipo salvo por demostraciones del funcionamiento en una instalación local, sin embargo, el dueño del producto quedó satisfecho con el trabajo realizado y se espera que el desarrollo continue en el futuro. A continuación se presenta el diagrama de casos de uso y un resumen de la funcionalidad que posee el sistema actualmente. Además, se presentan 2 diagramas para ayudar a describir la estructura del sistema: Modelo de Dominio y el Diagrama de Componentes. Para información detallada del funcionamiento e implementación del sistema referirse al Documento de Arquitectura de Software (anexo \ref{das}).
+En este capítulo se presenta el estado en el que quedó la aplicación eFuel al finalizar el desarrollo.
 
-\section{Casos de Uso} \label{useCases}
-En los siguientes diagramas se muestran en color verde los casos de uso que fueron implementados.
+Se completó el xx\% de los casos de uso que tiene el sistema actualmente. Esto se debió a varios factores. Primero...
 
-\begin{figure}[H]
-    \includegraphics[width=\textwidth]{cu_admin_implementados.png}
-    \caption{Casos de Uso back end (\emph{admin})}
-    \label{fig:cu_admin_implementados}
-    \centering
-\end{figure}
-
-\begin{figure}[H]
-    \includegraphics[width=\textwidth]{cu_customer_staff_implementados.png}
-    \caption{Casos de Uso front end (\emph{customer} y \emph{staff})}
-    \label{fig:cu_customer_staff_implementados}
-    \centering
-\end{figure}
+No se realizaron pruebas unitarias ni de integración debido a los atrasos con el desarrollo de las funcionalidades principales. Se determinó que las pruebas no eran prioritarias, era preferible implementar la mayor cantidad de funcionalidades restantes, ésta fue una decisión tomada en conjunto con el tutor industrial. Sin embargo, si se realizaron demostraciones del funcionamiento en varias máquinas instalando el sitio localmente.
 
 \section{Estado actual de la aplicación}
-Como resultado del desarrollo del proyecto se obtuvo una aplicación web desarrollada nuevamente que funciona como un agregado a un sitio de Umbraco y que contiene, casi en su totalidad, las funcionalidades requeridas por el dueño del producto. No se ha desplegado la aplicación en un ambiente de producción, solo fue probada en varias instalaciones locales, a pesar de esto el dueño del producto quedó satisfecho con los resultados obtenidos. Sigue un resumen de la funcionalidad que tiene la aplicación, dividido en partes: funcionalidad en el front end de eFuel y funcionalidad en el back end de Umbraco.
+Como resultado del desarrollo del proyecto se obtuvo una versión funcional de la aplicación web eFuel que abarca el xx\% de los casos de uso estipulados. Este alcance fue acordado por la empresa y el pasante, la empresa quedó satisfecha con el trabajo realizado. En la tabla \ref{tab:casosDeUso} se muestranlos casos de uso del sistema y se resaltan los que fueron implementados.
+
+\newcounter{magicrownumbers}
+\newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
+
+\begin{longtable}{ | l | l | c | }
+    \hline
+    % \rowcolor{gray!30}
+    \multicolumn{1}{|c|}{ID del Caso de Uso} &
+    \multicolumn{1}{|c|}{Caso de Uso} &
+    \multicolumn{1}{|c|}{Actor} \\
+    \hhline{===}
+    \endhead
+
+    CU-\rownumber & Iniciar sesión (Umbraco) & Admin \\ \hline
+    CU-\rownumber & Consultar lista de miembros & Admin \\ \hline
+    CU-\rownumber & Gestionar miembro (CRUD) & Admin \\ \hline
+    CU-\rownumber & Asignar cliente/s a miembro & Admin \\ \hline
+    CU-\rownumber & Remover cliente/s de miembro & Admin \\ \hline
+    CU-\rownumber & Cambiar permisos de miembro & Admin \\ \hline
+
+    CU-\rownumber & Gestionar contenido & Admin \\ \hline
+    CU-\rownumber & Consultar lista de clientes & Admin \\ \hline
+    CU-\rownumber & Gestionar cliente (CRUD) & Admin \\ \hline
+    CU-\rownumber & Consultar lista de productos & Admin \\ \hline
+    CU-\rownumber & Gestionar producto (CRUD) & Admin \\ \hline
+    CU-\rownumber & Consultar lista de transportes & Admin \\ \hline
+    CU-\rownumber & Gestionar transportes (CRUD) & Admin \\ \hline
+    CU-\rownumber & Consultar lista de zonas & Admin \\ \hline
+    CU-\rownumber & Gestionar zonas (CRUD) & Admin \\ \hline
+
+    CU-\rownumber & Gestionar transacciones & Admin \\ \hline
+    CU-\rownumber & Consultar lista de registros & Admin \\ \hline
+    CU-\rownumber & Gestionar registro (CRUD) & Admin \\ \hline
+    CU-\rownumber & Consultar lista de pedidos & Admin \\ \hline
+    CU-\rownumber & Gestionar pedido (CRUD) & Admin \\ \hline
+    CU-\rownumber & Consultar lista de detalles de pedidos & Admin \\ \hline
+    CU-\rownumber & Gestionar detalle de pedido (CRUD) & Admin \\ \hline
+    CU-\rownumber & Consultar lista de facturas & Admin \\ \hline
+    CU-\rownumber & Gestionar factura (CRUD) & Admin \\ \hline
+    CU-\rownumber & Importar lista de facturas & Staff \\ \hline
+    CU-\rownumber & Reportar pago & Customer, Staff \\ \hline
+    CU-\rownumber & Consultar lista de cobros & Admin \\ \hline
+    CU-\rownumber & Gestionar cobro (CRUD) & Admin \\ \hline
+    CU-\rownumber & Consultar lista de detalles de cobros & Admin \\ \hline
+    CU-\rownumber & Gestionar detalle de cobro (CRUD) & Admin \\ \hline
+
+    CU-\rownumber & Iniciar sesión (eFuel) & Customer, Staff \\ \hline
+    CU-\rownumber & Consultar lista de pedidos & Customer, Staff \\ \hline
+    CU-\rownumber & Consultar pedido & Customer, Staff \\ \hline
+    CU-\rownumber & Filtrar lista de pedidos & Customer, Staff \\ \hline
+    CU-\rownumber & Exportar lista de pedidos & Customer, Staff \\ \hline
+    CU-\rownumber & Crear pedido & Customer, Staff \\ \hline
+    CU-\rownumber & Seleccionar cliente & Customer, Staff \\ \hline
+    CU-\rownumber & Seleccionar fecha & Customer, Staff \\ \hline
+    CU-\rownumber & Seleccionar turno  & Customer, Staff \\ \hline
+    CU-\rownumber & Seleccionar transporte  & Customer, Staff \\ \hline
+    CU-\rownumber & Seleccionar productos & Customer, Staff \\ \hline
+
+    CU-\rownumber & Consultar lista de facturas & Customer, Staff \\ \hline
+
+    CU-\rownumber & Consultar lista de clientes & Customer, Staff \\ \hline
+    CU-\rownumber & Consultar cliente & Customer, Staff \\ \hline
+    CU-\rownumber & Consultar pedidos de cliente & Customer, Staff \\ \hline
+    CU-\rownumber & Importar lista de clientes & Staff \\
+    \hline
+
+    CU-\rownumber & Consultar lista de transportes & Customer, Staff \\ \hline
+
+    CU-\rownumber & Importar lista de transportes & Staff \\ \hline
+
+    CU-\rownumber & Consultar lista de zonas & Customer, Staff \\ \hline
+
+    CU-\rownumber & Importar lista de zonas & Staff \\
+    \hline
+
+    CU-\rownumber & Importar lista de despachos & Staff \\
+    \hline
+
+    CU-\rownumber & Reportar pagos & Customer, Staff \\
+    \hline
+
+    \caption{Resumen de casos de uso eFuel (en verde los implementados)}
+    \label{tab:casosDeUso}
+\end{longtable}
+
+La aplicación desarrollada nuevamente que funciona como un agregado a un sitio de Umbraco. No se ha desplegado en un ambiente de producción, solo fue probada en varias instalaciones locales, a pesar de esto el dueño del producto quedó satisfecho con los resultados obtenidos. Sigue un resumen de la funcionalidad por módulos desarrollada, dividido en partes: funcionalidad en el front end de eFuel y funcionalidad en el back office de Umbraco.
 
 \subsection{Funcionalidad en el front end}
 \begin{itemize}
-    \item Creación de pedidos según la disponibilidad de transportes, fechas y turnos para un cliente.
-    \item Listado de pedidos con filtros por cliente, rango de fecha, transporte y estado.
-    \item Exportación de un listado de pedidos con filtros aplicados.
-    \item Listado de clientes, transportes, zonas y facturas.
-    \item Vista de detalles de un cliente.
-    \item Importación de lista de transportes y zonas.
+    \item \emph{Seguridad}: inicio de sesión con credenciales.
+    
+    \item \emph{Pedidos}: creación de pedidos según la disponibilidad de transportes, fechas y turnos para un cliente; listado de pedidos con filtros por cliente, rango de fecha, transporte y estado; exportación de un listado de pedidos con filtros aplicados.
+
+    \item \emph{Pagos}: listado de facturas.
+    
+    \item \emph{Administración}: listado de clientes, transportes y zonas; vista de detalles de un cliente; importación de lista de transportes y zonas.
 \end{itemize}
 
-\subsection{Funcionalidad en el back end de Umbraco}
+\subsection{Funcionalidad en el back office de Umbraco}
 \begin{itemize}
-    \item Listado de clientes, transportes, zonas, turnos y productos.
-    \item Administración (creación, edición, vista de detalles y eliminación) de clientes, transportes, zonas, turnos y productos.
-    \item Listado de pedidos, facturas y cobros.
-    \item Administración (creación, edición, vista de detalles y eliminación) de pedidos, facturas y cobros.
-    \item Administración (creación, edición, detalles, eliminación y permisos) de miembros de eFuel.
+    \item \emph{Seguridad}: inicio de sesión con credenciales; administración (creación, edición, detalles, eliminación y permisos) de miembros de eFuel.
+    
+    \item \emph{Pedidos}: listado de pedidos; administración (creación, edición, vista de detalles y eliminación) de pedidos.
+    
+    \item \emph{Pagos}: listado de facturas y cobros; administración (creación, edición, vista de detalles y eliminación) de facturas y cobros.
+    
+    \item \emph{Administración}: listado de clientes, transportes, zonas, turnos y productos; administración (creación, edición, vista de detalles y eliminación) de clientes, transportes, zonas, turnos y productos.
 \end{itemize}
 
 En el anexo \ref{vistas} se encuentran las capturas de pantalla de las funcionalidades enumeradas en esta sección.
-
-\section{Arquitectura del sistema}
-A continuación se muestran el Modelo de Dominio y el Diagrama de Componentes del sistema que ayudan a describir la arquitectura del mismo y que fueron parte del trabajo realizado durante la fase de documentación (ver sección \ref{documentation}). El Modelo de Dominio ayuda a entender la relación de eFuel con el sistema ERP del mayorista. Por otro lado, el Diagrama de Componentes refleja como fue utilizado el patrón MVC en la arquitectura del sistema. Para una decripción detallada de la arquitectura del sistema referirse al anexo \ref{das}, donde se encuentra el Documento de Arquitectura de Software de eFuel.
-
-\subsection{Modelo de Dominio}
-\begin{figure}[H]
-    \includegraphics[width=\textwidth]{domain_model.png}
-    \caption{Modelo de Dominio de eFuel}
-    \label{fig:domain_model}
-    \centering
-\end{figure}
-
-\subsection{Diagrama de Componentes}
-\begin{figure}[H]
-    \includegraphics[width=\textwidth]{component_diagram.png}
-    \caption{Diagrama de Componentes de eFuel}
-    \label{fig:domain_model}
-    \centering
-\end{figure}

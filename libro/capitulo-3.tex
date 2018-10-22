@@ -22,8 +22,13 @@ En este capítulo se definen las tecnologías y herramientas utilizadas para el 
 
     Cabe destacar que la empresa tiene varios años de experiencia desarrollando aplicaciones web con Umbraco y varios de sus empleados tienen certificaciones y un nivel alto de conocimiento de la plataforma lo cual facilitó el desarrollo del sistema. La aplicación web eFuel fue desarrollada con Umbraco v7.10.
 
+    \subsubsection{Conceptos importantes de Umbraco}
+    \paragraph{Back Office} es la interfaz de creación y edición de contenido de un sitio de Umbraco, se accede a ella a través de una ruta especial y se deben poseer credenciales especiales para poder entrar. El back office de Umbraco se divide en secciones, por defecto estas son: Content (gestión de contenido), Media (gestión de archivos multimedia del sitio), Settings (gestión de los Document Types del sitio, plantillas del front end, scripts, los idiomas, el diccionario y los tipos de archivos de multimedia), Debeloper (gestión de paquetes, macros y Data Types), Users (gestión de usuarios con credenciales para entrar al back office) y Members (gestión de usuarios con credenciales para entrar al front end).
+    \paragraph{Document Type (Doctype)} es la definición del contenido de un sitio de Umbraco. Es un concepto análogo a la definición de una clase en un lenguaje orientado a objetos, no son el contenido sino la definición de su estructura y de sus propiedades.
+    \paragraph{Data Type} determinan la estructura y el tipo de información que puede ir en una propiedad de un Doctype. Por ejemplo, si un Doctype "Producto" tiene una propiedad "Precio", entonces un Data Type apropiado sería "Numeric", esto solo permitiría que esa propiedad tenga valores numéricos.
+
     \subsubsection{Paquetes de Umbraco}
-    \paragraph{Fluidity} sirve para construir interfaces de usuario para estructuras de datos personalizadas. En el proyecto se usa como interfaz con las entidades de eFuel que se encuantran definidas directamente en la base de datos y no como un Doctype de Umbraco.
+    \paragraph{Fluidity} sirve para construir interfaces de usuario para estructuras de datos personalizadas, agrega una sección al back office llamada "Database". En el proyecto se usa como interfaz con las entidades de eFuel que se encuantran definidas directamente en la base de datos y no como un Doctype de Umbraco.
     \paragraph{uSync} es una herramienta que guarda la estructura de una instalación de un sitio de Umbraco para que pueda ser replicada en otra instalación.
 
     \subsection{Bootstrap}
