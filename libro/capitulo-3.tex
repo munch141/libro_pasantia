@@ -8,12 +8,12 @@ En este capítulo se definen las tecnologías y herramientas utilizadas para el 
     \subsection{ASP.NET MVC}
     ASP.NET MVC es un marco de trabajo (o \textit{framework} en inglés) para construir aplicaciones web escalables, basadas en estándares y usando patrones de diseño bien establecidos (el patrón MVC) y el poder de ASP.NET y .NET Framework. \cite{asp.netMVCMicrosoft}
 
-    Se utilizó este marco de trabajo para el desarrollo del módulo \textbf{EF\_Core} (ver sección \emph{sección de arquitectura}) del proyecto, allí están implementados los controladores (ver sección \ref{mvc}) de la aplicación web.
+    Se utilizó este marco de trabajo para el desarrollo de uno de los proyectos de Visual Studio (ver sección \ref{visualStudio}) donde están implementados los controladores de la aplicación web.
 
     \subsection{ASP.NET Web Api}
     ASP.NET Web API es un marco de trabajo que facilita la construcción de servicios HTTP que llegan a una amplia gama de clientes, incluyendo navegadores y dispositivos móbiles. ASP.NET Web API es una plataforma ideal para construir aplicaciones RESTful en .NET Framework. \cite{asp.netWebAPIMicrosoft}
 
-    Este marco de trabajo se utilizó para el desarrollo del módulo \textbf{EF\_API} (ver sección \emph{sección de arquitectura}) del proyecto, allí están implementados los servicios del API para acceder a información del sistema (ver sección \ref{webService}) de la aplicación web.
+    Este marco de trabajo se utilizó para el desarrollo de uno de los proyectos de Visual Studio, allí están implementados los servicios del API para acceder a información del sistema.
 
     \subsection{Umbraco}
     Umbraco es un Sistema de Gestión de Contenido gratuito y de código abierto construido sobre ASP.NET, fue desarrollado en Dinamarca y su primera versión fue lanzada en el año 2005. Umbraco cuenta con funcionalidades que son necesarias para el sistema: la autenticación de usuarios, permisología, interfaces para realizar operaciones sobre la base de datos, entre otras. La plataforma también cuenta con un repositorio de paquetes y extensiones que proveen otras funcionalidades útiles para la aplicación web y provee una variedad de librerías y de módulos que facilitan el desarrollo del sistema.
@@ -29,7 +29,15 @@ En este capítulo se definen las tecnologías y herramientas utilizadas para el 
 
     \subsubsection{Paquetes de Umbraco}
     \paragraph{Fluidity} sirve para construir interfaces de usuario para estructuras de datos personalizadas, agrega una sección al back office llamada "Database". En el proyecto se usa como interfaz con las entidades de eFuel que se encuantran definidas directamente en la base de datos y no como un Doctype de Umbraco.
-    \paragraph{uSync} es una herramienta que guarda la estructura de una instalación de un sitio de Umbraco para que pueda ser replicada en otra instalación.
+
+    \subsubsection{Controladores de Umbraco}
+    Umbraco ofrece varios tipos de controladores a los desarrolladores, a continuación de describen 2 tipos particularmente relevantes para el proyecto presente.
+    \paragraph{SurfaceController} es un controlador que interactúa con el front end de una página de Umbraco. \cite{surfaceController} Su objetivo principal es llamar a las vistas adecuadas de la página y devolverlas enviarlas al cliente, se usan, por ejemplo, para guardar la información de un formulario en la base de datos y devolver una vista con la información guardada. En este proyecto se utilizan para devolver vistas con la información deseada por el cliente y para procesar formularios.
+    \paragraph{UmbracoApiController} es un controlador ideal para construir servicios web REST. \cite{apiController} Su uso principal es devolver datos estructurados al cliente en algún formato (generalmente JSON), por ejemplo una lista de pedidos o de clientes. Este es el uso principal que se le da en este proyecto.
+
+    \subsubsection{Seguridad en Umbraco}
+    Umbraco ofrece facilidades de autenticación de usuarios para el front end de la aplicación a través la sección Members del back office.
+    \paragraph{Members} son utilizados para registrar y autenticar usuarios externos al back office de Umbraco \cite{membersUmbraco}. Los miembros necesitan de un Member Type, similar a los Doctypes, que definen las propiedades que tiene un miembro. Por otro lado se pueden dividir los miembros en grupos de miembros para dar privilegios distintos según el/los grupo/s al que pertenezca un miembro, básicamente son los roles que puede tener un miembro dentro del front end del sitio.
 
     \subsection{Bootstrap}
     Es un framework de front end de código abierto diseñado para construir sitios y aplicaciones Web. Fue utilizado para construir las vistas de la aplicación.
@@ -47,12 +55,22 @@ Es el lenguaje que se usa para definir la estructura y el contenido de una pági
 Hojas de Estilo en Cascada, o CSS por sus siglas en inglés (\textit{Cascading Style Sheets}), es un lenguaje de hojas de estilo que permite a los autores y usuarios adjuntar estilos (\textit{e.g.} fuentes y espaciados) a documentos estructurados (\textit{e.g.} documentos de HTML). Al separar el estilo de presentación del contenido de los documentos, se simplifica la autoría y el mantenimiento de los sitios. \cite{cssW3C}
 
 \subsubsection{JavaScript}
-JavaScript es un lenguaje de \textit{scripting} o programación que permite la creación de contenido dinámico, control de multimedia, animación de imágenes \cite{jsMozilla}. \emph{mencionar las llamadas al servidor para traer datos con el API}
-
+JavaScript es un lenguaje de \textit{scripting} o programación que permite la creación de contenido dinámico, control de multimedia, animación de imágenes \cite{jsMozilla}.
 
 \subsection{\emph{Back-end}}
 \subsubsection{C\#}
 C\# es un lenguaje con seguridad de tipos y orientado a objetos que permite a desarrolladores construir una variedad de aplicaciones robustas y seguras que corren sobre .NET Framework. \cite{cSharpMicrosoft}
+
+\section{Tecnología para la Web}
+\subsection{Ajax}
+Por sus siglas en inglés \emph{Asynchronous JavaScript and XML}, es un método de comunicación con el servidor web, permite que la interacción del usuario con la aplicación web sea asíncrona \cite{ajaxGarrett}, esto es, independiente de la comunicación que tenga la aplicación con el servidor. Básicamente, a través de Ajax se hacen peticiones al servidor y se trae información de la página sin necesidad de cargar toda la página nuevamente y, por lo tanto, sin interrumpir la interacción del usuario con esta. Se usa a través de llamadas en JavaScript.
+
+Se usa esta tecnología para hacer traer la información de las tablas de eFuel en el front end.
+
+\subsection{JSON}
+\emph{JavaScript Object Notation} por sus siglas en inglés, es un formato de intercambio de datos, su sintaxis es muy parecida a la de objetos de JavaScript. \cite{jsonMozilla} Se pueden representar obejotos simples como números y letras, y objetos comlejos como estructuras de datos. Se usa para intercambiar datos en aplicaciones web.
+
+Es el formato usado en la aplicación eFuel para traer información usando llamadas de Ajax al servidor, especialmente listas de entidades del sistema.
 
 \section{Control de versiones}
 \subsection{Git}
@@ -70,10 +88,14 @@ Es una herramienta cuyo propósito es configurar, gestionar y administrar todos 
 Esta herramienta fue utilizada para crear las tablas de eFuel y generar el diagrama ER.
 
 \section{Entorno de trabajo}
-\subsection{Visual Studio}
+\subsection{Visual Studio} \label{visualStudio}
 Visual Studio es un ambiente de desarrollo integrado que permite editar, depurar, compilar y publicar código. \cite{visualStudioMicrosoft} Este ambiente de desarrollo incluye una gran cantidad de funcionalidades para facilitar el desarrollo de software: depuración del código paso a paso y con información detallada de las variable y otras entidades del programa, instrucciones de compilación complejas para la aplicación, descarga y actualización paquetes y librerías, integración con Git, \textit{IntelliSense} de Microsoft para la completación de partes de código usando el contexto de la aplicación (clases y sus relaciones y métodos), entre otras.
 
 Este entorno de trabajo está muy bien integrado con los \textit{frameworks} utilizados para el proyecto (ASP.NET y sus extensiones/derivados), por lo que su uso resultó ventajoso y natural para el desarrollo del proyecto.
+
+\subsubsection{Soluciones y proyectos en Visual Studio}
+\paragraph{Proyecto} al crear una aplicación en Visual Studio se crea un proyecto que contiene todo el código fuente, íconos, imágenes, archivos de datos, etc. que son compilados en un archivo ejecutable, una librería o un sitio web. El proyecto también contiene las opciones de compilación. \cite{visualStudioSolutionMicrosoft}
+\paragraph{Solución} una solución contiene uno o más proyectos relacionados, junto con información de compilación, como por ejemplo el orden de compilación de los proyectos ya que los proyectos de una solución pueden ser dependencias entre sí. \cite{visualStudioSolutionMicrosoft}
 
 \subsection{Internet Information Services}
 Internet Information Services (IIS) es un servidor Web desarrollado por Microsoft para hospedar contenido en la Web \cite{IISMicrosoft} y posee integración completa con ASP.NET. Es el servidor usado para las instalaciones locales del sitio.

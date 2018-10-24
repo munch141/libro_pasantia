@@ -1,98 +1,110 @@
 \chapter{Resultados} \label{results}
-En este capítulo se presenta el estado en el que quedó la aplicación eFuel al finalizar el desarrollo.
+Se completó el 84\% de los casos de uso que tiene el sistema actualmente. No se completaron en su totalidad porque hubo un retraso importante durante el desarrollo debido a una refactorización del código que se realizó a mediados del desarrollo y porque las estimaciones del tiempo requerido para implementar las funcionalidades fueron muy cortas. Los casos de uso que no se implementaron pertenecen, en su mayoría, al Módulo de Pagos.
 
-Se completó el xx\% de los casos de uso que tiene el sistema actualmente. Esto se debió a varios factores. Primero...
+A pesar de que el pasante pasó por una fase de inducción, a lo largo del proyecto tuvo que internalizar y entender conceptos nuevos por lo que se ralentizó el desarrollo.
 
-No se realizaron pruebas unitarias ni de integración debido a los atrasos con el desarrollo de las funcionalidades principales. Se determinó que las pruebas no eran prioritarias, era preferible implementar la mayor cantidad de funcionalidades restantes, ésta fue una decisión tomada en conjunto con el tutor industrial. Sin embargo, si se realizaron demostraciones del funcionamiento en varias máquinas instalando el sitio localmente.
+Por otro lado, las estimaciones de tiempo para el desarollo de cada funcionalidad fueron muy optimistas, el ritmo de trabajo del pasante no era lo suficientemente rápido, esto es en parte por falta de comunicación entre el pasante y el dueño del producto, y en parte por falta de revisión del progreso que se iba haciendo por parte del tutor industrial/dueño del producto.
+
+No se realizaron pruebas unitarias ni de integración debido a los atrasos con el desarrollo de las funcionalidades principales. Se determinó que las pruebas no eran prioritarias, era preferible implementar la mayor cantidad de funcionalidad posible, ésta fue una decisión tomada en conjunto con el dueño del producto. Sin embargo, si se realizaron demostraciones del funcionamiento en varias máquinas instalando el sitio localmente.
 
 \section{Estado actual de la aplicación}
-Como resultado del desarrollo del proyecto se obtuvo una versión funcional de la aplicación web eFuel que abarca el xx\% de los casos de uso estipulados. Este alcance fue acordado por la empresa y el pasante, la empresa quedó satisfecha con el trabajo realizado. En la tabla \ref{tab:casosDeUso} se muestranlos casos de uso del sistema y se resaltan los que fueron implementados.
+Como resultado del desarrollo del proyecto se obtuvo una versión funcional de la aplicación web eFuel que abarca el 84\% de los casos de uso estipulados. Este alcance fue acordado por la empresa y el pasante, la empresa quedó satisfecha con el trabajo realizado. En la tabla \ref{tab:casosDeUso} se muestran los casos de uso del sistema y se resaltan los que \emph{no} fueron implementados en color rojo.
 
-\newcounter{magicrownumbers}
-\newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
+\newcounter{usecasesrownumbers}
+\newcommand\usecasenumber{\stepcounter{usecasesrownumbers}\arabic{usecasesrownumbers}}
 
 \begin{longtable}{ | l | l | c | }
     \hline
-    % \rowcolor{gray!30}
+    \rowcolor{gray!30}
     \multicolumn{1}{|c|}{ID del Caso de Uso} &
     \multicolumn{1}{|c|}{Caso de Uso} &
     \multicolumn{1}{|c|}{Actor} \\
     \hhline{===}
     \endhead
 
-    CU-\rownumber & Iniciar sesión (Umbraco) & Admin \\ \hline
-    CU-\rownumber & Consultar lista de miembros & Admin \\ \hline
-    CU-\rownumber & Gestionar miembro (CRUD) & Admin \\ \hline
-    CU-\rownumber & Asignar cliente/s a miembro & Admin \\ \hline
-    CU-\rownumber & Remover cliente/s de miembro & Admin \\ \hline
-    CU-\rownumber & Cambiar permisos de miembro & Admin \\ \hline
+    CU-\usecasenumber & Iniciar sesión (Umbraco) & Admin \\ \hline
+    CU-\usecasenumber & Consultar lista de miembros & Admin \\ \hline
+    CU-\usecasenumber & Gestionar miembro (CRUD) & Admin \\ \hline
+    CU-\usecasenumber & Asignar cliente/s a miembro & Admin \\ \hline
+    CU-\usecasenumber & Remover cliente/s de miembro & Admin \\ \hline
+    CU-\usecasenumber & Cambiar permisos de miembro & Admin \\ \hline
 
-    CU-\rownumber & Gestionar contenido & Admin \\ \hline
-    CU-\rownumber & Consultar lista de clientes & Admin \\ \hline
-    CU-\rownumber & Gestionar cliente (CRUD) & Admin \\ \hline
-    CU-\rownumber & Consultar lista de productos & Admin \\ \hline
-    CU-\rownumber & Gestionar producto (CRUD) & Admin \\ \hline
-    CU-\rownumber & Consultar lista de transportes & Admin \\ \hline
-    CU-\rownumber & Gestionar transportes (CRUD) & Admin \\ \hline
-    CU-\rownumber & Consultar lista de zonas & Admin \\ \hline
-    CU-\rownumber & Gestionar zonas (CRUD) & Admin \\ \hline
+    CU-\usecasenumber & Gestionar contenido & Admin \\ \hline
+    CU-\usecasenumber & Consultar lista de clientes & Admin \\ \hline
+    CU-\usecasenumber & Gestionar cliente (CRUD) & Admin \\ \hline
+    CU-\usecasenumber & Consultar lista de productos & Admin \\ \hline
+    CU-\usecasenumber & Gestionar producto (CRUD) & Admin \\ \hline
+    CU-\usecasenumber & Consultar lista de transportes & Admin \\ \hline
+    CU-\usecasenumber & Gestionar transportes (CRUD) & Admin \\ \hline
+    CU-\usecasenumber & Consultar lista de zonas & Admin \\ \hline
+    CU-\usecasenumber & Gestionar zonas (CRUD) & Admin \\ \hline
 
-    CU-\rownumber & Gestionar transacciones & Admin \\ \hline
-    CU-\rownumber & Consultar lista de registros & Admin \\ \hline
-    CU-\rownumber & Gestionar registro (CRUD) & Admin \\ \hline
-    CU-\rownumber & Consultar lista de pedidos & Admin \\ \hline
-    CU-\rownumber & Gestionar pedido (CRUD) & Admin \\ \hline
-    CU-\rownumber & Consultar lista de detalles de pedidos & Admin \\ \hline
-    CU-\rownumber & Gestionar detalle de pedido (CRUD) & Admin \\ \hline
-    CU-\rownumber & Consultar lista de facturas & Admin \\ \hline
-    CU-\rownumber & Gestionar factura (CRUD) & Admin \\ \hline
-    CU-\rownumber & Importar lista de facturas & Staff \\ \hline
-    CU-\rownumber & Reportar pago & Customer, Staff \\ \hline
-    CU-\rownumber & Consultar lista de cobros & Admin \\ \hline
-    CU-\rownumber & Gestionar cobro (CRUD) & Admin \\ \hline
-    CU-\rownumber & Consultar lista de detalles de cobros & Admin \\ \hline
-    CU-\rownumber & Gestionar detalle de cobro (CRUD) & Admin \\ \hline
+    CU-\usecasenumber & Gestionar transacciones & Admin \\ \hline
+    CU-\usecasenumber & Consultar lista de registros & Admin \\ \hline
+    CU-\usecasenumber & Gestionar registro (CRUD) & Admin \\ \hline
+    CU-\usecasenumber & Consultar lista de pedidos & Admin \\ \hline
+    CU-\usecasenumber & Gestionar pedido (CRUD) & Admin \\ \hline
+    CU-\usecasenumber & Consultar lista de detalles de pedidos & Admin \\ \hline
+    CU-\usecasenumber & Gestionar detalle de pedido (CRUD) & Admin \\ \hline
+    CU-\usecasenumber & Consultar lista de facturas & Admin \\ \hline
+    CU-\usecasenumber & Gestionar factura (CRUD) & Admin \\ \hline
+    
+    \rowcolor{red}
+    CU-\usecasenumber & Registrar pago & Customer, Staff \\ \hline
+    \rowcolor{red}
+    CU-\usecasenumber & Asignar pago a pedido & Customer, Staff \\ \hline
+    \rowcolor{red}
+    CU-\usecasenumber & Consultar lista de pagos & Customer, Staff \\ \hline
+    \rowcolor{red}
+    CU-\usecasenumber & Consultar pagos pendientes & Customer, Staff \\ \hline
+    \rowcolor{red}
+    CU-\usecasenumber & Consultar pagos realizados & Customer, Staff \\ \hline
+    \rowcolor{red}
+    CU-\usecasenumber & Registrar pago & Customer, Staff \\ \hline
+    \rowcolor{red}
+    CU-\usecasenumber & Importar lista de facturas & Staff \\ \hline
+    
+    CU-\usecasenumber & Consultar lista de cobros & Admin \\ \hline
+    CU-\usecasenumber & Gestionar cobro (CRUD) & Admin \\ \hline
+    CU-\usecasenumber & Consultar lista de detalles de cobros & Admin \\ \hline
+    CU-\usecasenumber & Gestionar detalle de cobro (CRUD) & Admin \\ \hline
 
-    CU-\rownumber & Iniciar sesión (eFuel) & Customer, Staff \\ \hline
-    CU-\rownumber & Consultar lista de pedidos & Customer, Staff \\ \hline
-    CU-\rownumber & Consultar pedido & Customer, Staff \\ \hline
-    CU-\rownumber & Filtrar lista de pedidos & Customer, Staff \\ \hline
-    CU-\rownumber & Exportar lista de pedidos & Customer, Staff \\ \hline
-    CU-\rownumber & Crear pedido & Customer, Staff \\ \hline
-    CU-\rownumber & Seleccionar cliente & Customer, Staff \\ \hline
-    CU-\rownumber & Seleccionar fecha & Customer, Staff \\ \hline
-    CU-\rownumber & Seleccionar turno  & Customer, Staff \\ \hline
-    CU-\rownumber & Seleccionar transporte  & Customer, Staff \\ \hline
-    CU-\rownumber & Seleccionar productos & Customer, Staff \\ \hline
+    CU-\usecasenumber & Iniciar sesión (eFuel) & Customer, Staff \\ \hline
+    CU-\usecasenumber & Consultar lista de pedidos & Customer, Staff \\ \hline
+    CU-\usecasenumber & Consultar pedido & Customer, Staff \\ \hline
+    CU-\usecasenumber & Filtrar lista de pedidos & Customer, Staff \\ \hline
+    CU-\usecasenumber & Exportar lista de pedidos & Customer, Staff \\ \hline
+    CU-\usecasenumber & Crear pedido & Customer, Staff \\ \hline
+    CU-\usecasenumber & Seleccionar cliente & Customer, Staff \\ \hline
+    CU-\usecasenumber & Seleccionar fecha & Customer, Staff \\ \hline
+    CU-\usecasenumber & Seleccionar turno  & Customer, Staff \\ \hline
+    CU-\usecasenumber & Seleccionar transporte  & Customer, Staff \\ \hline
+    CU-\usecasenumber & Seleccionar productos & Customer, Staff \\ \hline
 
-    CU-\rownumber & Consultar lista de facturas & Customer, Staff \\ \hline
+    CU-\usecasenumber & Consultar lista de facturas & Customer, Staff \\ \hline
 
-    CU-\rownumber & Consultar lista de clientes & Customer, Staff \\ \hline
-    CU-\rownumber & Consultar cliente & Customer, Staff \\ \hline
-    CU-\rownumber & Consultar pedidos de cliente & Customer, Staff \\ \hline
-    CU-\rownumber & Importar lista de clientes & Staff \\
-    \hline
+    CU-\usecasenumber & Consultar lista de clientes & Customer, Staff \\ \hline
+    CU-\usecasenumber & Consultar cliente & Customer, Staff \\ \hline
+    CU-\usecasenumber & Consultar pedidos de cliente & Customer, Staff \\ \hline
+    \rowcolor{red}
+    CU-\usecasenumber & Importar lista de clientes & Staff \\ \hline
 
-    CU-\rownumber & Consultar lista de transportes & Customer, Staff \\ \hline
+    CU-\usecasenumber & Consultar lista de transportes & Customer, Staff \\ \hline
 
-    CU-\rownumber & Importar lista de transportes & Staff \\ \hline
+    CU-\usecasenumber & Importar lista de transportes & Staff \\ \hline
 
-    CU-\rownumber & Consultar lista de zonas & Customer, Staff \\ \hline
+    CU-\usecasenumber & Consultar lista de zonas & Customer, Staff \\ \hline
 
-    CU-\rownumber & Importar lista de zonas & Staff \\
-    \hline
+    CU-\usecasenumber & Importar lista de zonas & Staff \\ \hline
 
-    CU-\rownumber & Importar lista de despachos & Staff \\
-    \hline
+    \rowcolor{red}
+    CU-\usecasenumber & Importar lista de despachos & Staff \\ \hline
 
-    CU-\rownumber & Reportar pagos & Customer, Staff \\
-    \hline
-
-    \caption{Resumen de casos de uso eFuel (en verde los implementados)}
+    \caption{Resumen de casos de uso eFuel (en rojo los no implementados)}
     \label{tab:casosDeUso}
 \end{longtable}
 
-La aplicación desarrollada nuevamente que funciona como un agregado a un sitio de Umbraco. No se ha desplegado en un ambiente de producción, solo fue probada en varias instalaciones locales, a pesar de esto el dueño del producto quedó satisfecho con los resultados obtenidos. Sigue un resumen de la funcionalidad por módulos desarrollada, dividido en partes: funcionalidad en el front end de eFuel y funcionalidad en el back office de Umbraco.
+La nueva aplicación desarrollada funciona como un agregado a sitios de Umbraco. No se ha desplegado en un ambiente de producción, solo fue probada en varias instalaciones locales, a pesar de esto el dueño del producto quedó satisfecho con los resultados obtenidos. Sigue un resumen de la funcionalidad por módulos desarrollada, dividido en partes: funcionalidad en el front end de eFuel y funcionalidad en el back office de Umbraco.
 
 \subsection{Funcionalidad en el front end}
 \begin{itemize}
@@ -116,4 +128,4 @@ La aplicación desarrollada nuevamente que funciona como un agregado a un sitio 
     \item \emph{Administración}: listado de clientes, transportes, zonas, turnos y productos; administración (creación, edición, vista de detalles y eliminación) de clientes, transportes, zonas, turnos y productos.
 \end{itemize}
 
-En el anexo \ref{vistas} se encuentran las capturas de pantalla de las funcionalidades enumeradas en esta sección.
+En el anexo \ref{vistas} se encuentran las capturas de pantalla de las funcionalidades listadas en esta sección.

@@ -21,14 +21,14 @@
         \multicolumn{1}{|c|}{Actor} \\
         \hhline{===}
         \endhead
-
+    
         CU-\rownumber & Iniciar sesión (Umbraco) & Admin \\ \hline
         CU-\rownumber & Consultar lista de miembros & Admin \\ \hline
         CU-\rownumber & Gestionar miembro (CRUD) & Admin \\ \hline
         CU-\rownumber & Asignar cliente/s a miembro & Admin \\ \hline
         CU-\rownumber & Remover cliente/s de miembro & Admin \\ \hline
         CU-\rownumber & Cambiar permisos de miembro & Admin \\ \hline
-
+    
         CU-\rownumber & Gestionar contenido & Admin \\ \hline
         CU-\rownumber & Consultar lista de clientes & Admin \\ \hline
         CU-\rownumber & Gestionar cliente (CRUD) & Admin \\ \hline
@@ -38,7 +38,7 @@
         CU-\rownumber & Gestionar transportes (CRUD) & Admin \\ \hline
         CU-\rownumber & Consultar lista de zonas & Admin \\ \hline
         CU-\rownumber & Gestionar zonas (CRUD) & Admin \\ \hline
-
+    
         CU-\rownumber & Gestionar transacciones & Admin \\ \hline
         CU-\rownumber & Consultar lista de registros & Admin \\ \hline
         CU-\rownumber & Gestionar registro (CRUD) & Admin \\ \hline
@@ -48,13 +48,20 @@
         CU-\rownumber & Gestionar detalle de pedido (CRUD) & Admin \\ \hline
         CU-\rownumber & Consultar lista de facturas & Admin \\ \hline
         CU-\rownumber & Gestionar factura (CRUD) & Admin \\ \hline
-        CU-\rownumber & Importar lista de facturas & Staff \\
-        \hline
+        
+        CU-\rownumber & Registrar pago & Customer, Staff \\ \hline
+        CU-\rownumber & Asignar pago a pedido & Customer, Staff \\ \hline
+        CU-\rownumber & Consultar lista de pagos & Customer, Staff \\ \hline
+        CU-\rownumber & Consultar pagos pendientes & Customer, Staff \\ \hline
+        CU-\rownumber & Consultar pagos realizados & Customer, Staff \\ \hline
+        CU-\rownumber & Registrar pago & Customer, Staff \\ \hline
+        CU-\rownumber & Importar lista de facturas & Staff \\ \hline
+        
         CU-\rownumber & Consultar lista de cobros & Admin \\ \hline
         CU-\rownumber & Gestionar cobro (CRUD) & Admin \\ \hline
         CU-\rownumber & Consultar lista de detalles de cobros & Admin \\ \hline
         CU-\rownumber & Gestionar detalle de cobro (CRUD) & Admin \\ \hline
-
+    
         CU-\rownumber & Iniciar sesión (eFuel) & Customer, Staff \\ \hline
         CU-\rownumber & Consultar lista de pedidos & Customer, Staff \\ \hline
         CU-\rownumber & Consultar pedido & Customer, Staff \\ \hline
@@ -66,59 +73,67 @@
         CU-\rownumber & Seleccionar turno  & Customer, Staff \\ \hline
         CU-\rownumber & Seleccionar transporte  & Customer, Staff \\ \hline
         CU-\rownumber & Seleccionar productos & Customer, Staff \\ \hline
-
+    
         CU-\rownumber & Consultar lista de facturas & Customer, Staff \\ \hline
-
+    
         CU-\rownumber & Consultar lista de clientes & Customer, Staff \\ \hline
         CU-\rownumber & Consultar cliente & Customer, Staff \\ \hline
         CU-\rownumber & Consultar pedidos de cliente & Customer, Staff \\ \hline
-        CU-\rownumber & Importar lista de clientes & Staff \\
-        \hline
-
+        CU-\rownumber & Importar lista de clientes & Staff \\ \hline
+    
         CU-\rownumber & Consultar lista de transportes & Customer, Staff \\ \hline
-
+    
         CU-\rownumber & Importar lista de transportes & Staff \\ \hline
-
+    
         CU-\rownumber & Consultar lista de zonas & Customer, Staff \\ \hline
-
-        CU-\rownumber & Importar lista de zonas & Staff \\
-        \hline
-
-        CU-\rownumber & Importar lista de despachos & Staff \\
-        \hline
-
-        CU-\rownumber & Reportar pagos & Customer, Staff \\
-        \hline
-
-        \caption{Resumen de casos de uso}
-        \label{table:cu}
+    
+        CU-\rownumber & Importar lista de zonas & Staff \\ \hline
+    
+        CU-\rownumber & Importar lista de despachos & Staff \\ \hline
+    
+        \caption{Resumen de casos de uso eFuel}
+        \label{tab:casosDeUso}
     \end{longtable}
 
     \subsection{Diagrama de Casos de Uso}
 
     \begin{figure}[H]
-        \includegraphics[width=.9\textwidth,height=.9\textheight,keepaspectratio]{cu_admin.png}
-        \caption{Casos de Uso Back end}
-        \label{fig:cu_admin}
+        \includegraphics[width=\textwidth]{cu_admin_administracion.png}
+        \caption{Casos de Uso Back office - Módulo Administración}
+        \label{fig:cu_admin_administracion}
         \centering
     \end{figure}
 
     \begin{figure}[H]
-        \includegraphics[width=.9\textwidth,height=.9\textheight,keepaspectratio]{cu_customer_staff_pedidos.png}
-        \caption{Casos de Uso Front end - Módulo Pedidos}
+        \includegraphics[width=\textwidth]{cu_admin_pedidos_pagos.png}
+        \caption{Casos de Uso Back office - Módulos Pedidos y Pagos}
+        \label{fig:cu_admin_pedidos_pagos}
+        \centering
+    \end{figure}
+
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{cu_admin_seguridad.png}
+        \caption{Casos de Uso Back office - Módulo Seguridad}
+        \label{fig:cu_admin_seguridad}
+        \centering
+    \end{figure}
+
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{cu_customer_staff_pedidos_seguridad.png}
+        \caption{Casos de Uso Front end - Módulos Pedidos y Seguridad}
         \label{fig:cu_customer_staff_pedidos}
         \centering
     \end{figure}
 
     \begin{figure}[H]
-        \includegraphics[width=.9\textwidth,height=.9\textheight,keepaspectratio]{cu_customer_staff_pagos.png}
+        \includegraphics[width=\textwidth]{cu_customer_staff_pagos.png}
         \caption{Casos de Uso Front end - Módulo Pagos}
         \label{fig:cu_customer_staff_pagos}
         \centering
     \end{figure}
 
     \begin{figure}[H]
-        \includegraphics[width=.9\textwidth,height=.9\textheight,keepaspectratio]{cu_customer_staff_administracion.png}
+        \includegraphics[width=\textwidth]{cu_customer_staff_administracion.png}
         \caption{Casos de Uso Front end - Módulo Administración}
         \label{fig:cu_customer_staff_administracion}
         \centering

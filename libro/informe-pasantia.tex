@@ -10,14 +10,29 @@
 % ...
 % 11 Mayo 2018 --- Se agrega bibliografía en castellano via babelbib
 %
-\documentclass[pregrado]{tesis-usb}
-
+\documentclass[pregrado, table]{tesis-usb}
+    
 % paquetes
 \usepackage[utf8]{inputenc}
-\usepackage{ragged2e, indentfirst, longtable, tabu, float, hhline, makecell, multirow, array, verbatim, acronym, amsmath, amsfonts, amssymb, float, pdfpages}
+\usepackage{ragged2e}
+\usepackage{indentfirst}
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{float}
+\usepackage{hhline}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{verbatim}
+\usepackage{acronym}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{xcolor}
+\definecolor{red}{HTML}{FF4C4C}
 
-
-% \usepackage{hyperref}
 
 % estilo de las referencias
 \usepackage[fixlanguage]{babelbib-and}\selectbiblanguage{spanish}
@@ -77,8 +92,7 @@
     \nocite{*}
     \bibliography{referencias}
     \appendix
-    \input{apendice-a.tex}
-    \input{apendice-b.tex}
-    \input{apendice-c.tex}
+    \input{apendice-capturas.tex}
+    \input{apendice-das.tex}
 
 \end{document}

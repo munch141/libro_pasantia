@@ -1,22 +1,33 @@
 \chapter*{Introducción}
 
-El proyecto presente, realizado en el marco de los Cursos de Cooperación Técnica y Desarrollo Social de la Universidad Simón Bolívar, consistió en el desarrollo de una aplicación web llamada \emph{eFuel} que sirve como apoyo al sistema de gestión de recursos de una empresas mayoristas de combustibles. La aplicación desarrollada permite a los usuarios realizar pedidos de combustible y monitorear el estado de dichos pedidos, de pagos y de facturas. Además, permite gestionar entidades del modelo de negocio como clientes, transportes y productos.
+El proyecto presente, realizado en el marco de los Cursos de Cooperación Técnica y Desarrollo Social de la Universidad Simón Bolívar, consistió en el desarrollo de una aplicación web llamada \emph{eFuel} que sirve como apoyo al sistema de gestión de recursos de una empresa mayorista de combustibles. La aplicación desarrollada permite a los usuarios realizar pedidos de combustible y monitorear el estado de dichos pedidos, de pagos y de facturas. Además, permite gestionar entidades del modelo de negocio como clientes, transportes y productos.
 
 \section*{Antecedentes}
-El proyecto se llevó a cabo en la empresa iKêls Consulting, la cual se especializa en el desarrollo de aplicaciones y sitios web para el sector corporativo utilizando Umbraco como la plataforma principal de manejo de  contenido (CMS). Umbraco es una herramienta de código abierto desarrollada en Dinamarca usando el lenguaje C\# y ASP.NET para sistemas Windows de Microsoft que cuenta con una gran aceptación a nivel mundial y una amplia comunidad de desarrolladores. Entre los activos de la empresa se encuentra una aplicación web (\emph{eFuel}) que permite a las estaciones de servicio de combustible la colocación de sus pedidos al mayorista. Dicha aplicación fue desarrollada hace más de 10 años usando tecnología Classic ASP y VBScript.
+El proyecto se llevó a cabo en la empresa iKêls Consulting, la cual se especializa en el desarrollo de aplicaciones y sitios web para el sector corporativo utilizando Umbraco como la plataforma principal de manejo de  contenido (CMS). Umbraco es una herramienta de código abierto desarrollada en Dinamarca usando el lenguaje C\# y ASP.NET para sistemas Windows de Microsoft que cuenta con una gran aceptación a nivel mundial y una amplia comunidad de desarrolladores. Entre los activos de la empresa se encuentra una aplicación web (\emph{eFuel}) que permite a las estaciones de servicio de combustible la colocación de sus pedidos al mayorista. Dicha aplicación fue desarrollada hace más de 10 años usando tecnología Classic ASP y VBScript. Classic ASP es un motor de scripting para servidores cuya última versión fue desarrollada en el año 2000, y que reemplazado por ASP.NET en el año 2002. No se sabe de otra aplicación web que ofrezca este servicio.
+
+Una primera versión de eFuel desarrollada estaba conformada por 4 módulos de funcionalidad:
+
+\begin{itemize}
+    \item \emph{Seguridad}: controlaba el acceso a laaplicación y sus datos.
+    \item \emph{Pedidos}: inserción de pedidos de combustible.
+    \item \emph{Pagos}: operaba como auxiliar contable del sistema de facturación interno de la organización (mayorista). 
+    \item \emph{Datos}: ofrecía la posibilidad de activar y desactivar registros correspondientes a clientes, productos y otros parámetros no disponibles en el ERP de la organización. Adicionalmente poseía una bitácora que registraba las operaciones realizadas en el sistema.
+\end{itemize}
 
 \section*{Planteamiento del problema}
 Las empresas de distribución de combustible deben atender diariamente un volumen importante de pedidos a lo largo del territorio nacional. Este proceso involucra a múltiples actores, tiene un alto impacto en la sociedad y su coordinación es una labor tediosa y delicada que requiere personal especializado. Se requiere reducir los errores humanos, mejorar la eficiencia y aumentar la calidad y oportunidad de la información asociada al proceso.
 
+Con los procesos manuales tradicionales, el proceso de pedidos de combustible consume mucho tiempo y esfuerzo, está sujeto a muchos errores debido a las múltiples variables involucradas y no tiene flexibilidad para responder con rapidez a los cambios propios de la demanda de los clientes (EE/SS).
+
 \section*{Justificación e importancia}
-Con los procesos manuales tradicionales, el proceso de pedidos de combustible consume mucho tiempo y esfuerzo, está sujeto a muchos errores debido a las múltiples variables involucradas y no tiene flexibilidad para responder con rapidez a los cambios propios de la demanda de los clientes (EE/SS). Debido al alto impacto que tiene en la dinámica diaria de las personas y negocios, la inversión en herramientas de apoyo producirá mejoras inmediatas en todos los aspectos del proceso.
+Debido al alto impacto que tiene en la dinámica diaria de las personas y negocios, la inversión en herramientas de apoyo producirá mejoras inmediatas en todos los aspectos del proceso. Al automatizar las tareas de pedido de combustible y asignación de pagos, se reduce considerablemente la cantidad de errores humanos que se cometen con los métodos manuales. Por otro lado, se consolida toda la información de pedidos y pagos (pendientes y realizados) de todas las estaciones de servicio en un solo sitio de acceso fácil y seguro.
 
 \section*{Objetivo general}
 Desarrollar una nueva versión de la aplicación web eFuel integrada con la plataforma de manejo de contenido (CMS) Umbraco para el ingreso y administración de pedidos de combustible (cisternas).
 
 \section*{Objetivos específicos}
 \begin{itemize}
-    \item Crear el módulo de administración de clientes, productos, precios, vehículos, rutas y conductores.
+    \item Crear el módulo de administración de clientes, productos, precios, vehículos, rutas y conductores. Las funcionalidades de este módulo incluyen:
     \begin{itemize}
         \item Creación, edición y eliminación de registros.
         \item Calcular costo de cisterna según volumen y precios de productos.
@@ -24,22 +35,22 @@ Desarrollar una nueva versión de la aplicación web eFuel integrada con la plat
         \item Listado de registros con mecanismo de búsqueda.
     \end{itemize}
 
-    \item Crear el módulo de administración de pedidos.
+    \item Crear el módulo de administración de pedidos. Este módulo permite:
     \begin{itemize}
         \item Crear, editar y eliminar pedidos mediante consola especializada.
         \item Opciones diferenciadas según perfil del usuario.
         \item Listado para consulta de pedidos con opción de exportar en formato MS Excel.
     \end{itemize}
 
-    \item Crear el módulo de conciliación de pagos.
+    \item Crear el módulo de conciliación de pagos. Este módulo cuenta con las siguiente funcionalidad:
     \begin{itemize}
         \item Mecanismo para registro de pagos totales o parciales.
         \item Mecanismo de conciliación y asignación de pagos a pedidos.
     \end{itemize}
 
-    \item Crear el módulo de registro de usuarios y perfiles.
+    \item Crear el módulo de registro de usuarios y perfiles. A través de este módulo los usuarios pueden:
     \begin{itemize}
-        \item Registro y edición de usuarios con perfil de permisos.
+        \item Registrar y editar usuarios con perfil de permisos.
         \item Asociar usuarios a clientes.
     \end{itemize}
 \end{itemize}
