@@ -1081,49 +1081,33 @@
   \captionsetup[table]{justification=raggedright,singlelinecheck=false}%---
 \fi
 
-\newenvironment{resumen}%%---
-     {%---
-     \if@pregrado%--
-          \chapter*{\resumenname}%---
-          \vskip 1cm%---
-          \begin{singlespace}%---
-     %%%%%%%%%%%%%%%%%% FALTA HACER RESUMEN PARA PREGRADO
-     \else%--
-     \if@openright%---
-          \cleardoublepage%---
-     \else%---
-          \clearpage%---
-     \fi%---
-     \null%---
-          \addcontentsline{toc}{chapter}{\MakeTextUppercase{\resumenname}}%--- incluir resumen a la tabla de contenido
-          \begin{center}%---
-               \vskip -1.5cm \logousb \vskip 0.1cm%---
-               {\large {UNIVERSIDAD SIM\'ON BOL\'IVAR}\par%---
-               DECANATO DE ESTUDIOS DE POSTGRADO\par%---
-               COORDINACI\'ON DE \MakeTextUppercase{\@coord} \par%---
-               \MakeTextUppercase{\@programa} \par }%---
-               \vskip 0.8cm%---
-               {\large \textbf{ \MakeTextUppercase{\@titulo}} \par}%---
-               \vskip 0.5cm%---
-          \end{center}%---
-          \begin{flushleft}%---
-               { \normalsize \leftskip 9cm%---
-               \par \hspace{-1cm} Por: \@autor%---
-               \par \hspace{-1cm} Carn\'{e}: \@usbid %---
-               \par \hspace{-1cm} Tutor: \@tutor%---
-               \ifcotutor%---
-                    \par \hspace{-1cm} Cotutor: \@cotutor%---
-               \fi%---
-               \par \hspace{-1cm} \@fecha%---
-               \vskip 0.8cm }%---
-          \end{flushleft}%---
-          \begin{center}%---
-               {\large \textbf{RESUMEN}}%---
-          \end{center}%---
-          \begin{singlespace}%%---
-     \fi
-     }%%---
-     {\end{singlespace}}%---
+
+
+
+\newenvironment{resumen}
+    {
+      \addcontentsline{toc}{chapter}{\MakeTextUppercase{\resumenname}}
+      \begin{center}
+          \vskip -1.5cm \logousb \vskip 0.1cm
+          {\large{UNIVERSIDAD SIM\'ON BOL\'IVAR}}\\
+          {\bfseries DECANATO DE ESTUDIOS PROFESIONALES}\par
+          \vskip 0.1cm
+          {\bfseries COORDINACI\'ON DE \MakeTextUppercase{\@coord}} \par
+          \vskip 0.8cm
+          \large \textbf{ \MakeTextUppercase{\@titulo}} \par
+          \vskip 0.5cm
+
+          \par Por: \@autor
+          \normalsize
+          \par \@tutor
+          \ifcotutor
+              \par \@cotutor
+          \vskip 0.8cm
+
+          {\large \textbf{RESUMEN}}
+      \end{center}
+    }
+    {}
 
 \definecolor{c231f20}{RGB}{35,31,32}
 \newcommand{\logousb}[1][0.0333]{%

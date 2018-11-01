@@ -30,6 +30,7 @@
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{pdfpages}
+\usepackage{acronym}
 \usepackage{xcolor}
 \definecolor{red}{HTML}{FF4C4C}
 
@@ -37,7 +38,6 @@
 % estilo de las referencias
 \usepackage[fixlanguage]{babelbib-and}\selectbiblanguage{spanish}
 \usepackage{url}
-\bibliographystyle{babplain-lf}
 
 \usepackage{graphicx}
 \graphicspath{ {../imgs/} }
@@ -48,7 +48,7 @@
 \autori{R. Münch}
 \usbid{11-10684}
 \titulo{Desarrollo de la versión 2 de la aplicación web eFuel}
-\fecha{Septiembre~de~2018}
+\fecha{Octubre~de~2018}
 \agno{2018}
 \fechadefensa{15~de~noviembre~de~2018}
 \tutor{Tutor Académico: Prof. Soraya Carrasquel}
@@ -70,29 +70,47 @@
 {\catcode`'=13 \gdef \verbatimplus{\catcode`'=13 \chardef '=13 }}
 \makeatother
 
+\makeatletter
+\def\bstctlcite{\@ifnextchar[{\@bstctlcite}{\@bstctlcite[@auxout]}}
+\def\@bstctlcite[#1]#2{\@bsphack
+ \@for\@citeb:=#2\do{%
+   \edef\@citeb{\expandafter\@firstofone\@citeb}%
+   \if@filesw\immediate\write\csname #1\endcsname{\string\citation{\@citeb}}\fi}%
+ \@esphack}
+\makeatother
+
 \begin{document}
+\bstctlcite{IEEEexample:BSTcontrol}
 
-    \frontmatter
-    \maketitle
-    \begin{resumen}
-        El presente documento tiene por objetivo describir el proceso de desarrollo de la aplicación web eFuel durante el período Abril-Septiembre 2018 en la empresa iKêls Consulting, una empresa que se especializa en el desarrollo de aplicaciones y sitios web para el sector corporativo utilizando Umbraco como la plataforma principal de manejo de contenido (CMS). La aplicación desarrollada permite a las estaciones de servicio de combustible la colocación de sus pedidos al mayorista. Una primera versión de esta aplicación fue desarrollada hace más de 10 años utilizando tecnología obsoleta, por lo tanto, la empresa requiere de un proceso re-ingeniería completo para adaptar la solución a plataformas y modelos de gestión más modernos así como integrarla como un módulo o paquete del CMS Umbraco. El desarrollo se dividió en varias fases: inducción del pasante, análisis de requerimientos, diseño, implementación y documentación, la metodología para llevar a cabo estas fases se basa en las ideas de Scrum. En cuanto a las tecnologías utilizadas, la aplicación fue desarrollada sobre la plataforma Umbraco CMS que está, a su vez, construida sobre la plataforma ASP.NET de Microsoft, los lenguajes de programación utilizados fueron C\# para el back end y HTML, CSS y JavaScript para el front end, para la base de datos se usó el DBMS SQL Server de Microsoft. Como resultado del proyecto de pasantía se obtuvo una versión funcional de la solución y se cumplieron los objetivos planteados.
-    \end{resumen}
-    \tableofcontents
-    \listoffigures
+\frontmatter
+\maketitle
+\newpage
+\begin{resumen}
+    \begin{singlespace}
+        El presente documento tiene por objetivo describir el proceso de desarrollo de la aplicación web eFuel durante el período Abril-Septiembre 2018 en la empresa iKêls Consulting, una empresa que se especializa en el desarrollo de aplicaciones y sitios web para el sector corporativo utilizando Umbraco como la plataforma principal de manejo de contenido (CMS). Las empresas de distribución de combustible deben atender un volumen importante de pedidos en todo el territorio nacional. El proceso de realizar pedidos de combustible consume mucho tiempo y esfuerzo y está sujeto a muchos errores. La aplicación desarrollada permite a las estaciones de servicio de combustible la colocación de sus pedidos de combustible al mayorista. Una primera versión de esta aplicación fue desarrollada hace más de 10 años utilizando Classic ASP, por lo tanto, la empresa requiere de un proceso re-ingeniería completo para adaptar la solución a plataformas y modelos de gestión más modernos así como integrarla como un módulo o paquete del CMS Umbraco. El desarrollo se dividió en varias fases: inducción del pasante, análisis de requerimientos, diseño, implementación y documentación.
+        
+        Para el desarrollo se utilizó la metodología Scrum. La aplicación fue desarrollada sobre la plataforma Umbraco CMS que se basa en la plataforma ASP.NET de Microsoft, los lenguajes de programación utilizados fueron C\# para el back end y HTML, CSS y JavaScript para el front end, para la base de datos se usó el manejador de bases de datos SQL Server de Microsoft. Como resultado del proyecto de pasantía se obtuvo una versión funcional de la aplicación web eFuel.
+    \end{singlespace}
+    \textbf{Palabras clave:} Aplicación Web, Re-ingeniería, CMS, Umbraco, ASP.NET, C\#, MVC.
+\end{resumen}
 
-    \mainmatter
-    \input{introduccion}
-    \input{capitulo-1}
-    \input{capitulo-2}
-    \input{capitulo-3}
-    \input{capitulo-4}
-    \input{capitulo-5}
-    \input{capitulo-6}
-    \input{conclusion}
-    \nocite{*}
-    \bibliography{referencias}
-    \appendix
-    \input{apendice-capturas.tex}
-    \input{apendice-das.tex}
+\tableofcontents
+\listoffigures
+\useacronyms
+
+\mainmatter
+\input{introduccion}
+\input{capitulo-1}
+\input{capitulo-2}
+\input{capitulo-3}
+\input{capitulo-4}
+\input{capitulo-5}
+\input{capitulo-6}
+\input{conclusion}
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,referencias}
+\appendix
+\input{apendice-capturas.tex}
+\input{apendice-das.tex}
 
 \end{document}

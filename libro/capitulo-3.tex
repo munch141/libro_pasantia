@@ -3,84 +3,88 @@ En este capítulo se definen las tecnologías y herramientas utilizadas para el 
 
 \section{Frameworks}
     \subsection{ASP.NET}
-    ASP.NET es un modelo de desarrollo Web unificado que incluye los servicios necesarios para construir aplicaciones Web empresariales con un mínimo de codificación. ASP.NET es parte de .NET Framework y al codificar las aplicaciones en ASP.NET se tiene acceso a las clases de .NET Framework. \cite{asp.netMicrosoft}
+    ASP.NET \cite{asp.netMicrosoft} es un modelo de desarrollo Web unificado que incluye los servicios necesarios para construir aplicaciones Web empresariales con un mínimo de codificación. ASP.NET es parte de .NET Framework y al codificar las aplicaciones en ASP.NET se tiene acceso a las clases de .NET Framework.
 
     \subsection{ASP.NET MVC}
-    ASP.NET MVC es un marco de trabajo (o \textit{framework} en inglés) para construir aplicaciones web escalables, basadas en estándares y usando patrones de diseño bien establecidos (el patrón MVC) y el poder de ASP.NET y .NET Framework. \cite{asp.netMVCMicrosoft}
+    ASP.NET MVC \cite{asp.netMVCMicrosoft} es un marco de trabajo (o \textit{framework} en inglés) para construir aplicaciones web escalables, basadas en estándares y usando patrones de diseño bien establecidos (el patrón MVC) y el poder de ASP.NET y .NET Framework.
 
-    Se utilizó este marco de trabajo para el desarrollo de uno de los proyectos de Visual Studio (ver sección \ref{visualStudio}) donde están implementados los controladores de la aplicación web.
+    Se utilizó este marco de trabajo para el desarrollo de uno de los proyectos de Visual Studio (ver Sección \ref{visualStudio}) donde están implementados los controladores de la aplicación web.
 
     \subsection{ASP.NET Web Api}
-    ASP.NET Web API es un marco de trabajo que facilita la construcción de servicios HTTP que llegan a una amplia gama de clientes, incluyendo navegadores y dispositivos móbiles. ASP.NET Web API es una plataforma ideal para construir aplicaciones RESTful en .NET Framework. \cite{asp.netWebAPIMicrosoft}
+    ASP.NET Web API \cite{asp.netWebAPIMicrosoft} es un marco de trabajo que facilita la construcción de servicios HTTP que llegan a una amplia gama de clientes, incluyendo navegadores y dispositivos móbiles. ASP.NET Web API es una plataforma ideal para construir aplicaciones RESTful en .NET Framework.
 
     Este marco de trabajo se utilizó para el desarrollo de uno de los proyectos de Visual Studio, allí están implementados los servicios del API para acceder a información del sistema.
 
     \subsection{Umbraco}
-    Umbraco es un Sistema de Gestión de Contenido gratuito y de código abierto construido sobre ASP.NET, fue desarrollado en Dinamarca y su primera versión fue lanzada en el año 2005. Umbraco cuenta con funcionalidades que son necesarias para el sistema: la autenticación de usuarios, permisología, interfaces para realizar operaciones sobre la base de datos, entre otras. La plataforma también cuenta con un repositorio de paquetes y extensiones que proveen otras funcionalidades útiles para la aplicación web y provee una variedad de librerías y de módulos que facilitan el desarrollo del sistema.
+    Umbraco \cite{umbraco} es un Sistema de Gestión de Contenido gratuito y de código abierto construido sobre ASP.NET, fue desarrollado en Dinamarca y su primera versión fue lanzada en el año 2005. Umbraco cuenta con funcionalidades que son necesarias para el sistema: la autenticación de usuarios, permisología, interfaces para realizar operaciones sobre la base de datos, entre otras. La plataforma también cuenta con un repositorio de paquetes y extensiones que proveen otras funcionalidades útiles para la aplicación web y provee una variedad de librerías y de módulos que facilitan el desarrollo del sistema.
 
-    En Umbraco el contenido es modelado con \emph{Doctypes} que son análogos a clases en un lenguaje de programación orientado a objeto, es decir, en Umbraco se crea un Doctype para un tipo de contenido, digamos \emph{Noticia}, luego se pueden crear cualquier cantidad de \emph{Noticias} todas con las mismas propiedades, como una instancia de una clase en lenguaje orientado a objetos. Estas instancias de un Doctype son llamadas \emph{Nodos} y se encuentran en una estructura llamada el \emph{Árbol de Contenido} de la aplicación.
-
-    Cabe destacar que la empresa tiene varios años de experiencia desarrollando aplicaciones web con Umbraco y varios de sus empleados tienen certificaciones y un nivel alto de conocimiento de la plataforma lo cual facilitó el desarrollo del sistema. La aplicación web eFuel fue desarrollada con Umbraco v7.10.
-
-    \subsubsection{Conceptos importantes de Umbraco}
-    \paragraph{Back Office} es la interfaz de creación y edición de contenido de un sitio de Umbraco, se accede a ella a través de una ruta especial y se deben poseer credenciales especiales para poder entrar. El back office de Umbraco se divide en secciones, por defecto estas son: Content (gestión de contenido), Media (gestión de archivos multimedia del sitio), Settings (gestión de los Document Types del sitio, plantillas del front end, scripts, los idiomas, el diccionario y los tipos de archivos de multimedia), Debeloper (gestión de paquetes, macros y Data Types), Users (gestión de usuarios con credenciales para entrar al back office) y Members (gestión de usuarios con credenciales para entrar al front end).
+    \subsubsection{Conceptos importantes de Umbraco} \label{conceptosUmbraco}
+    \paragraph{Back Office} es el back end (entendido como en la definición de la Sección \ref{backEndCMS}), la interfaz de creación y edición de contenido de un sitio de Umbraco, se accede a ella a través de una ruta especial y se deben poseer credenciales especiales para poder entrar. El back office de Umbraco se divide en secciones, por defecto estas son: Content (gestión de contenido), Media (gestión de archivos multimedia del sitio), Settings (gestión de los Document Types del sitio, plantillas del front end, scripts, los idiomas, el diccionario y los tipos de archivos de multimedia), Debeloper (gestión de paquetes, macros y Data Types), Users (gestión de usuarios con credenciales para entrar al back office) y Members (gestión de usuarios con credenciales para entrar al front end).
     \paragraph{Document Type (Doctype)} es la definición del contenido de un sitio de Umbraco. Es un concepto análogo a la definición de una clase en un lenguaje orientado a objetos, no son el contenido sino la definición de su estructura y de sus propiedades.
+    \paragraph{Nodos} en Umbraco el contenido se guarda como nodos en un árbol de contenidos. Cada nodo es una instancia de un Doctype.
     \paragraph{Data Type} determinan la estructura y el tipo de información que puede ir en una propiedad de un Doctype. Por ejemplo, si un Doctype "Producto" tiene una propiedad "Precio", entonces un Data Type apropiado sería "Numeric", esto solo permitiría que esa propiedad tenga valores numéricos.
 
     \subsubsection{Paquetes de Umbraco}
-    \paragraph{Fluidity} sirve para construir interfaces de usuario para estructuras de datos personalizadas, agrega una sección al back office llamada "Database". En el proyecto se usa como interfaz con las entidades de eFuel que se encuantran definidas directamente en la base de datos y no como un Doctype de Umbraco.
+    \paragraph{Fluidity} sirve para construir interfaces de usuario para estructuras de datos personalizadas \cite{fluidityDocs}, permite agregar secciones al back office de Umbraco en donde se puede implementar subsecciones con interfaces para gestionar registros de la base de datos. En el proyecto se usa para programar la interfaz de gestión de las entidades de eFuel que se encuantran definidas directamente en la base de datos y no como un Doctype de Umbraco.
 
     \subsubsection{Controladores de Umbraco}
     Umbraco ofrece varios tipos de controladores a los desarrolladores, a continuación de describen 2 tipos particularmente relevantes para el proyecto presente.
-    \paragraph{SurfaceController} es un controlador que interactúa con el front end de una página de Umbraco. \cite{surfaceController} Su objetivo principal es llamar a las vistas adecuadas de la página y devolverlas enviarlas al cliente, se usan, por ejemplo, para guardar la información de un formulario en la base de datos y devolver una vista con la información guardada. En este proyecto se utilizan para devolver vistas con la información deseada por el cliente y para procesar formularios.
-    \paragraph{UmbracoApiController} es un controlador ideal para construir servicios web REST. \cite{apiController} Su uso principal es devolver datos estructurados al cliente en algún formato (generalmente JSON), por ejemplo una lista de pedidos o de clientes. Este es el uso principal que se le da en este proyecto.
+    \paragraph{SurfaceController} es un controlador que interactúa con el front end de una página de Umbraco \cite{surfaceController}. Su objetivo principal es llamar a las vistas adecuadas de la página y devolverlas enviarlas al cliente, se usan, por ejemplo, para guardar la información de un formulario en la base de datos y devolver una vista con la información guardada. En este proyecto se utilizan para devolver vistas con la información deseada por el cliente y para procesar formularios.
+    \paragraph{UmbracoApiController} es un controlador ideal para construir servicios web REST \cite{apiController}. Su uso principal es devolver datos estructurados al cliente en algún formato (generalmente JSON), por ejemplo una lista de pedidos o de clientes. Este es el uso principal que se le da en este proyecto.
 
     \subsubsection{Seguridad en Umbraco}
     Umbraco ofrece facilidades de autenticación de usuarios para el front end de la aplicación a través la sección Members del back office.
     \paragraph{Members} son utilizados para registrar y autenticar usuarios externos al back office de Umbraco \cite{membersUmbraco}. Los miembros necesitan de un Member Type, similar a los Doctypes, que definen las propiedades que tiene un miembro. Por otro lado se pueden dividir los miembros en grupos de miembros para dar privilegios distintos según el/los grupo/s al que pertenezca un miembro, básicamente son los roles que puede tener un miembro dentro del front end del sitio.
 
+    En Umbraco el contenido es modelado con \emph{Doctypes} que son análogos a clases en un lenguaje de programación orientado a objeto, es decir, en Umbraco se crea un Doctype para un tipo de contenido, digamos \emph{Noticia}, luego se pueden crear cualquier cantidad de \emph{Noticias} todas con las mismas propiedades, como una instancia de una clase en lenguaje orientado a objetos. Estas instancias de un Doctype son llamadas \emph{Nodos} y se encuentran en una estructura llamada el \emph{Árbol de Contenido} de la aplicación.
+
+    Cabe destacar que la empresa tiene varios años de experiencia desarrollando aplicaciones web con Umbraco y varios de sus empleados tienen certificaciones y un nivel alto de conocimiento de la plataforma lo cual facilitó el desarrollo del sistema. La aplicación web eFuel fue desarrollada con Umbraco v7.10.4.
+
     \subsection{Bootstrap}
-    Es un framework de front end de código abierto diseñado para construir sitios y aplicaciones Web. Fue utilizado para construir las vistas de la aplicación.
+    Es un framework de front end de código abierto diseñado para construir sitios y aplicaciones Web \cite{bootstrapAbout}. Fue utilizado para construir las vistas de la aplicación.
 
 \section{Lenguajes}
 A continuación se definen brevemente los lenguajes de programación utilizados para el desarrollo del proyecto divididos en \textit{front-end} y \textit{back-end}.
 
 \subsection{\emph{Front-end}}
 \subsubsection{HTML}
-HTML (siglas en inglés para Lenguaje de Marcado de HiperTexto), es el lenguaje de marcado central de la \textit{World Wide Web} (red informática mundial). Originalmente, HTML fue diseñado principalmente para describir semánticamente documentos científicos. Sin embargo, la generalidad de su diseño ha permitido que sea adaptado, en los años siguientes, para describir otros tipos de documentos y hasta aplicaciones. \cite{htmlW3C}
+HTML \cite{htmlW3C} (siglas en inglés para Lenguaje de Marcado de HiperTexto), es el lenguaje de marcado central de la \textit{World Wide Web} (red informática mundial). Originalmente, HTML fue diseñado principalmente para describir semánticamente documentos científicos. Sin embargo, la generalidad de su diseño ha permitido que sea adaptado, en los años siguientes, para describir otros tipos de documentos y hasta aplicaciones.
 
 Es el lenguaje que se usa para definir la estructura y el contenido de una página web, en el caso de este proyecto se usa para describir las vistas del sistema.
 
 \subsubsection{CSS}
-Hojas de Estilo en Cascada, o CSS por sus siglas en inglés (\textit{Cascading Style Sheets}), es un lenguaje de hojas de estilo que permite a los autores y usuarios adjuntar estilos (\textit{e.g.} fuentes y espaciados) a documentos estructurados (\textit{e.g.} documentos de HTML). Al separar el estilo de presentación del contenido de los documentos, se simplifica la autoría y el mantenimiento de los sitios. \cite{cssW3C}
+Hojas de Estilo en Cascada, o CSS \cite{cssW3C} por sus siglas en inglés (\textit{Cascading Style Sheets}), es un lenguaje de hojas de estilo que permite a los autores y usuarios adjuntar estilos (\textit{e.g.} fuentes y espaciados) a documentos estructurados (\textit{e.g.} documentos de HTML). Al separar el estilo de presentación del contenido de los documentos, se simplifica la autoría y el mantenimiento de los sitios.
 
 \subsubsection{JavaScript}
-JavaScript es un lenguaje de \textit{scripting} o programación que permite la creación de contenido dinámico, control de multimedia, animación de imágenes \cite{jsMozilla}.
+JavaScript \cite{jsMozilla} es un lenguaje de \textit{scripting} o programación que permite la creación de contenido dinámico, control de multimedia, animación de imágenes.
 
 \subsection{\emph{Back-end}}
 \subsubsection{C\#}
-C\# es un lenguaje con seguridad de tipos y orientado a objetos que permite a desarrolladores construir una variedad de aplicaciones robustas y seguras que corren sobre .NET Framework. \cite{cSharpMicrosoft}
+C\# \cite{cSharpMicrosoft} es un lenguaje con seguridad de tipos y orientado a objetos que permite a desarrolladores construir una variedad de aplicaciones robustas y seguras que corren sobre .NET Framework.
 
 \section{Tecnología para la Web}
 \subsection{Ajax}
-Por sus siglas en inglés \emph{Asynchronous JavaScript and XML}, es un método de comunicación con el servidor web, permite que la interacción del usuario con la aplicación web sea asíncrona \cite{ajaxGarrett}, esto es, independiente de la comunicación que tenga la aplicación con el servidor. Básicamente, a través de Ajax se hacen peticiones al servidor y se trae información de la página sin necesidad de cargar toda la página nuevamente y, por lo tanto, sin interrumpir la interacción del usuario con esta. Se usa a través de llamadas en JavaScript.
+Por sus siglas en inglés \emph{Asynchronous JavaScript and XML} \cite{ajaxGarrett} (JavaScript asíncrono y XML), es un método de comunicación con el servidor web, permite que la interacción del usuario con la aplicación web sea asíncrona, esto es, independiente de la comunicación que tenga la aplicación con el servidor. Básicamente, a través de Ajax se hacen peticiones al servidor y se trae información de la página sin necesidad de cargar toda la página nuevamente y, por lo tanto, sin interrumpir la interacción del usuario con esta. Se usa a través de llamadas en JavaScript.
 
 Se usa esta tecnología para hacer traer la información de las tablas de eFuel en el front end.
 
 \subsection{JSON}
-\emph{JavaScript Object Notation} por sus siglas en inglés, es un formato de intercambio de datos, su sintaxis es muy parecida a la de objetos de JavaScript. \cite{jsonMozilla} Se pueden representar obejotos simples como números y letras, y objetos comlejos como estructuras de datos. Se usa para intercambiar datos en aplicaciones web.
+\emph{JavaScript Object Notation} \cite{jsonMozilla} por sus siglas en inglés, es un formato de intercambio de datos, su sintaxis es muy parecida a la de objetos de JavaScript. Se pueden representar obejotos simples como números y letras, y objetos comlejos como estructuras de datos. Se usa para intercambiar datos en aplicaciones web.
 
 Es el formato usado en la aplicación eFuel para traer información usando llamadas de Ajax al servidor, especialmente listas de entidades del sistema.
 
+\subsection{DataTables}
+\emph{DataTables} \cite{datatablesManual} es una herramienta de JavaScript para crear tablas en HTML. Permite ordenar los registros, aplicar filtros, paginar y traer datos usando Ajax. Esta herramienta se usa para generar tablas en eFuel.
+
 \section{Control de versiones}
 \subsection{Git}
-Git es un sistema de gestión de versiones rápido, escalable y distribuido con un rico conjunto de comandos que proveen operaciones de alto nivel y acceso completo a internos. \cite{gitGit} Fue desarrollado por Linus Torvald en el año 2005 para facilitar el trabajo de varios desarrolladores sobre un mismo proyecto. Permite llevar el seguimiento de los cambios a un grupo de archivos y sincronizar varios repositorios en máquinas distintas.
+Git \cite{gitGit} es un sistema de gestión de versiones rápido, escalable y distribuido con un rico conjunto de comandos que proveen operaciones de alto nivel y acceso completo a internos. Fue desarrollado por Linus Torvald en el año 2005 para facilitar el trabajo de varios desarrolladores sobre un mismo proyecto. Permite llevar el seguimiento de los cambios a un grupo de archivos y sincronizar varios repositorios en máquinas distintas.
 
 Este es el sistema de gestión de versiones usado en la empresa en la que se desarrolló el proyecto.
 
 \section{Base de Datos}
 \subsection{SQL Server 2014}
-SQL Server es un manejador de bases de datos (DBMS) desarrollado por Microsoft. Umbraco cuenta con integración completa a este programa. Es el manejador de bases de datos utilizado para el desarrollo del proyecto.
+SQL Server \cite{SQLServerMicrosoft} es un manejador de bases de datos desarrollado por Microsoft. Umbraco cuenta con integración completa a este programa. Es el manejador de bases de datos utilizado para el desarrollo del proyecto.
 
 \subsection{SQL Server Management Studio 17}
 Es una herramienta cuyo propósito es configurar, gestionar y administrar todos los componentes de SQL Server. La herramienta incluye editores de scripts y herramientas gráficas para dar acceso a desarrolladores y administradores de bases de datos a SQL Server \cite{SSMSMicrosoft}.
@@ -89,20 +93,20 @@ Esta herramienta fue utilizada para crear las tablas de eFuel y generar el diagr
 
 \section{Entorno de trabajo}
 \subsection{Visual Studio} \label{visualStudio}
-Visual Studio es un ambiente de desarrollo integrado que permite editar, depurar, compilar y publicar código. \cite{visualStudioMicrosoft} Este ambiente de desarrollo incluye una gran cantidad de funcionalidades para facilitar el desarrollo de software: depuración del código paso a paso y con información detallada de las variable y otras entidades del programa, instrucciones de compilación complejas para la aplicación, descarga y actualización paquetes y librerías, integración con Git, \textit{IntelliSense} de Microsoft para la completación de partes de código usando el contexto de la aplicación (clases y sus relaciones y métodos), entre otras.
+Visual Studio \cite{visualStudioMicrosoft} es un ambiente de desarrollo integrado que permite editar, depurar, compilar y publicar código. Este ambiente de desarrollo incluye una gran cantidad de funcionalidades para facilitar el desarrollo de software: depuración del código paso a paso y con información detallada de las variable y otras entidades del programa, instrucciones de compilación complejas para la aplicación, descarga y actualización paquetes y librerías, integración con Git, \textit{IntelliSense} de Microsoft para la completación de partes de código usando el contexto de la aplicación (clases y sus relaciones y métodos), entre otras.
 
 Este entorno de trabajo está muy bien integrado con los \textit{frameworks} utilizados para el proyecto (ASP.NET y sus extensiones/derivados), por lo que su uso resultó ventajoso y natural para el desarrollo del proyecto.
 
 \subsubsection{Soluciones y proyectos en Visual Studio}
-\paragraph{Proyecto} al crear una aplicación en Visual Studio se crea un proyecto que contiene todo el código fuente, íconos, imágenes, archivos de datos, etc. que son compilados en un archivo ejecutable, una librería o un sitio web. El proyecto también contiene las opciones de compilación. \cite{visualStudioSolutionMicrosoft}
-\paragraph{Solución} una solución contiene uno o más proyectos relacionados, junto con información de compilación, como por ejemplo el orden de compilación de los proyectos ya que los proyectos de una solución pueden ser dependencias entre sí. \cite{visualStudioSolutionMicrosoft}
+\paragraph{Proyecto} al crear una aplicación en Visual Studio se crea un proyecto que contiene todo el código fuente, íconos, imágenes, archivos de datos, etc. que son compilados en un archivo ejecutable, una librería o un sitio web. El proyecto también contiene las opciones de compilación \cite{visualStudioSolutionMicrosoft}.
+\paragraph{Solución} una solución contiene uno o más proyectos relacionados, junto con información de compilación, como por ejemplo el orden de compilación de los proyectos ya que los proyectos de una solución pueden ser dependencias entre sí \cite{visualStudioSolutionMicrosoft}.
 
 \subsection{Internet Information Services}
-Internet Information Services (IIS) es un servidor Web desarrollado por Microsoft para hospedar contenido en la Web \cite{IISMicrosoft} y posee integración completa con ASP.NET. Es el servidor usado para las instalaciones locales del sitio.
+Servicios de Información de Internet o IIS \cite{IISMicrosoft} (por sus siglas en inglés) es un servidor Web desarrollado por Microsoft para hospedar contenido en la Web y posee integración completa con ASP.NET. Es el servidor usado para las instalaciones locales del sitio.
 
 \subsection{Trello}
-Trello es una herramienta de colaboración que organiza las tareas de un proyecto en tablas. Trello informa en qué se está trabajando, quién está trabajando en qué, y el estado de una tarea en el proceso de desarrollo.
+Trello \cite{trelloAbout} es una herramienta de colaboración que organiza las tareas de un proyecto en tablas. Trello informa en qué se está trabajando, quién está trabajando en qué, y el estado de una tarea en el proceso de desarrollo.
 
-Cada tabla tiene varias listas y cada lista contiene tarjetas. Una tabla corresponde a un proyecto, una lista corresponde al estado de una tarea y una tarjeta a una tarea, por ejemplo, en una tabla suele haber 3 listas: \emph{Por hacer}, \emph{Haciendo} y \emph{Lista}. Las tarjetas contienen una descripción de la tarea, la o las personas asignadas y puede tener una fecha límite de entrega. A medida que se va completando trabajo se van moviendo las tarjetas de una lista a otra.
+Cada tabla tiene varias listas y cada lista contiene tarjetas. Una tabla corresponde a un proyecto, una lista corresponde al estado de una tarea y una tarjeta a una tarea, por ejemplo, en una tabla suele haber 3 listas: Por hacer, Haciendo y Lista. Las tarjetas contienen una descripción de la tarea, la o las personas asignadas y puede tener una fecha límite de entrega. A medida que se va completando trabajo se van moviendo las tarjetas de una lista a otra.
 
-Resultó una herramienta útil para llevar el control de las tareas realizadas y por realizar. Se usó esta herramienta como apoyo para el uso de Scrum (ver capítulo \ref{marcoMetodologico}).
+Resultó una herramienta útil para llevar el control de las tareas realizadas y por realizar. Se usó esta herramienta como apoyo para el uso de Scrum (ver Capítulo \ref{marcoMetodologico}).

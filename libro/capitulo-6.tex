@@ -1,18 +1,15 @@
 \chapter{Resultados} \label{results}
 Se completó el 84\% de los casos de uso que tiene el sistema actualmente. No se completaron en su totalidad porque hubo un retraso importante durante el desarrollo debido a una refactorización del código que se realizó a mediados del desarrollo y porque las estimaciones del tiempo requerido para implementar las funcionalidades fueron muy cortas. Los casos de uso que no se implementaron pertenecen, en su mayoría, al Módulo de Pagos.
 
-A pesar de que el pasante pasó por una fase de inducción, a lo largo del proyecto tuvo que internalizar y entender conceptos nuevos por lo que se ralentizó el desarrollo.
-
-Por otro lado, las estimaciones de tiempo para el desarollo de cada funcionalidad fueron muy optimistas, el ritmo de trabajo del pasante no era lo suficientemente rápido, esto es en parte por falta de comunicación entre el pasante y el dueño del producto, y en parte por falta de revisión del progreso que se iba haciendo por parte del tutor industrial/dueño del producto.
-
 No se realizaron pruebas unitarias ni de integración debido a los atrasos con el desarrollo de las funcionalidades principales. Se determinó que las pruebas no eran prioritarias, era preferible implementar la mayor cantidad de funcionalidad posible, ésta fue una decisión tomada en conjunto con el dueño del producto. Sin embargo, si se realizaron demostraciones del funcionamiento en varias máquinas instalando el sitio localmente.
 
 \section{Estado actual de la aplicación}
-Como resultado del desarrollo del proyecto se obtuvo una versión funcional de la aplicación web eFuel que abarca el 84\% de los casos de uso estipulados. Este alcance fue acordado por la empresa y el pasante, la empresa quedó satisfecha con el trabajo realizado. En la tabla \ref{tab:casosDeUso} se muestran los casos de uso del sistema y se resaltan los que \emph{no} fueron implementados en color rojo.
+Como resultado del desarrollo del proyecto se obtuvo una versión funcional de la aplicación web eFuel que abarca el 84\% de los casos de uso estipulados. Este alcance fue acordado por la empresa y el pasante, la empresa quedó satisfecha con el trabajo realizado. En la Tabla \ref{tab:casosDeUso} se muestran los casos de uso del sistema y se resaltan los que \emph{no} fueron implementados en color rojo.
 
 \newcounter{usecasesrownumbers}
 \newcommand\usecasenumber{\stepcounter{usecasesrownumbers}\arabic{usecasesrownumbers}}
 
+\vspace{0.1cm}
 \begin{longtable}{ | l | l | c | }
     \hline
     \rowcolor{gray!30}
@@ -104,7 +101,9 @@ Como resultado del desarrollo del proyecto se obtuvo una versión funcional de l
     \label{tab:casosDeUso}
 \end{longtable}
 
-La nueva aplicación desarrollada funciona como un agregado a sitios de Umbraco. No se ha desplegado en un ambiente de producción, solo fue probada en varias instalaciones locales, a pesar de esto el dueño del producto quedó satisfecho con los resultados obtenidos. Sigue un resumen de la funcionalidad por módulos desarrollada, dividido en partes: funcionalidad en el front end de eFuel y funcionalidad en el back office de Umbraco.
+La nueva aplicación desarrollada funciona como un agregado a sitios de Umbraco. No se ha desplegado en un ambiente de producción, solo fue probada en varias instalaciones locales, a pesar de esto el dueño del producto quedó satisfecho con los resultados obtenidos.
+
+Sigue un resumen de la funcionalidad por módulos desarrollada, dividido en partes: funcionalidad en el front end de eFuel y funcionalidad en el back office de Umbraco.
 
 \subsection{Funcionalidad en el front end}
 \begin{itemize}
@@ -128,4 +127,4 @@ La nueva aplicación desarrollada funciona como un agregado a sitios de Umbraco.
     \item \emph{Administración}: listado de clientes, transportes, zonas, turnos y productos; administración (creación, edición, vista de detalles y eliminación) de clientes, transportes, zonas, turnos y productos.
 \end{itemize}
 
-En el anexo \ref{vistas} se encuentran las capturas de pantalla de las funcionalidades listadas en esta sección.
+En el Anexo \ref{vistas} se encuentran las capturas de pantalla de las funcionalidades listadas en esta sección.
