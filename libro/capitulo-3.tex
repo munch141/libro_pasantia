@@ -23,6 +23,7 @@ En este capítulo se definen las tecnologías y herramientas utilizadas para el 
     \paragraph{Document Type (Doctype)} es la definición del contenido de un sitio de Umbraco. Es un concepto análogo a la definición de una clase en un lenguaje orientado a objetos, no son el contenido sino la definición de su estructura y de sus propiedades.
     \paragraph{Nodos} en Umbraco el contenido se guarda como nodos en un árbol de contenidos. Cada nodo es una instancia de un Doctype.
     \paragraph{Data Type} determinan la estructura y el tipo de información que puede ir en una propiedad de un Doctype. Por ejemplo, si un Doctype "Producto" tiene una propiedad "Precio", entonces un Data Type apropiado sería "Numeric", esto solo permitiría que esa propiedad tenga valores numéricos.
+    \paragraph{Vista} \label{umbracoView} archivos de HTML que muestran las páginas o secciones de las mismas (en el caso de vistas parciales) al usuario.
 
     \subsubsection{Paquetes de Umbraco}
     \paragraph{Fluidity} sirve para construir interfaces de usuario para estructuras de datos personalizadas \cite{fluidityDocs}, permite agregar secciones al back office de Umbraco en donde se puede implementar subsecciones con interfaces para gestionar registros de la base de datos. En el proyecto se usa para programar la interfaz de gestión de las entidades de eFuel que se encuantran definidas directamente en la base de datos y no como un Doctype de Umbraco.
