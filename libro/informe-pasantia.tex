@@ -15,6 +15,7 @@
 % paquetes
 \usepackage[utf8]{inputenc}
 \usepackage{ragged2e}
+\usepackage[tableposition=above]{caption}
 \usepackage{indentfirst}
 \usepackage{longtable}
 \usepackage{tabu}
@@ -85,6 +86,10 @@
 \frontmatter
 \maketitle
 \newpage
+
+\includepdf{ACTA_1110684.pdf}
+\includepdf{aceptacion_libro_2.pdf}
+
 \begin{resumen}
     \begin{singlespace}
         El presente documento tiene por objetivo describir el proceso de desarrollo de la aplicación web eFuel durante el período Abril-Septiembre 2018 en la empresa iKêls Consulting, una empresa que se especializa en el desarrollo de aplicaciones y sitios web para el sector corporativo utilizando Umbraco como la plataforma principal de manejo de contenido (CMS). Las empresas de distribución de combustible deben atender un volumen importante de pedidos en todo el territorio nacional. El proceso de realizar pedidos de combustible consume mucho tiempo y esfuerzo y está sujeto a muchos errores. La aplicación desarrollada permite a las estaciones de servicio de combustible la colocación de sus pedidos de combustible al mayorista. Una primera versión de esta aplicación fue desarrollada hace más de 10 años utilizando Classic ASP, por lo tanto, la empresa requiere de un proceso re-ingeniería completo para adaptar la solución a plataformas y modelos de gestión más modernos así como integrarla como un módulo o paquete del CMS Umbraco. El desarrollo se dividió en varias fases: inducción del pasante, análisis de requerimientos, diseño, implementación y documentación.
@@ -110,7 +115,7 @@
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,referencias}
 \appendix
-\input{apendice-capturas.tex}
 \input{apendice-das.tex}
+\input{apendice-capturas.tex}
 
 \end{document}

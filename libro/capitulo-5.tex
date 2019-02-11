@@ -4,25 +4,25 @@ En este capítulo se describe la aplicación web eFuel con sus módulos y funcio
 A continuación la descripción de la aplicación seguido de las fases del desarrollo de la misma durante el proyecto de pasantía.
 
 \section{La aplicación web eFuel}
-Para este proyecto se desea desarrollar una nueva versión de la aplicación web eFuel basada en tecnologías modernas como ASP.NET y Umbraco. No se usó código de la primera versión, se partió desde cero a programar la nueva versión. Se usaron documentos de la versión original para guiar el desarrollo de la nueva versión de eFuel, especialmente en el diseño de las entidades de la base datos y en las funcionalidades generales (módulos) del sistema.
+Para este proyecto, se desea desarrollar una nueva versión de la aplicación web eFuel basada en tecnologías modernas como ASP.NET y Umbraco. No se usó código de la primera versión de eFuel, se partió desde cero a programar la nueva versión. Se usaron documentos de la versión original para guiar el desarrollo de la nueva versión de eFuel, especialmente en el diseño de las entidades de la base datos y en las funcionalidades generales (módulos) del sistema.
 
 \subsection{Nueva versión de eFuel}
-La nueva versión de eFuel desarrollada para este proyecto es una aplicación web que permite a las estaciones de servicio de combustible la colocación de sus pedidos al mayorista. La aplicación permite consultar información del estado de los pedidos (si fueron despachados y si fueron pagados), asociar facturas a pedidos y asociar pagos a facturas, también permite consultar información sobre otras entidades del dominio de negocio como clientes (estaciones de servicio), transportes disponibles según la zona del cliente, productos disponibles y sus precios. Además, permite importar y exportar información para intercambiar con el \ac{ERP} del mayorista y, de esta manera, servir como sistema de apoyo para este.
+La nueva versión de eFuel desarrollada para este proyecto es una aplicación web que permite a las estaciones de servicio de combustible (clientes) la colocación de sus pedidos al mayorista. La aplicación permite consultar información del estado de los pedidos (si fueron despachados y si fueron pagados), asociar facturas a pedidos y asociar pagos a facturas, también permite consultar información sobre otras entidades del dominio de negocio como clientes (estaciones de servicio), transportes disponibles según la zona del cliente, productos disponibles y sus precios. Además, permite importar y exportar información para intercambiar con el \ac{ERP} del mayorista y, de esta manera, servir como sistema de apoyo para este.
 
 \subsubsection{Módulos de funcionalidad}
 El sistema se descompone en 4 módulos de funcionalidad: Pedidos, Pagos, Administración y Seguridad. A continuación una breve descripción de las funcionalidades de cada módulo:
 
 \begin{itemize}
-    \item \emph{Pedidos}: módulo para la gestión de pedidos. Al crear un pedido se brinda la facilidad de seleccionar rápidamente la combinación de cliente-fecha-turno-transporte-productos. También permite mostrar un listado de los pedidos, filtrar la lista por cliente, transporte, rango de fecha o estado, y luego exportarla como un archivo de Excel. 
+    \item \emph{Pedidos}: módulo para la gestión de pedidos. Al crear un pedido, se brinda la facilidad de seleccionar rápidamente la combinación de cliente, fecha, turno, transporte y productos. También permite mostrar un listado de los pedidos, filtrar la lista por cliente, transporte, rango de fecha o estado, y luego exportarla como un archivo de Excel. 
     \item \emph{Pagos}: módulo para la gestión de pagos y facturas. Con este módulo se pueden importar facturas desde un archivo de Excel generado por el \ac{ERP} del mayorista, éstas se asocian inmediatamente con un pedido. También se pueden gestionar los pagos, asociar pagos a facturas y exportarlos a un archivo de Excel.
     \item \emph{Administración}: módulo para la gestión de clientes, transportes, productos, zonas y turnos. Esto incluye creación, edición, consulta, listado, importación y eliminación de estas entidades del sistema.
     \item \emph{Seguridad}: este módulo controla el acceso a la aplicación para garantizar que únicamente las personas autorizadas puedan consultar los datos y realizar las operaciones que les corresponden. Se pueden crear y editar miebros, así como modificar los permisos de cada uno.
 \end{itemize}
 
-\subsubsection{Sobre los modelos de datos}
-Las entidades del sistema las podemos dividir en 2 categorías: transaccionales y no transaccionales. Las entidades transaccionales son objetos que se van a generar con mucha frequencia durante el funcionamiento del sistema: pedidos, facturas y cobros; las no transaccionales no se generan con tanta frequencia: clientes, transportes, zonas, turnos y productos.
+\subsubsection{Sobre los modelos de datos} \label{modeloDeDatos}
+El sistema maneja 8 entidades de datos: clientes, transportes, zonas, turnos, productos, pedidos, facturas y cobros. Éstas se dividen en 2 categorías: transaccionales y no transaccionales. Las entidades transaccionales son objetos que se van a generar con mucha frequencia durante el funcionamiento del sistema: pedidos, facturas y cobros; las no transaccionales no se generan con tanta frequencia: clientes, transportes, zonas, turnos y productos.
 
-Al crear un nodo de contenido desde el back office de Umbraco se guarda cierta información adicional a las propiedades definidas por el programador: fechas de publicación, versiones, autor, entre otras. Esto no es conveniente para modelar las entidades transaccionales ya que se genera un volumen importante de éstas y mucha de esa información adicional no es necesaria. Por esta razón, se decidió modelar las entidades transaccionales como tablas en la base de datos independientes de las tablas de Umbraco las entidades no transaccionales se modelaron como Doctypes de Umbraco, que son definiciones de la estructura de un tipo de contenido (para más detalles ver la Sección \ref{conceptosUmbraco}).
+Al crear un nodo de contenido desde el back office de Umbraco, se guarda cierta información adicional a las propiedades definidas por el programador: fechas de publicación, versiones, autor, entre otras. Esto no es conveniente para modelar las entidades transaccionales ya que se genera un volumen importante de éstas y mucha de esa información adicional no es necesaria. Por esta razón, se decidió modelar las entidades transaccionales como tablas en la base de datos independientes de las tablas de Umbraco las entidades no transaccionales se modelaron como Doctypes de Umbraco, que son definiciones de la estructura de un tipo de contenido (para más detalles ver la Sección \ref{conceptosUmbraco}).
 
 En la Figura \ref{fig:esquema_general_nuevo} se muestra el esquema general del sistema.
 
@@ -35,7 +35,7 @@ En la Figura \ref{fig:esquema_general_nuevo} se muestra el esquema general del s
     \centering
 \end{figure}
 
-Uno de los objetivos de la aplicación es servir como sistema de apoyo a los ERP de los mayoristas. Los sistemas ERP llevan el control de todas las entidades del negocio, entre estas están las estaciones de servicio, los transportes para los pedidos, los pedidos, las facturas, etc. La aplicación eFuel interactúa con el \ac{ERP} y le sirve de apoyo a éste manteniendo un registro separado de las entidades pertinentes a la inserción y el pago de pedidos de combustible. Esta interacción se da a través de importaciones y exportaciones de datos entre estos sistemas para que estén sincronizados.
+Uno de los objetivos de la aplicación es servir como sistema de apoyo a los ERP de los mayoristas. Los sistemas ERP llevan el control de todas las entidades del negocio, entre estas están las estaciones de servicio, los transportes para los pedidos, los pedidos, las facturas, etc. La aplicación eFuel interactúa con el \ac{ERP} y le sirve de apoyo a éste manteniendo un registro separado de las entidades pertinentes a la inserción y el pago de pedidos de combustible. Esta interacción se da a través de importaciones y exportaciones de datos entre estos sistemas para que estén sincronizados; esto es, la información se escribe en un archivo compatible con ambos sistemas, luego, el archivo es transferido de un sistema a otro sitema, este último lee la información del archivo y la almacena.
 
 \section{Fases del desarrollo}
 \subsection{Fase de Inducción}
@@ -45,14 +45,14 @@ Esta fase tuvo una duración de 1 semana, el pasante realizó varios tutoriales 
 Esta fase duró 16 semanas continuas y se llevaron a cabo 6 Iteraciones donde se desarrolló la aplicación. A continuación una descripción del trabajo realizado en cada iteración.
 
 \subsubsection{Análisis de requerimientos (1era Iteración)}
-Se definió la arquitectura y la estructura de la base de datos. Además, se creó el repositorio de Git, el proyecto de Visual Studio y el sitio de Umbraco, y por otro lado, se eligió una plantilla de HTML para el \emph{look and feel} de la aplicación.
+Se definió la arquitectura y la estructura de la base de datos. Además, se creó el repositorio de Git, el proyecto de Visual Studio y el sitio de Umbraco, y por otro lado, se eligió una plantilla de HTML para el estilo visual de la aplicación.
 
 \vspace{0.3cm}
 \textbf{Actividades realizadas:}
 \begin{itemize}
     \item El pasante se familiarizó con la versión original de eFuel.
     \item El pasante se familiarizó con las reglas de negocio.
-    \item El pasante junto con el dueño del producto definieron los actores del sistema, estos son: \emph{admin} (adminsitradores del sistema), \emph{staff} (empleados del mayorista) y \emph{customer} (empleados de las estaciones de servicio).
+    \item El pasante, junto con el dueño del producto, definieron los actores del sistema, estos son: \emph{admin} (adminsitradores del sistema), \emph{staff} (empleados del mayorista) y \emph{customer} (empleados de las estaciones de servicio).
     \item Se listaron las funcionalidades básicas del front end a desarrollar. Esta lista de funcionalidades fue refinada y expandida a medida que se avanzo con el desarrollo. Listado de funcionalidades básicas elaborado:
         \begin{itemize}
             \item Listado de pedidos.
@@ -61,16 +61,16 @@ Se definió la arquitectura y la estructura de la base de datos. Además, se cre
             \item Listado de facturas.
         \end{itemize}
     \item Creación de la solución de Visual Studio con los módulos \texttt{EF\_Core}, \texttt{EF\_Core} y \texttt{EF\_\-Miscelaneous}.
-    \item Creación del repositorio de Git y familiarización con las reglas del mismo.
+    \item Creación del repositorio de Git.
     \item Se definieron las entidades de la base de datos del proyecto para poder implementar funcionalidades básicas del sistema. Esto incluyó decidir qué entidades se modelarán como tablas en la base datos directamente y qué entidades se modelarán como Doctypes de Umbraco. Finalmente se definieron las columnas que tienen las tablas de la base de datos.
-    \item Se creó el sitio de Umbraco.
-    \item Se evaluaron 2 plantillas de HTML para el estilo del sitio, ambas eran plantillas de tableros o \emph{dashboards}, se decidió utilizar una plantilla gratuita llamada Adminator, en la Figura \ref{fig:orderslist} se muestra una captura de la plantilla elegida.
+    \item Se realizó la instalación de Umbraco.
+    \item Se evaluaron 2 plantillas de HTML para el estilo del sitio, ambas eran plantillas de tableros o \emph{dashboards}, se decidió utilizar una plantilla gratuita llamada Vali Admin \cite{valiAdmin}, en la Figura \ref{fig:orderslist} se muestra una captura de la pantalla de inicio de sesión.
 \end{itemize}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{./vistas/frontend/orders_list.png}
-    \caption{Lista de pedidos (captura)}
+    \includegraphics[width=0.7\textwidth]{./vistas/frontend/login.png}
+    \caption{Inicio de sesión (captura)}
     \label{fig:orderslist}
 \end{figure}
 
@@ -79,7 +79,7 @@ Se definió la arquitectura y la estructura de la base de datos. Además, se cre
 \subsubsection{Módulo de Administración (2da Iteración)}
 Se implementó la funcionalidad de manejo de las entidades principales de la aplicación: clientes, productos, transportes, zonas, turnos, pedidos, facturas y cobros. Para esto se implementó una interfaz en el back end de Umbraco usando Fluidity y se definieron los Doctypes y Data Types de las entidades a ser almacenadas como contenido de Umbraco.
 
-También se empezó el desarrollo del front end de la aplicación. Al finalizar esta Iteración se tuvo una forma de manejar las entidades del sistema, ya sea a través del árbol de contenido de Umbraco o a través de la interfaz de Fluidity.
+También se empezó el desarrollo del front end de la aplicación. Al finalizar esta Iteración se tuvo una forma de manejar las entidades del sistema, ya sea a través del árbol de contenido de Umbraco o a través de la interfaz de Fluidity (ver Sección \ref{fluidity}).
 
 \vspace{0.3cm}
 \textbf{Actividades realizadas:}
@@ -94,7 +94,7 @@ También se empezó el desarrollo del front end de la aplicación. Al finalizar 
 \textbf{Duración:} 3 semanas.
 
 \subsubsection{Módulo de Administración (cont.) y Pedidos (3ra Iteración)}
-Esta Iteración estuvo dedicada a terminar algunas funcionalidades del módulo de Administración en el front end y al desarrollo de la funcionalidad referente a los pedidos de combustible. Se desarrolló el listado de pedido con filtros, el formulario de creación de pedidos y la exportación de la lista de pedidos.
+Esta Iteración estuvo dedicada a terminar algunas funcionalidades en el front end del módulo de Administración ya que la estimación de tiempo fue más corta de lo esperado. También, se desarrolló la funcionalidad referente a los pedidos de combustible. Finalmente, se desarrolló la funcionalidad de back end y front end del listado de pedidos con filtrado por fecha, cliente y transporte, el formulario de creación de pedidos y la exportación de la lista de pedidos.
 
 \pagebreak
 \textbf{Actividades realizadas:}
@@ -108,11 +108,11 @@ Esta Iteración estuvo dedicada a terminar algunas funcionalidades del módulo d
 \textbf{Duración:} 2 semanas.
 
 \subsubsection{Refactorización (4ta Iteración)} \label{refactorizacion}
-Al realizar una revisión de la estructura del código se determinó que éste debía ser refactorizado para seguir el patrón MVC implementado por ASP.NET MVC, de esta manera el código se haría más fácil de mantener y extender al aprovechar las virtudes de este patrón.
+Se hizo una revisión de la estructura del código, se evaluaron los siguientes aspectos: cómo se definieron las clases, cuáles métodos fueron implementados en cada clase, qué relación existe entre las distintas clases, seguimiento de buenas prácticas de programación. Terminada la evaluación, se determinó que el código debía ser refactorizado para seguir el patrón MVC implementado por ASP.NET MVC, de esta manera se haría más fácil de mantener y extender al aprovechar las virtudes de este patrón.
 
-Hasta ese punto del desarrollo los Controladores no reflejaban adecuadamente la estructura MVC y por lo tanto no se aprovechaba al máximo las virtudes de este patrón. Se habían implementado Controladores para cada "tipo" de funcionalidad, por ejemplo, en el caso de los pedidos había 3 Controladores: \texttt{OrdersController} que devolvía la lista de pedidos, \texttt{OrderDetailController} que devolvía la vista de detalles y \texttt{NewOrderFormContro\-ller} que devolvía el formulario para crear un nuevo pedido y procesaba la información de éste. Como se puede observar, esta estructura generó una elevada cantidad de archivos (uno por Controlador). El resultado fue código díficil de mantener (por la cantidad de archivos) y que no seguía las buenas prácticas sugeridas por el diseño de ASP.NET MVC.
+En este punto del desarrollo se había implementado un Controlador \textit{por cada} acción que se puede realizar sobre una entidad (ver Sección \ref{modeloDeDatos} para los detalles sobre las entidades del sistema), por ejemplo, en el caso de la entidad de \textit{pedido} (\texttt{Order}) había 3 Controladores: \texttt{OrdersCon\-tro\-ller} que devolvía la lista de pedidos, \texttt{OrderDetailContro\-ller} que devolvía la vista de detalles y \texttt{NewOrderFormCon\-tro\-ller} que devolvía el formulario para crear un nuevo pedido y procesaba la información de éste. Como se puede observar, esta estructura generó una elevada cantidad de archivos (uno por Controlador). El resultado fue código díficil de mantener (por la cantidad de archivos) y que no seguía las buenas prácticas sugeridas por el diseño de ASP.NET MVC.
 
-Para resolver estos inconvenientes y mejorar la calidad del código se agruparon los métodos o acciones relacionadas a cada Modelo (se refiere aquí al concepto de Modelo de MVC, ver la Sección \ref{mvc}) de la siguiente manera: existe un archivo que implementa el Controlador (entendido según el patrón MVC, ver Sección \ref{mvc}) para cada Modelo y los \emph{métodos} del Controlador implementan las acciones que se pueden realizar sobre el Modelo correspondiente. Siguiendo con el ejemplo de los pedidos, en vez de tener un Controlador para cada acción (\texttt{OrdersController}, \texttt{OrderDetailContro\-ller} y \texttt{NewOrderFormContro\-ller}), se tiene un Controlador (\texttt{OrderController}) asociado al Modelo de pedido (\texttt{Order}) que contiene los métodos \texttt{List}, \texttt{Detail} y \texttt{Create}, cada uno de estos métodos implementa una acción específica, de esta manera todo el código de las acciones que se pueden realizar sobre los pedidos se encuentra en un solo archivo. Con este esquema también se ve claramente qué acciones se pueden llevar a cabo sobre el Modelo.
+Para resolver estos inconvenientes y mejorar la calidad del código se agruparon los métodos o acciones relacionadas a cada entidad de la siguiente manera: existe un archivo que implementa un Controlador (entendido según el patrón MVC, ver Sección \ref{mvc}) que corresponde a una entidad y los \emph{métodos} del Controlador implementan las acciones que se pueden realizar sobre ésta. Siguiendo con el ejemplo de los pedidos, en vez de tener varios Controladores asociados a la entidad de pedido (\texttt{OrdersController}, \texttt{OrderDetailContro\-ller} y \texttt{NewOrderFormContro\-ller}), se tiene un Controlador (\texttt{OrderController}) que contiene los métodos \texttt{List}, \texttt{Detail} y \texttt{Create}, cada uno de estos métodos implementa una acción específica, de esta manera todo el código de las acciones que se pueden realizar sobre los pedidos se encuentra en un solo archivo. Con este esquema también se ve claramente qué acciones se pueden llevar a cabo sobre la entidad.
 
 Por otro lado, los archivos de HTML que implementan las Vistas (entiéndase por Vistas el concepto definido por el patrón MVC en la Sección \ref{mvc}) de la aplicación también se organizaron según el Modelo al que están relacionados. Hay una carpeta para cada Modelo y dentro de ésta hay un archivo de HTML que implementa una Vista para cada acción o método que se puede realizar (y que requiera de una Vista) sobre este Modelo. Con esta organización se puede ver claramente una correspondencia entre un Modelo, sus Vistas y su Controlador.
 
@@ -132,13 +132,13 @@ A continuación se muestran algunas figuras que ilustran los cambios realizados,
     \label{fig:views_changes}
 \end{figure}
 
-Durante esta iteración también se llevó a cabo una reunión con los miembros del equipo (el dueño del producto/tutor industrial y otros integrantes del equipo de programación de la empresa) para revisar el estado de la aplicación y para evaluar el código escrito hasta el momento. Como resultado de la evaluación se realizaron varios comentarios y correcciones sobre el código para seguir las buenas prácticas y convenciones del equipo de desarrollo de la empresa.
+Durante esta iteración también se llevó a cabo una reunión entre el dueño del producto/tutor industrial, el personal de programación de la empresa y el pasante para revisar el estado de la aplicación y para evaluar el código escrito hasta el momento. Como resultado de la evaluación se realizaron varios comentarios y correcciones sobre el código para seguir las buenas prácticas y convenciones del equipo de desarrollo de la empresa.
 
 \vspace{0.3cm}
 \textbf{Actividades realizadas:}
 \begin{itemize}
     \item Se cambió la estructura del código para que siguiera el patrón MVC de una mejor manera.
-    \item Mejoras en la calidad del código en general. Se hizo más robusto el código al chequear cada conexión a la base de datos para capturar errores, se mejoró la eficiencia de algunas consultas a la base de datos, se cambiaron los nombres de algunas variables y métodos, se ajustaron algunos detalles con el espacado del código. Todo esto con el objetivo de seguir las buenas prácticas de la empresa y hacer el código más legible y mantenible.
+    \item Mejoras en la calidad del código en general. Se hizo más robusto el código al validar cada conexión a la base de datos para capturar errores, se mejoró la eficiencia de algunas consultas a la base de datos, se cambiaron los nombres de algunas variables y métodos, se ajustaron algunos detalles con el espacado del código. Todo esto con el objetivo de seguir las buenas prácticas de la empresa y hacer el código más legible y mantenible.
 \end{itemize}
 
 \textbf{Duración:} 3 semanas.
@@ -149,29 +149,23 @@ En esta Iteración se continuó el desarrollo de la funcionalidad referente a lo
 \vspace{0.3cm}
 \textbf{Actividades realizadas:}
 \begin{itemize}
-    \item Implementación de la funcionalidad de crear pedido en el front end. Para esto fue necesario crear 2 métodos en el controlador de pedidos, un para mostrar el formulario y otro para chequear que los datos introducidos son válidos, también se implementó un método que, dado un cliente, devuelve la lista de fechas disponibles con los transportes y turnos disponibles. También se diseñó la vista correspondiente y se desarrolló un script de JavaScript para ir hablitando los campos del formulario a medida que se van seleccionando las opciones. Para crear un pedido se debe selccionar un cliente, al seleccionarlo el servidor envía al cliente la lista de fechas disponibles con sus transportes y turnos correspondientes, se habilita el campo de fecha, se seleccicona una fecha, se habilita el campo de transporte y se selecciona uno de los transportes disponibles, se habilita el campo de turno, se selcciona uno de los disponibles y, fianlmente se selccionan los productos del pedido. En la Figura \ref{fig:ordercreate} se muestra el formulario.
+    \item Implementación de la funcionalidad de crear pedido en el front end. Para esto fue necesario crear 2 métodos en el controlador de pedidos, un para mostrar el formulario y otro para chequear que los datos introducidos son válidos, también se implementó un método que, dado un cliente, devuelve la lista de fechas disponibles con los transportes y turnos disponibles. También se diseñó la vista correspondiente y se desarrolló un script de JavaScript para ir hablitando los campos del formulario a medida que se van seleccionando las opciones. Para crear un pedido se debe seleccionar un cliente, al seleccionarlo el servidor envía al cliente la lista de fechas disponibles con sus transportes y turnos correspondientes, se habilita el campo de fecha, se seleccicona una fecha, se habilita el campo de transporte, se selecciona uno de los transportes disponibles, se habilita el campo de turno, se selecciona uno de los disponibles y, finalmente se seleccionan los productos del pedido.
     \item Implementación de la funcionalidad exportación de la lista de pedidos desde el front end. Para esto se diseñó un método que busca la lista de pedidos (puede o no tener filtros aplicados) y genera un archivo de Excel con la información de éstos.
 \end{itemize}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{./vistas/frontend/orders_create.png}
-    \caption{Formulario para crear un pedido (captura)}
-    \label{fig:ordercreate}
-\end{figure}
 
 \textbf{Duración:} 3 semanas.
 
 \subsubsection{Módulo de Manejo de Usuarios e Importación (6ta Iteración)}
-Ésta fue la última Iteración de desarrollo, en ella se desarrolló el módulo de manejo de usuarios y se implementó la funcionalidad de importación de algunas entidades. También se mejoraron todos los aspectos que fueron posibles del código y se empezó a desarrollar el módulo de pagos, tan solo se terminó una vista (lista de facturas).
+Ésta fue la última Iteración de desarrollo, en ella se desarrolló el módulo de manejo de usuarios y se implementó la funcionalidad de importación de algunas entidades. También se mejoraron todos los aspectos que fueron posibles del código y se empezó a desarrollar el módulo de pagos, tan solo se terminó una vista (lista de facturas). Finalmente, se instaló el sistema en una nueva máquina para probar que funcionara correctamente y verificar los pasos a seguir para la instalación de este.
 
 \vspace{0.3cm}
 \textbf{Actividades realizadas:}
 \begin{itemize}
-    \item Se definieron los tipos de usuario y los permisos por actor (customer y staff) para el front end. Para esto se creó un tipo de miembro llamado \emph{eFuel Member} desde la sección Members del back office de Umraco y luego se crearon 2 grupos de miembros: \emph{eFuel Customer} y \emph{eFuel Staff}.
-    \item Implementación de funcionalidad de autenticación, inicio y cierre de sesión para el front end de la aplicación. Para esto se tuvo que agregar lógica de autenticaión en cada método de cada controlador para chequear si hay un usuario con una sesión abierta y, en ese caso, si posee los permisos necesarios.
-    \item Implementación de la funcionalidad de importación de Zonas y Transportes desde archivos de Excel en el front end. Para esto se implementaron métodos en los controladores de Transportes y Zonas que se encargan de leer un archivo de Excel y de crear registros en la base de datos basados en la información de los archivos.
-    \item Se implementó la funcionalidad de listado de facturas en el front end. Para esto se diseñaron el controlador y la vista correspondientes.
+    \item Se definieron los tipos de usuario y los permisos por actor (customer y staff) para el front end. Para esto se creó un tipo de miembro llamado \emph{eFuel Member} desde la sección Members del back office de Umbraco y, luego, se crearon 2 grupos de miembros: \emph{eFuel Customer} y \emph{eFuel Staff}.
+    \item Implementación de funcionalidad de autenticación, inicio y cierre de sesión para el front end de la aplicación. Para esto, se tuvo que agregar lógica de autenticaión en cada método de cada controlador para validar que hay un usuario con una sesión abierta y con los permisos necesarios.
+    \item Implementación de la funcionalidad de importación de Zonas y Transportes desde archivos de Excel en el front end. Para esto, se implementaron métodos en los controladores de Transportes y Zonas que se encargan de leer un archivo de Excel y de crear registros en la base de datos basados en la información de los archivos.
+    \item Se implementó la funcionalidad de listado de facturas en el front end. Para esto, se diseñaron el controlador y la vista correspondientes.
+    \item Se realizó una instalación local en una nueva máquina.
 \end{itemize}
 
 \textbf{Duración:} 3 semanas.
@@ -179,13 +173,13 @@ En esta Iteración se continuó el desarrollo de la funcionalidad referente a lo
 \subsection{Fase de Documentación} \label{documentation}
 Esta fase duró 1 semana, en ella se elaboró un Documento de Arquitectura de Software donde se detallan los componentes y casos de uso desarrollados de la aplicación y, además, se elaboró una guía de instalación de eFuel. A lo largo de esta sección se utiliza el término \emph{vista} para referirse a una representación del sistema desde la perspectiva de un conjunto de propiedades relacionadas (a diferencia de las Vistas de MVC o de Umbraco), a menos que se indique explícitamente lo contrario.
 
-A continuación se describe la arquitectura del software como aparece en el Documento de Arquitectura del Software desarrollado durante esta fase. El documento está basado en el modelo 4+1 de arquitectura de Phillipe Kruchten \cite{41Kruchten}, contempla la Vista de Casos de Uso, la Vista Lógica, la Vista de Implantación, la Vista de Implementación y la Vista de Datos. Adicionalmente se elaboró documentación de los componentes de Umbraco del sistema y se incorporó a este documento. Para una descripción detallada de todas las vistas elaboradas referirse al Anexo \ref{das}.
+A continuación se describe la arquitectura del software como aparece en el Documento de Arquitectura del Software (para revisar este documento, referirse al Anexo \ref{das}) desarrollado durante esta fase. El documento está basado en el modelo 4+1 de arquitectura de Phillipe Kruchten \cite{41Kruchten}, contempla la Vista de Casos de Uso, la Vista Lógica, la Vista de Implantación, la Vista de Implementación y la Vista de Datos. Adicionalmente, se elaboró documentación de los componentes de Umbraco del sistema y se incorporó a este documento.
 
 
 \subsubsection{Arquitectura de Software}
-En esta sección se presentan los elementos importantes cada una de las vistas elaboradas para el Documento de Arquitectura del Software. Referirse al Anexo \ref{das} para ver todos los detalles elaborados.
+En esta sección, se presentan los elementos importantes de cada una de las vistas elaboradas para el Documento de Arquitectura del Software. Para revisar este documento en detalle, referirse al Anexo \ref{das}.
 
-\paragraph{Vista de Casos de Uso} En esta vista se describirá el sistema desde el punto de vista de los casos de uso. El sistema tiene 3 actores:
+\paragraph{Vista de Casos de Uso} En esta vista, se describirá el sistema desde el punto de vista de los casos de uso. El sistema tiene 3 actores:
 
 \begin{itemize}
     \item \emph{Admin}: administrador de eFuel. Es un usuario de Umbraco, esto es, cuenta con las credenciales para ingresar al back end de Umbraco y, además, tiene los permisos necesarios para administrar las entidades y los miembros de eFuel.
@@ -200,6 +194,9 @@ A continuación, se presenta el resumen de los casos de uso del sistema.
 
 \vspace{0.4cm}
 \begin{longtable}{ | l | l | c | }
+    \caption{Resumen de casos de uso eFuel}
+    \label{tab:casosDeUsoArq} \\
+
     \hline
     \rowcolor{gray!30}
     \multicolumn{1}{|c|}{ID del Caso de Uso} &
@@ -214,7 +211,6 @@ A continuación, se presenta el resumen de los casos de uso del sistema.
     CU-\rownumber & Asignar cliente/s a miembro & Admin \\ \hline
     CU-\rownumber & Remover cliente/s de miembro & Admin \\ \hline
     CU-\rownumber & Cambiar permisos de miembro & Admin \\ \hline
-
     CU-\rownumber & Gestionar contenido & Admin \\ \hline
     CU-\rownumber & Consultar lista de clientes & Admin \\ \hline
     CU-\rownumber & Gestionar cliente (CRUD) & Admin \\ \hline
@@ -224,7 +220,6 @@ A continuación, se presenta el resumen de los casos de uso del sistema.
     CU-\rownumber & Gestionar transportes (CRUD) & Admin \\ \hline
     CU-\rownumber & Consultar lista de zonas & Admin \\ \hline
     CU-\rownumber & Gestionar zonas (CRUD) & Admin \\ \hline
-
     CU-\rownumber & Gestionar transacciones & Admin \\ \hline
     CU-\rownumber & Consultar lista de registros & Admin \\ \hline
     CU-\rownumber & Gestionar registro (CRUD) & Admin \\ \hline
@@ -234,7 +229,6 @@ A continuación, se presenta el resumen de los casos de uso del sistema.
     CU-\rownumber & Gestionar detalle de pedido (CRUD) & Admin \\ \hline
     CU-\rownumber & Consultar lista de facturas & Admin \\ \hline
     CU-\rownumber & Gestionar factura (CRUD) & Admin \\ \hline
-    
     CU-\rownumber & Registrar pago & Customer, Staff \\ \hline
     CU-\rownumber & Asignar pago a pedido & Customer, Staff \\ \hline
     CU-\rownumber & Consultar lista de pagos & Customer, Staff \\ \hline
@@ -242,12 +236,10 @@ A continuación, se presenta el resumen de los casos de uso del sistema.
     CU-\rownumber & Consultar pagos realizados & Customer, Staff \\ \hline
     CU-\rownumber & Registrar pago & Customer, Staff \\ \hline
     CU-\rownumber & Importar lista de facturas & Staff \\ \hline
-    
     CU-\rownumber & Consultar lista de cobros & Admin \\ \hline
     CU-\rownumber & Gestionar cobro (CRUD) & Admin \\ \hline
     CU-\rownumber & Consultar lista de detalles de cobros & Admin \\ \hline
     CU-\rownumber & Gestionar detalle de cobro (CRUD) & Admin \\ \hline
-
     CU-\rownumber & Iniciar sesión (eFuel) & Customer, Staff \\ \hline
     CU-\rownumber & Consultar lista de pedidos & Customer, Staff \\ \hline
     CU-\rownumber & Consultar pedido & Customer, Staff \\ \hline
@@ -259,26 +251,16 @@ A continuación, se presenta el resumen de los casos de uso del sistema.
     CU-\rownumber & Seleccionar turno  & Customer, Staff \\ \hline
     CU-\rownumber & Seleccionar transporte  & Customer, Staff \\ \hline
     CU-\rownumber & Seleccionar productos & Customer, Staff \\ \hline
-
     CU-\rownumber & Consultar lista de facturas & Customer, Staff \\ \hline
-
     CU-\rownumber & Consultar lista de clientes & Customer, Staff \\ \hline
     CU-\rownumber & Consultar cliente & Customer, Staff \\ \hline
     CU-\rownumber & Consultar pedidos de cliente & Customer, Staff \\ \hline
     CU-\rownumber & Importar lista de clientes & Staff \\ \hline
-
     CU-\rownumber & Consultar lista de transportes & Customer, Staff \\ \hline
-
     CU-\rownumber & Importar lista de transportes & Staff \\ \hline
-
     CU-\rownumber & Consultar lista de zonas & Customer, Staff \\ \hline
-
     CU-\rownumber & Importar lista de zonas & Staff \\ \hline
-
     CU-\rownumber & Importar lista de despachos & Staff \\ \hline
-
-    \caption{Resumen de casos de uso eFuel}
-    \label{tab:casosDeUsoArq}
 \end{longtable}
 
 La Figura \ref{fig:cu_admin_administracion} muestra los casos de uso del actor \textit{Admin} del Módulo de Administración.
@@ -348,7 +330,11 @@ La Figura \ref{fig:cu_customer_staff_administracion} muestra los casos de uso de
     \centering
 \end{figure}
 
-\subparagraph*{Diagrama de Clases} a continuación se muestra un diagrama donde están representadas las principales entidades del sistema y las relaciones entre ellas. Las tablas con los bordes punteados son Doctypes de Umbraco representados como clases y los de línea continua son las clases principales del sistema (no son Doctypes de Umbraco).
+\subparagraph*{Diagrama de Clases} a continuación se muestra un diagrama donde están representadas las principales entidades del sistema y las relaciones entre ellas. Las tablas con los bordes punteados son Doctypes de Umbraco representados como clases y los de línea continua son las clases principales del sistema (no son Doctypes de Umbraco). Para cada clase se muestran sus propiedades (el nombre y el tipo de datos de ésta) y sus métodos, en caso de tenerlos. Los Doctypes representados son: cliente (\textit{customer}), producto (\textit{product}), zona (\textit{zone}), transporte (\textit{transport}), tanque (\textit{tank}) y turno (\textit{shift}). Las clases principales del sistema representadas son: pedido (\textit{Order}), producto pedido (\textit{OrderedProduct}), factura (\textit{Invoice}) y cobro (\textit{Collect}).
+
+Las relaciones entre cada clase se representan con una línea que conecta a las clases relacionadas. En los extremos de cada línea se describe la cardinalidad de la relación. Para una relación entre las clases de un diagrama, la cantidad de entidades de una clase a las que puede estar relacionada la otra se indica en el extremo opuesto de la línea que conecta a la primera con la segunda. Las posibles cardinalidades de las relaciones son: \textit{M..N} para indicar que una instancia de una clase puede estar relacionada con mínimo \textit{M} y máximo \textit{N} instancias de la clase relacionada, y \textit{N} para indicar que una instancia de una clase debe estar relacionada con exactamente \textit{N} instancias de la clase relacionada.
+
+En la Figura \ref{fig:class_diagram_main} se muestra el Diagrama de Clases.
 
 \begin{figure}[H]
     \centering
@@ -357,7 +343,7 @@ La Figura \ref{fig:cu_customer_staff_administracion} muestra los casos de uso de
     \label{fig:class_diagram_main}
 \end{figure}
 
-\paragraph{Vista de Implantación} esta vista muestra los dispositivos y artefactos necesarios para la implantación del sistema.
+\paragraph{Vista de Implantación} esta vista muestra los dispositivos y artefactos necesarios para la implantación del sistema. En la Figura \ref{fig:diagrama_implantacion} se muestra el Diagrama de Despliegue.
 
 \begin{figure}[H]
     \centering
@@ -366,7 +352,7 @@ La Figura \ref{fig:cu_customer_staff_administracion} muestra los casos de uso de
     \label{fig:diagrama_implantacion}
 \end{figure}
 
-\paragraph{Vista de Implementación} esta vista hace énfasis sobre la organización de los módulos de software en el ambiente de desarrollo, en la terminología de Visual Studio (introducida en el Marco Tecnológico) estos módulos se conocen como "proyectos". La arquitectura de software desarrollada se diseñó basándose en la arquitectura MVC. A continuación se muestra una descripción de los proyectos de la solución de Visual Studio, seguido por el Diagrama de Componentes del sistema.
+\paragraph{Vista de Implementación} esta vista hace énfasis sobre la organización de los módulos de software en el ambiente de desarrollo, en la terminología de Visual Studio (introducida en el Marco Tecnológico) estos módulos se conocen como "proyectos". La arquitectura de software desarrollada se diseñó basándose en la arquitectura MVC. A continuación, se muestra una descripción de los proyectos de la solución de Visual Studio, seguido por el Diagrama de Componentes del sistema.
 
 \subparagraph*{Módulos de eFuel} El proyecto está compuesto por 3 módulos:
 \begin{itemize}
@@ -375,7 +361,7 @@ La Figura \ref{fig:cu_customer_staff_administracion} muestra los casos de uso de
     \item \texttt{EF\_Miscelaneous}: contiene todos los archivos que implementan las Vistas del patrón MVC, esto es, las vistas de Umbraco (archivos de HTML, ver Sección \ref{umbracoView}), los archivos de estilo (CSS) y los scripts del front end (JavaScript). Además contiene los archivos de configuración de Fluidity.
 \end{itemize}
 
-\subparagraph*{Diagrama de Componentes} el usuario introduce un URL, el componente \texttt{eFuel\-RouteHandler} se encarga de asociar un URL con un Controlador para llamarlo, el Controlador realiza sus tareas y devuelve una Vista (del patrón MVC) o datos, dependiendo de si es un \texttt{SurfaceController} o de un \texttt{UmbracoApiController}.
+\subparagraph*{Diagrama de Componentes} muestra la interacción entre los componentes del sistema. El usuario introduce un URL, el componente \texttt{eFuel\-RouteHandler} se encarga de asociar un URL con un Controlador para llamarlo, el Controlador realiza sus tareas y devuelve una Vista (del patrón MVC) o datos, dependiendo de si es un \texttt{SurfaceController} o de un \texttt{UmbracoApiController}. En la Figura \ref{fig:component_diagram} se muestra el Diagrama de Componentes.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{component_diagram.png}
@@ -387,6 +373,9 @@ La Figura \ref{fig:cu_customer_staff_administracion} muestra los casos de uso de
 \paragraph{Componentes de Umbraco} se documenta la estructura de los componentes desarrollados en el back office de Umbraco. Primero se muestra una tabla con la lista de todas las vistas de Umbraco desarrolladas para el sistema, luego una tabla con los Doctypes y finalmente una tabla con los Data Types diseñados para eFuel.
 
 \begin{longtable}{ | p{5.5em} | p{7em} | p{15em} | c | }
+    \caption{Vistas del front end}
+    \label{table:vistas} \\
+
     \hline
     \rowcolor{gray!30}
     \multicolumn{1}{|c|}{Modelo} &
@@ -468,12 +457,12 @@ La Figura \ref{fig:cu_customer_staff_administracion} muestra los casos de uso de
     \cline{2-4}
         & List & Tabla con las zonas que puede ver el usuario & \checkmark \\
     \hline
-
-    \caption{Vistas del front end}
-    \label{table:vistas}
 \end{longtable}
 
 \begin{longtable}{ | p{5em} | l | l | }
+    \caption{Doctypes}
+    \label{table:doctypes} \\
+
     \hline
     \rowcolor{gray!30}
     \multicolumn{1}{|c|}{Doctype} &
@@ -572,12 +561,12 @@ La Figura \ref{fig:cu_customer_staff_administracion} muestra los casos de uso de
         \cline{2-3}
         & Código externo & Textstring \\
     \hline
-
-    \caption{Doctypes}
-    \label{table:doctypes}
 \end{longtable}
 
 \begin{longtable}{  l | l  }
+    \caption{Datatypes}
+    \label{table:datatypes} \\
+
     \hline\hline
     \rowcolor{gray!30}
     \textbf{Datatype} & \textbf{Uso} \\
@@ -610,12 +599,9 @@ La Figura \ref{fig:cu_customer_staff_administracion} muestra los casos de uso de
     Transport status & Seleccionar el estado de un transporte \\
 
     \hline
-
-    \caption{Datatypes}
-    \label{table:datatypes}
 \end{longtable}
 
-\paragraph{Vista de Datos} se documenta la estructura de las entidades creadas fuera de Umbraco para la base de datos.
+\paragraph{Vista de Datos} se documenta la estructura de las entidades creadas fuera de Umbraco para la base de datos. En la Figura \ref{fig:er_diagram} se muestra el Diagrama ER de estas entidades.
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{er_diagram.png}

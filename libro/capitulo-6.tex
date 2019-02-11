@@ -1,16 +1,19 @@
 \chapter{Resultados} \label{results}
-Se completó el 84\% de los casos de uso que tiene el sistema actualmente. No se completaron en su totalidad porque hubo un retraso importante durante el desarrollo debido a una refactorización del código que se realizó a mediados del desarrollo y porque las estimaciones del tiempo requerido para implementar las funcionalidades fueron muy cortas. Los casos de uso que no se implementaron pertenecen, en su mayoría, al Módulo de Pagos.
+Se completó el 84\% de los casos de uso descritos en Documento de Arquitectura del Software \ref{das}. No se completaron en su totalidad porque hubo un retraso importante durante el desarrollo debido a una refactorización del código que se realizó a mediados del desarrollo, otra razón importante es que las estimaciones del tiempo requerido para implementar las funcionalidades fueron muy cortas. Los casos de uso que no se implementaron pertenecen, en su mayoría, al Módulo de Pagos.
 
-No se realizaron pruebas unitarias ni de integración debido a los atrasos con el desarrollo de las funcionalidades principales. Se determinó que las pruebas no eran prioritarias, era preferible implementar la mayor cantidad de funcionalidad posible, ésta fue una decisión tomada en conjunto con el dueño del producto. Sin embargo, si se realizaron demostraciones del funcionamiento en varias máquinas instalando el sitio localmente.
+No se realizaron pruebas unitarias ni de integración debido a los atrasos con el desarrollo. Se determinó que las pruebas no eran prioritarias; era preferible implementar toda la funcionalidad posible. Ésta fue una decisión tomada en conjunto con el dueño del producto. Sin embargo, sí se realizaron demostraciones del funcionamiento en varias máquinas instalando el sitio localmente.
 
 \section{Estado actual de la aplicación}
-Como resultado del desarrollo del proyecto se obtuvo una versión funcional de la aplicación web eFuel que abarca el 84\% de los casos de uso estipulados. Este alcance fue acordado por la empresa y el pasante, la empresa quedó satisfecha con el trabajo realizado. En la Tabla \ref{tab:casosDeUso} se muestran los casos de uso del sistema y se resaltan los que \emph{no} fueron implementados en color rojo.
+Como resultado del desarrollo del proyecto, se obtuvo una versión funcional de la aplicación web eFuel que abarca el 84\% de los casos de uso estipulados. Este alcance fue acordado por la empresa y el pasante; la empresa quedó satisfecha con el trabajo realizado. En la Tabla \ref{tab:casosDeUso} se muestran los casos de uso del sistema y se resaltan los que \emph{no} fueron implementados en color rojo.
 
 \newcounter{usecasesrownumbers}
 \newcommand\usecasenumber{\stepcounter{usecasesrownumbers}\arabic{usecasesrownumbers}}
 
 \vspace{0.1cm}
 \begin{longtable}{ | l | l | c | }
+    \caption{Resumen de casos de uso eFuel (en rojo los no implementados)}
+    \label{tab:casosDeUso} \\
+
     \hline
     \rowcolor{gray!30}
     \multicolumn{1}{|c|}{ID del Caso de Uso} &
@@ -96,35 +99,34 @@ Como resultado del desarrollo del proyecto se obtuvo una versión funcional de l
 
     \rowcolor{red}
     CU-\usecasenumber & Importar lista de despachos & Staff \\ \hline
-
-    \caption{Resumen de casos de uso eFuel (en rojo los no implementados)}
-    \label{tab:casosDeUso}
 \end{longtable}
 
 La nueva aplicación desarrollada funciona como un agregado a sitios de Umbraco. No se ha desplegado en un ambiente de producción, solo fue probada en varias instalaciones locales, a pesar de esto el dueño del producto quedó satisfecho con los resultados obtenidos.
 
-Sigue un resumen de la funcionalidad por módulos desarrollada, dividido en partes: funcionalidad en el front end de eFuel y funcionalidad en el back office de Umbraco.
+En resumen, la funcionalidad desarrollada en el front end y el back office de Umbraco, para cada módulo, es la siguiente:
 
-\subsection{Funcionalidad en el front end}
 \begin{itemize}
-    \item \emph{Seguridad}: inicio de sesión con credenciales.
+    \item Front end:
+    \begin{itemize}
+        \item \emph{Seguridad}: inicio de sesión con credenciales.
+        
+        \item \emph{Pedidos}: creación de pedidos según la disponibilidad de transportes, fechas y turnos para un cliente; listado de pedidos con filtros por cliente, rango de fecha, transporte y estado; exportación de un listado de pedidos con filtros aplicados.
     
-    \item \emph{Pedidos}: creación de pedidos según la disponibilidad de transportes, fechas y turnos para un cliente; listado de pedidos con filtros por cliente, rango de fecha, transporte y estado; exportación de un listado de pedidos con filtros aplicados.
+        \item \emph{Pagos}: listado de facturas.
+        
+        \item \emph{Administración}: listado de clientes, transportes y zonas; vista de detalles de un cliente; importación de lista de transportes y zonas.
+    \end{itemize}
 
-    \item \emph{Pagos}: listado de facturas.
-    
-    \item \emph{Administración}: listado de clientes, transportes y zonas; vista de detalles de un cliente; importación de lista de transportes y zonas.
+    \item Back office de Umbraco:
+    \begin{itemize}
+        \item \emph{Seguridad}: inicio de sesión con credenciales; administración (creación, edición, detalles, eliminación y permisos) de miembros de eFuel.
+        
+        \item \emph{Pedidos}: listado de pedidos; administración (creación, edición, vista de detalles y eliminación) de pedidos.
+        
+        \item \emph{Pagos}: listado de facturas y cobros; administración (creación, edición, vista de detalles y eliminación) de facturas y cobros.
+        
+        \item \emph{Administración}: listado de clientes, transportes, zonas, turnos y productos; administración (creación, edición, vista de detalles y eliminación) de clientes, transportes, zonas, turnos y productos.
+    \end{itemize}
 \end{itemize}
 
-\subsection{Funcionalidad en el back office de Umbraco}
-\begin{itemize}
-    \item \emph{Seguridad}: inicio de sesión con credenciales; administración (creación, edición, detalles, eliminación y permisos) de miembros de eFuel.
-    
-    \item \emph{Pedidos}: listado de pedidos; administración (creación, edición, vista de detalles y eliminación) de pedidos.
-    
-    \item \emph{Pagos}: listado de facturas y cobros; administración (creación, edición, vista de detalles y eliminación) de facturas y cobros.
-    
-    \item \emph{Administración}: listado de clientes, transportes, zonas, turnos y productos; administración (creación, edición, vista de detalles y eliminación) de clientes, transportes, zonas, turnos y productos.
-\end{itemize}
-
-En el Anexo \ref{vistas} se encuentran las capturas de pantalla de las funcionalidades listadas en esta sección.
+En el Anexo \ref{vistas} se encuentran algunas capturas de pantalla de estas vistas y funcionalidades.

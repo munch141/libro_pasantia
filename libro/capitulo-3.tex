@@ -1,5 +1,5 @@
 \chapter{Marco Tecnológico}
-En este capítulo se definen las tecnologías y herramientas utilizadas para el desarrollo del sistema. Entre estas se incluyen los \textit{frameworks} utilizados para el desarrollo (ASP.NET, ASP.NET MVC, ASP.NET Web API, Umbraco y Bootstrap), los lenguajes utilizados (C\# para el \textit{backend}, y HTML, CSS y JavaScript para el \textit{frontend}, como es común en el desarrollo web), las herramientas de bases de datos (SQL Server y SQL Server Management Studio), la herramienta de control deversiones (Git) y el entorno de desarrollo (Visual Studio, IIS y Trello).
+En este capítulo se definen las tecnologías y herramientas utilizadas para el desarrollo del sistema. Entre estas se incluyen los \textit{frameworks} utilizados para el desarrollo: ASP.NET, ASP.NET MVC, ASP.NET Web API, Umbraco y Bootstrap, los lenguajes utilizados: HTML, CSS y JavaScript para el \textit{frontend}, como es común en el desarrollo web y C\# para el \textit{backend}, las tecnologías web Ajax, JSON y DataTables, la herramienta de control de versiones Git, las herramientas de bases de datos SQL Server y SQL Server Management Studio, y el entorno de desarrollo (Visual Studio, IIS y Trello).
 
 \section{Frameworks}
     \subsection{ASP.NET}
@@ -26,7 +26,7 @@ En este capítulo se definen las tecnologías y herramientas utilizadas para el 
     \paragraph{Vista} \label{umbracoView} archivos de HTML que muestran las páginas o secciones de las mismas (en el caso de vistas parciales) al usuario.
 
     \subsubsection{Paquetes de Umbraco}
-    \paragraph{Fluidity} sirve para construir interfaces de usuario para estructuras de datos personalizadas \cite{fluidityDocs}, permite agregar secciones al back office de Umbraco en donde se puede implementar subsecciones con interfaces para gestionar registros de la base de datos. En el proyecto se usa para programar la interfaz de gestión de las entidades de eFuel que se encuantran definidas directamente en la base de datos y no como un Doctype de Umbraco.
+    \paragraph{Fluidity} \label{fluidity} sirve para construir interfaces de usuario para estructuras de datos personalizadas \cite{fluidityDocs}, permite agregar secciones al back office de Umbraco en donde se puede implementar subsecciones con interfaces para gestionar registros de la base de datos. En el proyecto se usa para programar la interfaz de gestión de las entidades de eFuel que se encuantran definidas directamente en la base de datos y no como un Doctype de Umbraco.
 
     \subsubsection{Controladores de Umbraco}
     Umbraco ofrece varios tipos de controladores a los desarrolladores, a continuación de describen 2 tipos particularmente relevantes para el proyecto presente.
@@ -37,12 +37,12 @@ En este capítulo se definen las tecnologías y herramientas utilizadas para el 
     Umbraco ofrece facilidades de autenticación de usuarios para el front end de la aplicación a través la sección Members del back office.
     \paragraph{Members} son utilizados para registrar y autenticar usuarios externos al back office de Umbraco \cite{membersUmbraco}. Los miembros necesitan de un Member Type, similar a los Doctypes, que definen las propiedades que tiene un miembro. Por otro lado se pueden dividir los miembros en grupos de miembros para dar privilegios distintos según el/los grupo/s al que pertenezca un miembro, básicamente son los roles que puede tener un miembro dentro del front end del sitio.
 
-    En Umbraco el contenido es modelado con \emph{Doctypes} que son análogos a clases en un lenguaje de programación orientado a objeto, es decir, en Umbraco se crea un Doctype para un tipo de contenido, digamos \emph{Noticia}, luego se pueden crear cualquier cantidad de \emph{Noticias} todas con las mismas propiedades, como una instancia de una clase en lenguaje orientado a objetos. Estas instancias de un Doctype son llamadas \emph{Nodos} y se encuentran en una estructura llamada el \emph{Árbol de Contenido} de la aplicación.
+    En Umbraco el contenido es modelado con \emph{Doctypes} que son análogos a clases en un lenguaje de programación orientado a objeto, es decir, en Umbraco se crea un Doctype para un tipo de contenido, por ejemplo \emph{Noticia}. Luego, se pueden crear cualquier cantidad de \emph{Noticias} todas con las mismas propiedades. Estas instancias de un Doctype son llamadas \emph{Nodos} y se encuentran en una estructura llamada el \emph{Árbol de Contenido} de Umbraco.
 
-    Cabe destacar que la empresa tiene varios años de experiencia desarrollando aplicaciones web con Umbraco y varios de sus empleados tienen certificaciones y un nivel alto de conocimiento de la plataforma lo cual facilitó el desarrollo del sistema. La aplicación web eFuel fue desarrollada con Umbraco v7.10.4.
+    Cabe destacar que la empresa tiene varios años de experiencia desarrollando aplicaciones web con Umbraco y varios de sus empleados tienen certificaciones y un nivel alto de conocimiento de la plataforma, lo cual facilitó el desarrollo del sistema. La aplicación web eFuel fue desarrollada con Umbraco v7.10.4.
 
     \subsection{Bootstrap}
-    Es un framework de front end de código abierto diseñado para construir sitios y aplicaciones Web \cite{bootstrapAbout}. Fue utilizado para construir las vistas de la aplicación.
+    Es un framework de front end de código abierto diseñado para construir sitios y aplicaciones Web \cite{bootstrapAbout}. Consiste de clases de CSS y funciones de JavaScript que implementan patrones de interacción con el usuario y que permiten estilizar y organizar los elementos de una vista de HTML. Fue utilizado para construir las vistas de la aplicación.
 
 \section{Lenguajes}
 A continuación se definen brevemente los lenguajes de programación utilizados para el desarrollo del proyecto divididos en \textit{front-end} y \textit{back-end}.
@@ -57,7 +57,7 @@ Es el lenguaje que se usa para definir la estructura y el contenido de una pági
 Hojas de Estilo en Cascada, o CSS \cite{cssW3C} por sus siglas en inglés (\textit{Cascading Style Sheets}), es un lenguaje de hojas de estilo que permite a los autores y usuarios adjuntar estilos (\textit{e.g.} fuentes y espaciados) a documentos estructurados (\textit{e.g.} documentos de HTML). Al separar el estilo de presentación del contenido de los documentos, se simplifica la autoría y el mantenimiento de los sitios.
 
 \subsubsection{JavaScript}
-JavaScript \cite{jsMozilla} es un lenguaje de \textit{scripting} o programación que permite la creación de contenido dinámico, control de multimedia, animación de imágenes.
+JavaScript \cite{jsMozilla} es un lenguaje de \textit{scripting} que permite a la aplicación cliente (por ejemplo, un navegador web) modificar elementos de un documento de HTML de manera dinámica. Se pueden crear y eliminar elementos, así como modificar las propiedades de un elemento. Se utiliza para dar dinamismo a un sitio web así como para permitir que sus usuarios interactúen con éste.
 
 \subsection{\emph{Back-end}}
 \subsubsection{C\#}
@@ -65,21 +65,21 @@ C\# \cite{cSharpMicrosoft} es un lenguaje con seguridad de tipos y orientado a o
 
 \section{Tecnología para la Web}
 \subsection{Ajax}
-Por sus siglas en inglés \emph{Asynchronous JavaScript and XML} \cite{ajaxGarrett} (JavaScript asíncrono y XML), es un método de comunicación con el servidor web, permite que la interacción del usuario con la aplicación web sea asíncrona, esto es, independiente de la comunicación que tenga la aplicación con el servidor. Básicamente, a través de Ajax se hacen peticiones al servidor y se trae información de la página sin necesidad de cargar toda la página nuevamente y, por lo tanto, sin interrumpir la interacción del usuario con esta. Se usa a través de llamadas en JavaScript.
+Por sus siglas en inglés \emph{Asynchronous JavaScript and XML} \cite{ajaxGarrett} (JavaScript asíncrono y XML), es un método de comunicación con el servidor web, permite que la interacción del usuario con la aplicación web sea asíncrona. Esto es, independiente de la comunicación que tenga la aplicación con el servidor. A través de Ajax se hacen peticiones al servidor y se trae información de la página sin necesidad de cargar toda la página nuevamente y, por lo tanto, sin interrumpir la interacción del usuario con esta. Se usa a través de llamadas en JavaScript.
 
 Se usa esta tecnología para hacer traer la información de las tablas de eFuel en el front end.
 
 \subsection{JSON}
-\emph{JavaScript Object Notation} \cite{jsonMozilla} por sus siglas en inglés, es un formato de intercambio de datos, su sintaxis es muy parecida a la de objetos de JavaScript. Se pueden representar obejotos simples como números y letras, y objetos comlejos como estructuras de datos. Se usa para intercambiar datos en aplicaciones web.
+Notación de Objetos de JavaScript o \emph{JavaScript Object Notation} \cite{jsonMozilla} por sus siglas en inglés, es un formato de intercambio de datos. Se pueden representar objetos simples como números y letras, y objetos complejos como estructuras de datos. Se usa para intercambiar datos en aplicaciones web.
 
 Es el formato usado en la aplicación eFuel para traer información usando llamadas de Ajax al servidor, especialmente listas de entidades del sistema.
 
 \subsection{DataTables}
-\emph{DataTables} \cite{datatablesManual} es una herramienta de JavaScript para crear tablas en HTML. Permite ordenar los registros, aplicar filtros, paginar y traer datos usando Ajax. Esta herramienta se usa para generar tablas en eFuel.
+\emph{DataTables} \cite{datatablesManual} es una herramienta de JavaScript para crear tablas en HTML. Permite ordenar los registros, aplicar filtros, paginar (dividir los registros en subconjuntos para ser traídos por páginas o lotes, no todos a la vez) y traer datos usando Ajax. Esta herramienta se usa para generar tablas en eFuel.
 
 \section{Control de versiones}
 \subsection{Git}
-Git \cite{gitGit} es un sistema de gestión de versiones rápido, escalable y distribuido con un rico conjunto de comandos que proveen operaciones de alto nivel y acceso completo a internos. Fue desarrollado por Linus Torvald en el año 2005 para facilitar el trabajo de varios desarrolladores sobre un mismo proyecto. Permite llevar el seguimiento de los cambios a un grupo de archivos y sincronizar varios repositorios en máquinas distintas.
+Git \cite{gitGit} es un sistema de gestión de versiones rápido, escalable y distribuido con un rico conjunto de comandos que proveen operaciones de alto nivel y acceso completo a internos. Fue desarrollado en el año 2005 para facilitar el trabajo de varios desarrolladores sobre un mismo proyecto. Permite llevar el seguimiento de los cambios a un grupo de archivos y sincronizar varios repositorios en máquinas distintas.
 
 Este es el sistema de gestión de versiones usado en la empresa en la que se desarrolló el proyecto.
 
@@ -90,7 +90,7 @@ SQL Server \cite{SQLServerMicrosoft} es un manejador de bases de datos desarroll
 \subsection{SQL Server Management Studio 17}
 Es una herramienta cuyo propósito es configurar, gestionar y administrar todos los componentes de SQL Server. La herramienta incluye editores de scripts y herramientas gráficas para dar acceso a desarrolladores y administradores de bases de datos a SQL Server \cite{SSMSMicrosoft}.
 
-Esta herramienta fue utilizada para crear las tablas de eFuel y generar el diagrama ER.
+Esta herramienta fue utilizada para crear las tablas de eFuel.
 
 \section{Entorno de trabajo}
 \subsection{Visual Studio} \label{visualStudio}
@@ -110,4 +110,4 @@ Trello \cite{trelloAbout} es una herramienta de colaboración que organiza las t
 
 Cada tabla tiene varias listas y cada lista contiene tarjetas. Una tabla corresponde a un proyecto, una lista corresponde al estado de una tarea y una tarjeta a una tarea, por ejemplo, en una tabla suele haber 3 listas: Por hacer, Haciendo y Lista. Las tarjetas contienen una descripción de la tarea, la o las personas asignadas y puede tener una fecha límite de entrega. A medida que se va completando trabajo se van moviendo las tarjetas de una lista a otra.
 
-Resultó una herramienta útil para llevar el control de las tareas realizadas y por realizar. Se usó esta herramienta como apoyo para el uso de Scrum (ver Capítulo \ref{marcoMetodologico}).
+Es una herramienta útil para llevar el control de las tareas realizadas y por realizar. Se usó como apoyo para el uso de Scrum (ver Capítulo \ref{marcoMetodologico}).

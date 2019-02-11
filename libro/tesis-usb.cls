@@ -346,13 +346,14 @@
                     {\bfseries Sartenejas, \@fecha}%%---
                \end{center}%--
           \end{titlepage}%---
+          \setcounter{page}{3}
           % p\'agina de acta de evaluaci\'on (veredicto) 4/4
-          \newpage%---
-          \setcounter{page}{2}%---
-          \null%--
-          \vspace*{\fill}%---
-          {\centering \Huge P\'agina reservada para el acta de evaluaci\'on}
-          \vspace{\fill}%---
+          % \newpage%---
+          % \setcounter{page}{2}%---
+          % \null%--
+          % \vspace*{\fill}%---
+          % {\centering \Huge P\'agina reservada para el acta de evaluaci\'on}
+          % \vspace{\fill}%---
      \else % POSTGRADO
           % caratula del libro (portada de tapa dura) 1/4
           \begin{titlepage}%--
